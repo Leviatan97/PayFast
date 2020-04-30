@@ -15,5 +15,9 @@ export class HomePage {
 
   private Registro(){
     this.router.navigate(['/registro/r1'])
+    
+  }
+  private Login(){
+    this.router.navigate(['/login/form-log'])
   }
 }
