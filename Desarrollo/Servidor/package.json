@@ -1,0 +1,15 @@
+{
+  "name": "servidor-payfast",
+  "version": "1.0.0",
+  "description": "Primer servidor de payfast",
+  "main": "index.js",
+  "scripts": {
+    "build": "nodemon transpi/main.js",
+    "trans": "tsc --w"
+  },
+  "author": "Jhon Peña, Cesar Gonzalez y Juan Ortegon",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
