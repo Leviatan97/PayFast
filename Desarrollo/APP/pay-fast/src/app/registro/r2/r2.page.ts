@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-r1',
-  templateUrl: './r1.page.html',
-  styleUrls: ['./r1.page.scss'],
+  selector: 'app-r2',
+  templateUrl: './r2.page.html',
+  styleUrls: ['./r2.page.scss'],
 })
-export class R1Page implements OnInit {
+export class R2Page implements OnInit {
 
   constructor(private router : Router) { }
 
   ngOnInit() {
   }
   private Registro(){
-    this.router.navigate(['/registro/r2'])
+    this.router.navigate(['/registro/r3'])
   }
-
 }
