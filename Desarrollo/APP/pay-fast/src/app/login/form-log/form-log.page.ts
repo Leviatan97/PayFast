@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-log',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormLogPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {
+
+   }
+
+  private registrarse(){
+    this.router.navigate(['registro/r1'])
+  }
 
   ngOnInit() {
   }
