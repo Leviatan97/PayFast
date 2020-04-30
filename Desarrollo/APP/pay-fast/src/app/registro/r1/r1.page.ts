@@ -13,7 +13,7 @@ export class R1Page implements OnInit {
   ngOnInit() {
   }
   private Registro(){
-    this.router.navigate(['/registro/r2'])
+    this.router.navigate(['registro/r2'])
   }
 
 }

@@ -11,13 +11,14 @@ const routes: Routes = [
   {
     path: 'r1',
     loadChildren: () => import('../Registro/r1/r1.module').then( m => m.R1PageModule)
-  },  {
+  },
+  {
     path: 'r2',
-    loadChildren: () => import('./r2/r2.module').then( m => m.R2PageModule)
+    loadChildren: () => import('../Registro/r2/r2.module').then( m => m.R2PageModule)
   },
   {
     path: 'r3',
-    loadChildren: () => import('./r3/r3.module').then( m => m.R3PageModule)
+    loadChildren: () => import('../Registro/r3/r3.module').then( m => m.R3PageModule)
   }
 
 ];
