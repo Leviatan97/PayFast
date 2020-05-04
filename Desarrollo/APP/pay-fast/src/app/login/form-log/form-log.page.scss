@@ -1,3 +1,4 @@
+$text-input-placeholder-color: rgba(255, 255, 255);
 .Fondo{
     background-image: url('../../../assets/background/login-background.png');
     width: 100%;
@@ -44,4 +45,36 @@
     font-weight: bold;
     margin-right: 7.9%;
 }
+
+.btn-iniciarsesion
+{
+    border-radius: 17px;
+    width: 42%;
+    height: 10%;
+    margin-top: 7%;
+    background-color: #171762;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    margin-left: 27%;
+}
+
+ion-item{
+    width: 95%;
+    margin-left: 2.5%;
+    --highlight-height: 0;
+    --background: rgba(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid #eeee;
+    --placeholder-color: rgba(255, 255, 255);
+    --placeholder-font-style: rgba(255, 255, 255);
+    font-size: small;
+    font-weight: bold;
+    
+
+}
+
+
+
+
 
