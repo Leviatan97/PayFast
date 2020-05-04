@@ -9,13 +9,12 @@ $text-input-placeholder-color: rgba(255, 255, 255);
 }
     
 .opacidad{
-    background-color: black;
+    background-color: rgba(0, 0, 0, .27) ;
     border-radius: 17px;
     width: 84%;
     height: 51.5%;
     margin-left: 8%;
     margin-right: 8%;
-    opacity: 0.28
 }
 
 .btn-ingresar
@@ -57,21 +56,20 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     color: #ffff;
     font-size: small;
     margin-left: 27%;
+
 }
 
 ion-item{
     width: 95%;
     margin-left: 2.5%;
     --highlight-height: 0;
-    --background: rgba(0, 0, 0);
+    --background: transparent;
     color: rgb(255, 255, 255);
     border-bottom: 1px solid #eeee;
     --placeholder-color: rgba(255, 255, 255);
     --placeholder-font-style: rgba(255, 255, 255);
     font-size: small;
-    font-weight: bold;
-    
-
+    font-weight: bold;   
 }
 
 
