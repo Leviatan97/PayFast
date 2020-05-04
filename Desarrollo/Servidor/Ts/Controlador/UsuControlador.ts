@@ -12,7 +12,11 @@ class usuControlador {
 
     }
 
-    private Ingresar(req : Request, res : Response, fun : Function){
-
+    public Ingresar(req : Request, res : Response, fun : Function){
+        let datos = req.body
+        res.status(200).json(datos)
     }
 }
+
+const UsuControlador : usuControlador = new usuControlador()
+export default UsuControlador

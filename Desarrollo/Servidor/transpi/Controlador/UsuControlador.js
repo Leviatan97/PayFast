@@ -7,5 +7,9 @@ class usuControlador {
     Actualizar(req, res, fun) {
     }
     Ingresar(req, res, fun) {
+        let datos = req.body;
+        res.status(200).json(datos);
     }
 }
+const UsuControlador = new usuControlador();
+exports.default = UsuControlador;
