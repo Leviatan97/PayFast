@@ -45,18 +45,8 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     margin-right: 7.9%;
 }
 
-.btn-iniciarsesion
-{
-    border-radius: 17px;
-    width: 42%;
-    height: 10%;
-    margin-top: 7%;
-    background-color: #171762;
-    font-family: Arial;
-    color: #ffff;
-    font-size: small;
-    margin-left: 27%;
-
+.inputs{
+    padding-top: 2%;
 }
 
 ion-item{
@@ -66,12 +56,63 @@ ion-item{
     --background: transparent;
     color: rgb(255, 255, 255);
     border-bottom: 1px solid #eeee;
-    --placeholder-color: rgba(255, 255, 255);
-    --placeholder-font-style: rgba(255, 255, 255);
     font-size: small;
-    font-weight: bold;   
+    font-weight: bold; 
 }
 
+.btn-iniciarsesion
+{
+    border-radius: 17px;
+    width: 46%;
+    height: 12%;
+    margin-top: 7%;
+    background-color: #171762;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    margin-left: 27%;
+
+}
+
+.btn-facebook
+{
+    border-radius: 17px;
+    width: 86%;
+    height: 9%;
+    background-color: #3c5a9a;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    margin-left: 7%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.btn-google
+{
+    border-radius: 17px;
+    width: 86%;
+    height: 8.5%;
+    background-color: #d84438;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    margin-left: 7%;
+    margin-top: 6%;
+    text-align: center;
+}
+
+.btn-rec
+{
+    margin-top: 3%;
+    background-color: transparent;
+    font-family: Arial;
+    color: #ffff;
+    width: 67%;
+    height: 8.5%;
+    margin-left: 16%;
+    font-weight: bold;
+}
 
 
 
