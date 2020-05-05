@@ -49,13 +49,25 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     padding-top: 2%;
 }
 
+.image{
+    width: 50%;
+    height: 50%;
+    padding-right: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
+.texto{
+    width: 50%;
+    height: 50%;
+    padding-right: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
 ion-input{
     --placeholder-color: white;
     --placeholder-opacity: 1;
-}
-
-.facebook{
-    
 }
 
 .log{
