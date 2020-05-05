@@ -9,20 +9,17 @@
     <div class="opacidad">
       <div class="inputs">
         <ion-item>
-          <ion-input type="text" placeholder="NOMBRE"></ion-input>
+          <ion-input type="text" placeholder="NOMBRE" [(ngModel)]="this.nombre"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="APELLIDO"></ion-input>
+          <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="FECHA DE Nacimiento"></ion-input>
+          <ion-input type="date" placeholder="FECHA DE NACIMIENTO" [(ngModel)]="this.fnacimiento"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="FECHA DE Nacimiento"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Tipo de Documento</ion-label>
-          <ion-select ok-text="Aceptar" cancel-text="Cancelar">
+          <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
+          <ion-select ok-text="Aceptar" cancel-text="Cancelar" [(ngModel)]="this.tdocumento">
             <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
             <ion-select-option value="CE">Cedula extranjera</ion-select-option>
           </ion-select>

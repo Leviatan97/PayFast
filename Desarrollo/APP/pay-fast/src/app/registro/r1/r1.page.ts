@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/Servicios/usuario.service';
 
 @Component({
   selector: 'app-r1',
@@ -8,15 +10,32 @@ import { Router } from '@angular/router';
 })
 export class R1Page implements OnInit {
 
-  constructor(private router : Router) { }
+  private nombre:String;
+  private apellido:String;
+  private fnacimiento:Date;
+  private fecha:String;
+  private tdocumento:String;
+
+  constructor(private router : Router, private navControl : NavController,private ususerv : UsuarioService) { }
 
   ngOnInit() {
   }
+  
   private Registro(){
+    const usuario={
+      nombre:this.nombre,
+      apellido:this.apellido,
+      fnacimiento:this.fnacimiento,
+      tdocumento:this.tdocumento
+    }
+    this.ususerv.usuario1 = usuario
+    // this.navControl.navigateRoot('registro/r2')
+    // this.navControl.navigateForward(['registro/r2',usuario])
     this.router.navigate(['registro/r2'])
   }
   private Login(){
     this.router.navigate(['login/form-log'])
   }
+
 
 }
