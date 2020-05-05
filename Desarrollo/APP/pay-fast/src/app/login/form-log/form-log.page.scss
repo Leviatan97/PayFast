@@ -49,22 +49,6 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     padding-top: 2%;
 }
 
-.image{
-    width: 50%;
-    height: 50%;
-    padding-right: 0px;
-    margin-right: 0px;
-    position: relative;
-}
-
-.texto{
-    width: 50%;
-    height: 50%;
-    padding-right: 0px;
-    margin-right: 0px;
-    position: relative;
-}
-
 ion-input{
     --placeholder-color: white;
     --placeholder-opacity: 1;
@@ -108,10 +92,24 @@ ion-input{
     text-align: center;
 }
 
+.image{
+    height: 5%;
+    margin-top: -2%;
+    margin-left: 2%;
+    position: fixed;
+}
+
+.texto{
+    height: 10%;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
 ion-img{
     width: 10%;
     height: 80%;
 }
+
 
 .btn-google
 {
@@ -125,6 +123,18 @@ ion-img{
     margin-left: 7%;
     margin-top: 6%;
     text-align: center;
+}
+
+.imag{
+    width: 10%;
+    height: 57%;
+}
+
+.imageg{
+    height: 5%;
+    margin-top: -0.6%;
+    margin-left: 2%;
+    position: fixed;
 }
 
 .btn-rec
