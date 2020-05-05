@@ -8,26 +8,25 @@
     </button>
     <div class="opacidad">
       <div class="inputs">
-        <ion-item>
-          <ion-input type="text" placeholder="USUARIO"></ion-input>
+        <ion-item class="log">
+          <ion-input type="text" placeholder="USUARIO" [(ngModel)]="this.correo" ></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input type="password" placeholder="CONTRASEÑA"></ion-input>
+        <ion-item class="log">
+          <ion-input type="password" placeholder="CONTRASEÑA" [(ngModel)]="this.contrasena" ></ion-input>
         </ion-item>
       </div>
-      <button class="btn-iniciarsesion">
+      <button class="btn-iniciarsesion" (click)="ValidarUsu()" >
         Iniciar Sesión
       </button>
       <button class="btn-google">
         Ingresar con Google
       </button>
-      <button class="btn-facebook"><ion-icon name="logo-facebook" style="text-align: left;"></ion-icon>
-        Ingresar con Facebook
+      <button class="btn-facebook">
+        <ion-img class="facebook" src="../../../assets/icon/facebook-icon.png"></ion-img>Ingresar con Facebook
       </button>
       <button class="btn-rec">
         ¿Has olvidado la contraseña?
-      </button>
-    
+      </button>   
     </div>
 
   </div>
