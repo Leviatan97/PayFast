@@ -1,51 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Método de pago</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Datos de tu tarjeta</ion-card-title>
-    </ion-card-header>
-      <ion-card-content>
-      
-        <ion-list lines="full" class="ion-no-margin ion-no-padding">
- 
-          <ion-item>
-            <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="text" value="" ></ion-input>
-          </ion-item>
-     
-          <ion-item>
-            <ion-label position="floating">Apellido <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="text" ></ion-input>
-          </ion-item>
-     
-          <ion-item>
-            <ion-label position="floating">Número de tarjeta <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="number"></ion-input>
-          </ion-item>
+  <div class="Fondo">
+    <button class="btn-ingresar" (click)="Login()">
+      Ingresar
+    </button>
+    <button class="btn-registrar" (click)="registrarse()">
+      Registrarse
+    </button>
+    <div class="opacidad">
+      <div class="inputs">
+        <ion-item>
+          <ion-input type="text" placeholder="NOMBRES"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="APELLIDOS"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="NÚMERO DE TARJETA"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="date" placeholder="FECHA DE VENCIMIENTO (MM/AA)"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)"></ion-input>
+        </ion-item>
+      </div>
+      <button class="btn-iniciarsesion" (click)="Inicio()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
 
-          <ion-item>
-            <ion-label position="floating">Fecha de vencimiento (MM/AA) <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="number" ></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label position="floating">Código de seguridad (CVV) <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="number" ></ion-input>
-          </ion-item>
-          
-          
-          <ion-button expand="full" (click)="Registro()">
-            <ion-icon name="arrow-forward"></ion-icon>
-          </ion-button>
+    </div>
 
-        </ion-list>
-          
-      
-     </ion-card-content>
-  </ion-card> 
+  </div>
+  
 </ion-content>

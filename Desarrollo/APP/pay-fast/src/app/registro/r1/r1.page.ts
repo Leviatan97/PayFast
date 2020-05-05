@@ -15,5 +15,8 @@ export class R1Page implements OnInit {
   private Registro(){
     this.router.navigate(['registro/r2'])
   }
+  private Login(){
+    this.router.navigate(['login/form-log'])
+  }
 
 }

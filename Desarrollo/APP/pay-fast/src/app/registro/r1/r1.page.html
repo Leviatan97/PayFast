@@ -1,46 +1,39 @@
 <ion-content>
   <div class="Fondo">
-    
-    <ion-card class="Card">
-      <ion-card-header>
-        <ion-card-title>Ingresa tus datos personales</ion-card-title>
-      </ion-card-header>
-        <ion-card-content>
-        
-          <ion-list lines="full" class="ion-no-margin ion-no-padding" >
-   
-            <ion-item>
-              <ion-label position="floating">Nombres <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="text" value="" ></ion-input>
-            </ion-item>
-       
-            <ion-item>
-              <ion-label position="floating">Apellidos <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="text" ></ion-input>
-            </ion-item>
-       
-            <ion-item>
-              <ion-label>Fecha de Nacimiento <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="date" ></ion-input>
-            </ion-item>
-       
-            <ion-item>
-              <ion-label position="floating">Tipo de Documento</ion-label>
-              <ion-select ok-text="Aceptar" cancel-text="Cancelar">
-                <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
-                <ion-select-option value="CE">Cedula extranjera</ion-select-option>
-              </ion-select>
-            </ion-item>
-            
-            <ion-button expand="full" (click)="Registro()">
-              <ion-icon name="arrow-forward"></ion-icon>
-            </ion-button>
-  
-          </ion-list>
-            
-        
-       </ion-card-content>
-    </ion-card>
+    <button class="btn-ingresar" (click)="Login()">
+      Ingresar
+    </button>
+    <button class="btn-registrar" (click)="registrarse()">
+      Registrarse
+    </button>
+    <div class="opacidad">
+      <div class="inputs">
+        <ion-item>
+          <ion-input type="text" placeholder="NOMBRE"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="APELLIDO"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="FECHA DE Nacimiento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="FECHA DE Nacimiento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Tipo de Documento</ion-label>
+          <ion-select ok-text="Aceptar" cancel-text="Cancelar">
+            <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
+            <ion-select-option value="CE">Cedula extranjera</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <button class="btn-iniciarsesion" (click)="Registro()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+    </div>
+
   </div>
-   
+  
 </ion-content>
