@@ -4,8 +4,9 @@ import {Request,Response,NextFunction} from 'express';
 class usuControlador {
     constructor() {}
 
-    private Registro(req : Request, res : Response, fun : Function){
-
+    public Registro(req : Request, res : Response, fun : Function){
+        let datos = req.body
+        res.status(200).json(datos)
     }
 
     private Actualizar(req : Request, res : Response, fun : Function){

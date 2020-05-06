@@ -7,14 +7,22 @@ class usuRuta
         private routes = Routes()
     ) 
     {
+        this.Registro()
         this.usuValidar()
     }
 
-    public usuValidar(){
+    public Registro()
+    {
+        this.routes.route('/Registro').post(UsuControlador.Registro)
+    }
+
+    public usuValidar()
+    {
         this.routes.route('/validar').post(UsuControlador.Ingresar)
     }
 
-    public getRoutes(){
+    public getRoutes()
+    {
         return this.routes
     }
 

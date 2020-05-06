@@ -3,6 +3,7 @@ import {Request,Response,NextFunction,Application} from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import UsuRuta_ from './Rutas/UsuRuta';
+import TarjeRuta_ from './Rutas/TarjeRuta'
 
 
 class main{
@@ -23,6 +24,7 @@ class main{
 
     public Rutas(){
         this.app.use(UsuRuta_)
+        this.app.use(TarjeRuta_)
     }
 
     public configuracionDePuertos(){
