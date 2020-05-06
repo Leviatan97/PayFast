@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../Servicios/usuario.service'
 import md5 from 'md5'
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-form-log',
@@ -15,7 +17,8 @@ export class FormLogPage implements OnInit {
 
   constructor(
     private router: Router,
-    private usuarioservice: UsuarioService
+    private usuarioservice: UsuarioService,
+    public toastController: ToastController
   )
   {
 
@@ -40,15 +43,28 @@ export class FormLogPage implements OnInit {
 
   
   private async ValidarUsu(){
-    const conencrip = md5(this.contrasena) 
-    const datosUsuario = {
-      us_c : this.correo, 
-      us_ca : conencrip
-    }
+     
 
     let result: any = null;
     try{
-      result = await this.PromesaUsuValidar(datosUsuario)
+      if(this.correo != undefined && this.contrasena != undefined && this.correo != "")
+      {
+        if(this.correo != null && this.contrasena)
+        {
+          const conencrip = md5(this.contrasena && this.correo != "")
+          const datosUsuario = {
+            us_c : this.correo, 
+            us_ca : conencrip
+          }
+          result = await this.PromesaUsuValidar(datosUsuario)
+        }else
+        {
+          this.presentToast();
+        }
+      }
+      else{
+        this.presentToast();
+      }
     }catch(error){
       console.log(error);
     }
@@ -61,7 +77,13 @@ export class FormLogPage implements OnInit {
     this.router.navigate(['registro/r1'])
   }
 
-
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Asegurese de llenar los campos requeridos.',
+      duration: 2000
+    });
+    toast.present();
+  }
 
   
 

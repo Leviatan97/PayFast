@@ -9,13 +9,13 @@
     <div class="opacidad">
       <div class="inputs">
         <ion-item class="log">
-          <ion-input type="text" oninput="handleFirstNameValue(event)" placeholder="USUARIO" [(ngModel)]="this.correo" ></ion-input>
+          <ion-input type="text"  placeholder="USUARIO" [(ngModel)]="this.correo" ></ion-input>
         </ion-item>
         <ion-item class="log">
           <ion-input type="password" placeholder="CONTRASEÑA" [(ngModel)]="this.contrasena" ></ion-input>
         </ion-item>
       </div>
-      <button class="btn-iniciarsesion" oninput="handleLastNameValue(event)" (click)="ValidarUsu()" >
+      <button class="btn-iniciarsesion" (click)="ValidarUsu()" >
         Iniciar Sesión
       </button>
       <button class="btn-google">
@@ -45,27 +45,5 @@
 
   </div>
 </ion-content>
-<script>
-  const controller = document.querySelector('ion-alert-controller');
-  let USUARIO, CONTRASENA;
 
-  function processForm(event) {
-    event.preventDefault();
-    controller.create({
-      header: 'Account Created',
-      message: `Created account for: <b>${USUARIO} ${CONTRASENA}</b>`,
-      buttons: [{
-        text: 'OK'
-      }]
-    }).then(alert => alert.present());
-  }
-
-  function handleFirstNameValue(event) {
-    USUARIO = event.target.value;
-  }
-
-  function handleLastNameValue(event) {
-    CONTRASENA = event.target.value;
-  }
-</script>
 
