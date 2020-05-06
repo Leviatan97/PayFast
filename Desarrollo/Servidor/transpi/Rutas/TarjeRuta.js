@@ -4,23 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const UsuControlador_1 = __importDefault(require("../Controlador/UsuControlador"));
-class usuRuta {
+const TarjetaControlador_1 = __importDefault(require("../Controlador/TarjetaControlador"));
+class tarjeRuta {
     constructor(routes = express_1.default()) {
         this.routes = routes;
         this.Registro();
-        this.usuValidar();
     }
     Registro() {
-        this.routes.route('/Registro').post(UsuControlador_1.default.Registro);
-    }
-    usuValidar() {
-        this.routes.route('/validar').post(UsuControlador_1.default.Ingresar);
+        this.routes.route('/tarjeta').post(TarjetaControlador_1.default.Registro);
     }
     getRoutes() {
         return this.routes;
     }
 }
-const UsuRuta = new usuRuta();
-const UsuRuta_ = UsuRuta.getRoutes();
-exports.default = UsuRuta_;
+const TarjeRuta = new tarjeRuta();
+const TarjeRuta_ = TarjeRuta.getRoutes();
+exports.default = TarjeRuta_;
