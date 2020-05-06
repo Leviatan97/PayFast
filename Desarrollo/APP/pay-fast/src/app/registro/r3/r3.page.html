@@ -9,19 +9,23 @@
     <div class="opacidad">
       <div class="inputs">
         <ion-item>
-          <ion-input type="text" placeholder="NOMBRES"></ion-input>
+          <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="APELLIDOS"></ion-input>
+          <ion-input type="text" placeholder="APELLIDOS" [(ngModel)]="this.tapellido"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="NÚMERO DE TARJETA"></ion-input>
+          <ion-input type="number" placeholder="NÚMERO DE TARJETA" [(ngModel)]="this.tnumero"></ion-input>
+        </ion-item>
+        <!-- <ion-item>
+          <ion-input type="date" placeholder="FECHA DE VENCIMIENTO (MM/AA)" [(ngModel)]="this.tfvencimiento"></ion-input>
+        </ion-item> -->
+        <ion-item>
+          <ion-label>FECHA DE VENCIMIENTO MM / AA </ion-label>
+          <ion-datetime displayFormat=" MMM YY " min="2015" max="2030" value="20-01" [(ngModel)]="this.tfvencimiento"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-input type="date" placeholder="FECHA DE VENCIMIENTO (MM/AA)"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)"></ion-input>
+          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv"></ion-input>
         </ion-item>
       </div>
       <button class="btn-iniciarsesion" (click)="Inicio()">

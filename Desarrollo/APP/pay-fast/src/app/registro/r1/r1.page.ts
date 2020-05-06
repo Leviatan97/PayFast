@@ -16,7 +16,7 @@ export class R1Page implements OnInit {
   private fecha:String;
   private tdocumento:String;
 
-  constructor(private router : Router, private navControl : NavController,private ususerv : UsuarioService) { }
+  constructor(private router : Router, private ususerv : UsuarioService) { }
 
   ngOnInit() {
   }
@@ -28,9 +28,8 @@ export class R1Page implements OnInit {
       fnacimiento:this.fnacimiento,
       tdocumento:this.tdocumento
     }
-    this.ususerv.usuario1 = usuario
-    // this.navControl.navigateRoot('registro/r2')
-    // this.navControl.navigateForward(['registro/r2',usuario])
+    this.ususerv.setusuario(usuario)
+   
     this.router.navigate(['registro/r2'])
   }
   private Login(){

@@ -12,15 +12,31 @@ export class R2Page implements OnInit {
   
   private usuario :any;
 
+  private ndocumento:String;
+  private email:String;
+  private contrasena:String;
+  
+
   constructor(private router : Router, private ususer : UsuarioService) {
-    console.log(ususer.getusuario())
+    this.usuario = ususer.getusuario()
+    
   }
 
   ngOnInit() {
   }
   private Registro(){
-    
+    const usu = {
+      nombre : this.usuario.nombre,
+      apellido : this.usuario.apellido,
+      fnacimiento : this.usuario.fnacimiento,
+      tdocumento : this.usuario.tdocumento,
+      ndocumento : this.ndocumento,
+      email : this.email,
+      contrasena : this.contrasena
+    }
+    this.ususer.setusuario(usu)
     this.router.navigate(['/registro/r3'])
+    
   }
   private Login(){
     this.router.navigate(['login/form-log'])

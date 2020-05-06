@@ -5,12 +5,9 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuarioService {
-  usuario1:any={
+  private usuario1:any
 
-  }
-  constructor(
-    private http: HttpClient
-  )
+  constructor(private http: HttpClient)
   {
 
   }
@@ -21,7 +18,7 @@ export class UsuarioService {
   public getusuario(){
     return this.usuario1
   }
-  set usuario(datos){
+  public setusuario(datos:any){
     this.usuario1 = datos
   }
 }
