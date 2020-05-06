@@ -21,4 +21,7 @@ export class UsuarioService {
   public setusuario(datos:any){
     this.usuario1 = datos
   }
+  public registrarUsuario(datos:any){
+    return this.http.post('http://localhost:5000/Registro',datos);
+  }
 }

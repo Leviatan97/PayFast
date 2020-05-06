@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
+import { TarjetaService } from 'src/app/Servicios/tarjeta.service';
 
 @Component({
   selector: 'app-r3',
@@ -17,13 +18,41 @@ export class R3Page implements OnInit {
   
   private usu1:any
 
-  constructor(private router : Router, private usuario:UsuarioService) {
+  constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService) {
       this.usu1 = this.usuario.getusuario()
    }
    
   ngOnInit() {
   }
-  private Inicio(){
+  private PromesaUsuRegistrar(datos : any){
+    return new Promise((resolve,reject)=>{
+      this.usuario.registrarUsuario(datos).subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
+  }
+
+  private PromesaTarjeRegistrar(datos : any){
+    return new Promise((resolve,reject)=>{
+      this.tarjetaServicio.registrarTarjeta(datos).subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
+  }
+
+  private async Inicio(){
 
     const tarjeta ={
       tnombre:this.tnombre,
@@ -32,7 +61,15 @@ export class R3Page implements OnInit {
       tfvencimiento:this.tfvencimiento,
       tcvv:this.tcvv
     }
-    console.log(tarjeta)
+    let result : any = null
+    let result2 : any = null
+    try {
+      result = await this.PromesaUsuRegistrar(this.usu1)
+      result2 = await this.PromesaTarjeRegistrar(tarjeta)
+    } catch (error) {
+      
+    }
+    console.log(result, result2)
 
     //this.router.navigate(['inicio/i1'])
   }

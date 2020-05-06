@@ -113,7 +113,8 @@ ion-item{
     margin-left: 16%;
     font-weight: bold;
 }
-ion-input{
+ion-input, ion-datetime{
     --placeholder-color: white;
     --placeholder-opacity: 1;
+    
 }

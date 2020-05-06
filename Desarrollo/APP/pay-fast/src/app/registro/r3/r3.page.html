@@ -21,8 +21,8 @@
           <ion-input type="date" placeholder="FECHA DE VENCIMIENTO (MM/AA)" [(ngModel)]="this.tfvencimiento"></ion-input>
         </ion-item> -->
         <ion-item>
-          <ion-label>FECHA DE VENCIMIENTO MM / AA </ion-label>
-          <ion-datetime displayFormat=" MMM YY " min="2015" max="2030" value="20-01" [(ngModel)]="this.tfvencimiento"></ion-datetime>
+          <ion-label>FECHA DE VENCIMIENTO</ion-label>
+          <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>
         </ion-item>
         <ion-item>
           <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv"></ion-input>
