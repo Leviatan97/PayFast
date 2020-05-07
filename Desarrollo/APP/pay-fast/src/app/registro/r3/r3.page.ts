@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { TarjetaService } from 'src/app/Servicios/tarjeta.service';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-r3',
@@ -18,7 +19,7 @@ export class R3Page implements OnInit {
   
   private usu1:any
 
-  constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService) {
+  constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService, private toastController:ToastController) {
       this.usu1 = this.usuario.getusuario()
    }
    
@@ -64,17 +65,32 @@ export class R3Page implements OnInit {
     let result : any = null
     let result2 : any = null
     try {
-      result = await this.PromesaUsuRegistrar(this.usu1)
-      result2 = await this.PromesaTarjeRegistrar(tarjeta)
+      if(this.tnombre != undefined && this.tapellido != undefined && this.tnumero != undefined && this.tfvencimiento != undefined && this.tcvv != undefined && this.tnombre != "" && this.tapellido != "" && this.tnumero != "" && this.tfvencimiento != "" && this.tcvv != ""){
+        this.router.navigate(['/inicio/i1'])
+        result = await this.PromesaUsuRegistrar(this.usu1)
+        result2 = await this.PromesaTarjeRegistrar(tarjeta)
+      }else{
+        this.presentToast(); 
+      }
     } catch (error) {
       
     }
+    
     console.log(result, result2)
 
     //this.router.navigate(['inicio/i1'])
   }
   private Login(){
     this.router.navigate(['login/form-log'])
+  }
+
+  async presentToast() 
+  {
+    const toast = await this.toastController.create({
+      message: 'Asegurese de llenar los campos requeridos.',
+      duration: 2000
+    });
+    toast.present();
   }
   
 

@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home-tut</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <ion-slides pager="true">
+
+    <ion-slide *ngFor="let slide of slides">
+
+      <div>
+        <img [src]="slide.img">
+        <!-- <img src="../../../assets/img-slider/bolsa.png"> -->
+      </div>
+
+      <div>
+        <h3 [innerHTML]="slide.titulo"></h3>
+      </div>
+
+      <div>
+        <button [ngStyle]="{'display': slide.txtbtn}">Siguiente</button>
+      </div>
+
+    </ion-slide>
+
+    
+  </ion-slides>
 
 </ion-content>
