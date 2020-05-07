@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-i1',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class I1Page implements OnInit {
 
-  constructor() { }
+  constructor(private menu: MenuController) { }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
 
   ngOnInit() {
   }
 
+  private menuAbrir(){
+    this.menu.toggle();
+  }
 }

@@ -57,6 +57,7 @@ export class FormLogPage implements OnInit {
             us_ca : conencrip
           }
           result = await this.PromesaUsuValidar(datosUsuario)
+          this.router.navigate(['/inicio/i1'])
         }else
         {
           this.presentToast();
@@ -68,9 +69,7 @@ export class FormLogPage implements OnInit {
     }catch(error){
       console.log(error);
     }
-
     console.log(result);
-
   }
 
   private registrarse(){
