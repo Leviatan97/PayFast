@@ -28,9 +28,12 @@
 
 .searchbar-input {
     border-radius: 30px !important;
+    background-color: #E6E6E6 !important;
+    border-radius: 25px;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7f8490;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.0) !important;
+    
 }
-
-ion-searchbar ion-icon {
-    right: 16px !important;
-    left: auto !important;
-  }

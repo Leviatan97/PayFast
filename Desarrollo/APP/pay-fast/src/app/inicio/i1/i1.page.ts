@@ -25,4 +25,8 @@ export class I1Page implements OnInit {
   private menuAbrir(){
     this.menu.toggle();
   }
+
+  private prueba(){
+    console.log('OK')
+  }
 }
