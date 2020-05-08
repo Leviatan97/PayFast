@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Button } from 'protractor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-tut',
@@ -16,12 +17,12 @@ export class HomeTutPage implements OnInit {
     },
     {
       img: '../../../assets/img-slider/cbarras.svg',
-      titulo:'Escanea tus productos pasando los códigos de barras sobre el escáner para añadirlos a tu carrito',
+      titulo:'Escanea tus productos pasando la cámara de tu celular sobre los códigos de barras para añadirlos a tu carrito',
       txtbtn: 'none'
     },
     {
       img: '../../../assets/img-slider/qr.svg',
-      titulo:'Al finalizar debes pasar este codigo por una de nuestras maquinas para generar tu comprobante para la salida',
+      titulo:'Cuando finalices tu compra veras un codigo el cual debes pasar por una de nuestras maquinas para generar tu comprobante de salida',
       txtbtn: 'none'
     },
     {
@@ -30,9 +31,12 @@ export class HomeTutPage implements OnInit {
       txtbtn: 'hidden'
     }
   ]
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+  private Inicio(){
+    this.router.navigate(['/inicio/i1'])
   }
 
 }
