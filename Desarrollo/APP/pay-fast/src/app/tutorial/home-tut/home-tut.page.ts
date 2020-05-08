@@ -11,22 +11,22 @@ export class HomeTutPage implements OnInit {
   slides =[
     {
       img: '../../../assets/img-slider/ubicacion.svg',
-      titulo:'hola 1',
+      titulo:'Debemos obtener tu ubicación para verificar que te encuentras en alguno de nuestros supermercados aliados',
       txtbtn: 'none'
     },
     {
       img: '../../../assets/img-slider/cbarras.svg',
-      titulo:'hola 2',
+      titulo:'Escanea tus productos pasando los códigos de barras sobre el escáner para añadirlos a tu carrito',
       txtbtn: 'none'
     },
     {
       img: '../../../assets/img-slider/qr.svg',
-      titulo:'hola 3',
+      titulo:'Al finalizar debes pasar este codigo por una de nuestras maquinas para generar tu comprobante para la salida',
       txtbtn: 'none'
     },
     {
       img: '../../assets/img-slider/bolsa.svg',
-      titulo:'hola 4',
+      titulo:'Te recomendamos llevar tu propia bolsa para aportar al cuidado del medio ambiente (en caso de no contar con una en caja podrás adquirirla)',
       txtbtn: 'hidden'
     }
   ]
