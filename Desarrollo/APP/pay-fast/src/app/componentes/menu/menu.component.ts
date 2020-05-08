@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/Servicios/usuario.service'
+import { Observable } from 'rxjs';
+import { Componente } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-menu',
@@ -7,8 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  private componentes: Observable<Componente[]>
 
-  ngOnInit() {}
+  constructor( private usuarioService: UsuarioService ) { 
+    this.consulta()
+  }
+
+  ngOnInit() {
+      
+  }
+
+  private consulta(){
+    this.componentes = this.usuarioService.menuOpciones();
+    console.log(this.componentes)
+  }
 
 }

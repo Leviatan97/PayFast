@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Componente } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-i1',
@@ -7,6 +8,8 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./i1.page.scss'],
 })
 export class I1Page implements OnInit {
+
+  componentes: Componente[] = [];
 
   constructor(private menu: MenuController) { }
 

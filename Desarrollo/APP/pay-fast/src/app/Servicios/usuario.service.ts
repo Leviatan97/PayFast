@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Componente } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,7 @@ import {HttpClient} from '@angular/common/http';
 export class UsuarioService {
   private usuario1:any
 
-  constructor(private http: HttpClient)
-  {
-
-  }
+  constructor(private http: HttpClient) { }
 
   public validarUsuario(datos:any){
     return this.http.post('http://localhost:5000/validar',datos);
@@ -24,4 +22,9 @@ export class UsuarioService {
   public registrarUsuario(datos:any){
     return this.http.post('http://localhost:5000/Registro',datos);
   }
+
+  public menuOpciones(){
+    return this.http.get<Componente[]>('assets/data/menu.json');
+  }
+
 }
