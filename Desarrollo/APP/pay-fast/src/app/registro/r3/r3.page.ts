@@ -73,13 +73,10 @@ export class R3Page implements OnInit {
         this.presentToast(); 
       }
     } catch (error) {
-      
+      console.log(error)
     }
-    
-    console.log(result, result2)
-
-    //this.router.navigate(['inicio/i1'])
   }
+
   private Login(){
     this.router.navigate(['login/form-log'])
   }

@@ -28,14 +28,12 @@ export class R1Page implements OnInit {
       fnacimiento:this.fnacimiento,
       tdocumento:this.tdocumento
     }
-    this.ususerv.setusuario(usuario)
-
-    let result: any = null;
+    
     try{
       if(this.nombre != undefined && this.apellido != undefined && this.fnacimiento != undefined && this.tdocumento != undefined && this.nombre != "" && this.apellido != "" &&  this.tdocumento != "")
       {
+        this.ususerv.setusuario(usuario)
         this.router.navigate(['registro/r2'])
-        console.log(this.fnacimiento)
       }
       else{
         this.presentToast();
@@ -43,10 +41,9 @@ export class R1Page implements OnInit {
     }catch(error){
       console.log(error);
     }
-    console.log(result);
-   
-    
   }
+
+
   private Login(){
     this.router.navigate(['login/form-log'])
   }

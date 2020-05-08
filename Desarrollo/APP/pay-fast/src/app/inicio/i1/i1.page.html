@@ -1,14 +1,32 @@
+<app-menu></app-menu>
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start" class="requerido">
-      <ion-button (click)="menuAbrir()">
+    <button slot="start" class="requerido">
+      <button (click)="menuAbrir()" class="boton">
         <ion-icon slot="icon-only" name="menu" size="large"></ion-icon>
-      </ion-button>
-    </ion-button>
+      </button>
+    </button>
     <ion-searchbar placeholder="Buscar..."><ion-icon></ion-icon></ion-searchbar>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  
+  <div>
+    <ion-card class="card" >
+      <ion-item>
+        <div>
+          <ion-card-content (click)="prueba()">
+              This is content, without any paragraph or header tags,
+              within an ion-card-content element.
+          </ion-card-content>
+        </div>
+        <div class="Ofertas">
+          <ion-button fill="outline" slot="end" >Ofertas</ion-button>
+        </div>
+      </ion-item>
+    </ion-card>
+  </div>
 </ion-content>
+<app-tabs></app-tabs>
+
+
+

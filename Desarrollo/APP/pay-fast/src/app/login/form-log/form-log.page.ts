@@ -51,7 +51,7 @@ export class FormLogPage implements OnInit {
       {
         if(this.correo != null && this.contrasena)
         {
-          const conencrip = md5(this.contrasena && this.correo != "")
+          const conencrip = md5(this.contrasena)// voy a colgar mientras xd no demoro
           const datosUsuario = {
             us_c : this.correo, 
             us_ca : conencrip
