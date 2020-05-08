@@ -10,19 +10,47 @@ import { Componente } from 'src/app/interfaces/interfaces';
 })
 export class MenuComponent implements OnInit {
 
-  private componentes: Observable<Componente[]>
+  public componentes = null
 
   constructor( private usuarioService: UsuarioService ) { 
-    this.consulta()
+    this.menu()
   }
 
   ngOnInit() {
-      
+    
+  }
+  private promesaMenu(){
+    return new Promise((resolve,reject)=>{
+      this.usuarioService.menuOpciones().subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
   }
 
-  private consulta(){
-    this.componentes = this.usuarioService.menuOpciones();
-    console.log(this.componentes)
+  public async motrarMenu(){
+    let result: any = null;
+    try{
+       result = await this.promesaMenu()
+      //  console.log(result)
+    }catch(error){
+      result = {
+        error,
+        resultado: 'error'
+      } 
+    }
+    return result
+  }
+
+  public async menu(){
+    this.componentes = await this.motrarMenu()
+    this.componentes = this.componentes.result
+    return this.componentes
   }
 
 }

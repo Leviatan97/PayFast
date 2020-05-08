@@ -24,7 +24,7 @@ export class UsuarioService {
   }
 
   public menuOpciones(){
-    return this.http.get<Componente[]>('assets/data/menu.json');
+    return this.http.get('assets/data/menu.json');
   }
 
 }
