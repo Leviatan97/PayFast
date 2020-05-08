@@ -1,3 +1,4 @@
+import coneccion from '../Coneccion/Coneccion';
 
 export default class usuModel {
     constructor(
@@ -19,7 +20,33 @@ export default class usuModel {
         this.Usu_Contra = Usu_Contra
     }
 
-    private registrar(){
+    public registrar(){
+
+        const datos = {
+            us_n  : this.Usu_nombre,
+            us_a  : this.Usu_apellido,
+            us_fn : this.Usu_FechaNacimiento,
+            us_td : this.Usu_TipoDoc,
+            us_nd : this.Usu_NumeroDoc,
+            us_c  : this.Usu_Correo,
+            us_ca : this.Usu_Contra
+        }
+
+        return new Promise(async (resolve,reject)=>{
+            (await coneccion).query('INSERT INTO usuario set ?',[datos]).then((result:object)=>{
+                resolve ({
+                    resultado:true,
+                    respuesta:result
+                })
+            }, (error: any)=>{
+                reject({
+                    resultado:false,
+                    respuesta:error
+                })
+            })
+        })
+        
+        
 
     }
 
