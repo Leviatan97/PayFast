@@ -1,25 +1,33 @@
 <ion-content>
 
-  <ion-slides pager="true">
+  <div class="Fondo">
 
-    <ion-slide *ngFor="let slide of slides">
+    <ion-slides pager="true">
 
-      <div>
-        <img [src]="slide.img">
-        <!-- <img src="../../../assets/img-slider/bolsa.png"> -->
-      </div>
+      <ion-slide *ngFor="let slide of slides">
 
-      <div>
-        <h3 [innerHTML]="slide.titulo"></h3>
-      </div>
+        <div class="slide-img">
+          <img [src]="slide.img">
+        
+        </div>
+        <div>
+          <div class="opacidad">
+            <div class="inputs">
+              <h3 [innerHTML]="slide.titulo"></h3>
+            </div>
+          </div>
+          <div [ngStyle]="{'display': slide.txtbtn}" class="inputs">
+            <button  class="btn-siguiente" (click)="Inicio()">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </div>
 
-      <div>
-        <button [ngStyle]="{'display': slide.txtbtn}">Siguiente</button>
-      </div>
-
-    </ion-slide>
-
-    
-  </ion-slides>
-
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>
+
+<ion-footer>
+  
+</ion-footer>
