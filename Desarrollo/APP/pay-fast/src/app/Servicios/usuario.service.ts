@@ -25,7 +25,7 @@ export class UsuarioService {
   public registrarUsuario(datos:any){
     return this.http.post('http://localhost:5000/Registro',datos);
   }
-
+  
   public validarCorreo(datos : any){
     return this.http.post('http://localhost:5000/correo',datos);
   }
@@ -37,5 +37,6 @@ export class UsuarioService {
   public menuOpciones(){
     return this.http.get('assets/data/menu.json');
   }
+
 
 }

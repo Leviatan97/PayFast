@@ -66,7 +66,7 @@ export class R3Page implements OnInit {
     let result2 : any = null
     try {
       if(this.tnombre != undefined && this.tapellido != undefined && this.tnumero != undefined && this.tfvencimiento != undefined && this.tcvv != undefined && this.tnombre != "" && this.tapellido != "" && this.tnumero != "" && this.tcvv != ""){
-        this.router.navigate(['/inicio/i1'])
+        this.router.navigate(['/tutorial/home-tut'])
         result = await this.PromesaUsuRegistrar(this.usu1)
         result2 = await this.PromesaTarjeRegistrar(tarjeta)
       }else{

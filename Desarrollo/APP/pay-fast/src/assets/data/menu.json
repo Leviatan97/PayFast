@@ -1,17 +1,23 @@
 [
     {
-        "icon": "",
-        "name": "Juan",
+        "icon": "../../../assets/icon/pago.svg",
+        "name": "Metodos de Pago",
         "redirectTo": ""
     },
     {
-        "icon": "",
-        "name": "Cesar",
+        "icon": "../../../assets/icon/ayuda.svg",
+        "name": "Ayuda al Usuario",
         "redirectTo": ""
     },
     {
-        "icon": "",
-        "name": "Peña",
+        "icon": "../../../assets/icon/compartir.svg",
+        "name": "Compartir",
+        "redirectTo": ""
+    }
+    ,
+    {
+        "icon": "../../../assets/icon/acerca-de.svg",
+        "name": "Acerca de la Aplicacion",
         "redirectTo": ""
     }
 ]

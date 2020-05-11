@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/Servicios/usuario.service'
 import { Observable } from 'rxjs';
 import { Componente } from 'src/app/interfaces/interfaces';
+import { MenuService } from 'src/app/Servicios/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   public componentes = null
 
-  constructor( private usuarioService: UsuarioService ) { 
+  constructor( private menuservice: MenuService ) { 
     this.menu()
   }
 
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   }
   private promesaMenu(){
     return new Promise((resolve,reject)=>{
-      this.usuarioService.menuOpciones().subscribe((result:any)=>{
+      this.menuservice.menuOpciones().subscribe((result:any)=>{
         resolve({
           result,resultado:'ok'
         })
