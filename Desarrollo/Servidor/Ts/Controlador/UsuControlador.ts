@@ -6,11 +6,75 @@ import { Usuario } from '../Interfaz/usuInterfaz';
 class usuControlador {
     constructor() {}
 
-    public async Registro(req : Request, res : Response, fun : Function){
+    public async validarNumeroDoc(req : Request, res : Response, fun : Function){
+
         let datos : Usuario = req.body
         let resultado : any
+        let valor : any
+
         try {
-            const usuarioModelo : usuModel = new usuModel(
+
+            const usuarioModelo : usuModel = new usuModel()
+
+            resultado = await usuarioModelo.validarNumeroDoc(
+                datos.NumeroDoc_usu
+            )
+            valor = resultado.length
+
+            res.status(200).json({
+                val: valor
+            })
+
+        } catch (error) {
+
+            res.status(200).json({
+                respuesta : error
+            })
+
+        }
+
+    }
+
+    public async validarCorreo(req : Request, res : Response, fun : Function){
+
+        let datos : Usuario = req.body
+        let resultado : any
+        let valor : any
+
+        try {
+
+            const usuarioModelo : usuModel = new usuModel()
+
+            resultado = await usuarioModelo.validarCorreo(
+                datos.Correo_usu,
+            )
+            valor = resultado.length
+
+            res.status(200).json({
+                val: valor
+            })
+
+        } catch (error) {
+
+            res.status(200).json({
+                respuesta : error
+            })
+
+        }
+
+    }
+
+    public async Registro(req : Request, res : Response, fun : Function)
+    {
+
+        let datos : Usuario = req.body
+        let resultado : any
+
+        try {
+
+            const usuarioModelo : usuModel = new usuModel()
+
+            resultado = await usuarioModelo.registrar(
                 datos.Nombre_usu, 
                 datos.Apellido_usu, 
                 datos.Edad_usu, 
@@ -19,15 +83,18 @@ class usuControlador {
                 datos.Correo_usu, 
                 datos.Contra_usu
             )
-            resultado = await usuarioModelo.registrar()
+
             res.status(200).json({
                 message : "Se ha egistrado exitosamente",
                 res : resultado 
             })
+
         } catch (error) {
+
             res.status(200).json({
                 respuesta : error
             })
+
         }
         
     }

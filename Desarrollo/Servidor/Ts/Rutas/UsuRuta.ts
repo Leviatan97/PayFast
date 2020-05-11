@@ -9,6 +9,8 @@ class usuRuta
     {
         this.Registro()
         this.usuValidar()
+        this.usuCorreo()
+        this.usuNumeroDoc()
     }
 
     public Registro()
@@ -19,6 +21,16 @@ class usuRuta
     public usuValidar()
     {
         this.routes.route('/validar').post(UsuControlador.Ingresar)
+    }
+
+    public usuCorreo()
+    {
+        this.routes.route('/correo').post(UsuControlador.validarCorreo)
+    }
+
+    public usuNumeroDoc()
+    {
+        this.routes.route('/numeroDoc').post(UsuControlador.validarNumeroDoc)
     }
 
     public getRoutes()

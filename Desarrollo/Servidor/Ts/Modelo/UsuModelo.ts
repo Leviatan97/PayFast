@@ -2,34 +2,31 @@ import coneccion from '../Coneccion/Coneccion';
 
 export default class usuModel {
     constructor(
-        private Usu_nombre : string,
-        private Usu_apellido : string,
-        private Usu_FechaNacimiento : Date,
-        private Usu_TipoDoc : string,
-        private Usu_NumeroDoc : string,
-        private Usu_Correo : string,
-        private Usu_Contra : string
+        
     ) 
     {
-        this.Usu_nombre = Usu_nombre;
-        this.Usu_apellido = Usu_apellido;
-        this.Usu_FechaNacimiento = Usu_FechaNacimiento;
-        this.Usu_TipoDoc = Usu_TipoDoc;
-        this.Usu_NumeroDoc = Usu_NumeroDoc;
-        this.Usu_Correo = Usu_Correo;
-        this.Usu_Contra = Usu_Contra
+        
     }
 
-    public registrar(){
+    public registrar(
+        Usu_nombre : string,
+        Usu_apellido : string,
+        Usu_FechaNacimiento : Date,
+        Usu_TipoDoc : string,
+        Usu_NumeroDoc : string,
+        Correo : string,
+        Usu_Contra : string
+    )
+    {
 
         const datos = {
-            us_n  : this.Usu_nombre,
-            us_a  : this.Usu_apellido,
-            us_fn : this.Usu_FechaNacimiento,
-            us_td : this.Usu_TipoDoc,
-            us_nd : this.Usu_NumeroDoc,
-            us_c  : this.Usu_Correo,
-            us_ca : this.Usu_Contra
+            us_n  : Usu_nombre,
+            us_a  : Usu_apellido,
+            us_fn : Usu_FechaNacimiento,
+            us_td : Usu_TipoDoc,
+            us_nd : Usu_NumeroDoc,
+            us_c  : Correo,
+            us_ca : Usu_Contra
         }
 
         return new Promise(async (resolve,reject)=>{
@@ -48,6 +45,34 @@ export default class usuModel {
         
         
 
+    }
+
+    public validarCorreo(correo : string)
+    {
+        return new Promise(async (resolve, reject)=>{
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_c = '${correo}'`,(error: any, result: any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+
+    }
+
+    public validarNumeroDoc(numeroDoc : string)
+    {
+        return new Promise(async (resolve, reject)=>{
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_nd = '${numeroDoc}'`,(error: any, result: any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+        
     }
 
     private actualizar(){
