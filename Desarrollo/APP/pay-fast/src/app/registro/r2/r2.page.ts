@@ -26,27 +26,49 @@ export class R2Page implements OnInit {
 
   ngOnInit() {
   }
-  private Registro(){
+  private async Registro(){
     const usu = {
       nombre : this.usuario.nombre,
       apellido : this.usuario.apellido,
       fnacimiento : this.usuario.fnacimiento,
       tdocumento : this.usuario.tdocumento,
-      ndocumento : this.ndocumento,
+      ndocumento : String(this.ndocumento),
       email : this.email,
       contrasena : this.contrasena
     }
     
     
-
+    let correo : any = null;
     let result: any = null;
+    let numeroDoc: any = null;
+
     try{
       if(this.ndocumento != undefined && this.email != undefined && this.contrasena != undefined  && this.ndocumento != "" && this.email != "" &&  this.contrasena != "")
       {
         if(this.contrasena == this.contrasena2){
-          this.router.navigate(['/registro/r3'])
-          this.ususer.setusuario(usu)
-          console.log('ok')
+          correo = await this.PromesaCorreo(this.email)
+          numeroDoc = await this.PromesaTCedula(String(this.ndocumento))
+
+          console.log(correo)
+          console.log(numeroDoc)
+          // if(correo.result.val == 0){
+
+          //     numeroDoc = this.PromesaTCedula(this.ndocumento)
+
+          //     if(numeroDoc.result.val == 0){
+
+          //         this.router.navigate(['/registro/r3'])
+          //         this.ususer.setusuario(usu)
+          //         console.log('ok')
+
+          //     }else{
+          //       this.ValidarCedula()
+          //     }
+              
+          // }else{
+          //   this.validarCorreo()
+          // }
+          
         }else{
           this.presentToastC();
         }
@@ -60,7 +82,39 @@ export class R2Page implements OnInit {
     }
     console.log(result);
     
+    
+
+
   }
+
+  private PromesaCorreo(usu : any){
+    return new Promise((resolve,reject)=>{
+      this.ususer.validarCorreo(usu).subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
+  }
+
+  private PromesaTCedula(usu : any){
+    return new Promise((resolve,reject)=>{
+      this.ususer.validarNumeroDoc(usu).subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
+  }
+
   private Login(){
     this.router.navigate(['login/form-log'])
   }
@@ -78,6 +132,24 @@ export class R2Page implements OnInit {
   {
     const toast = await this.toastController.create({
       message: 'Las contraseña no coinciden',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async validarCorreo() 
+  {
+    const toast = await this.toastController.create({
+      message: 'Este correo ya esta Registrado',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async ValidarCedula() 
+  {
+    const toast = await this.toastController.create({
+      message: 'Este numero de Documento ya esta',
       duration: 2000
     });
     toast.present();

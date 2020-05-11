@@ -22,7 +22,7 @@ class usuControlador {
             let valor;
             try {
                 const usuarioModelo = new UsuModelo_1.default();
-                resultado = yield usuarioModelo.validarNumeroDoc(datos.NumeroDoc_usu);
+                resultado = yield usuarioModelo.validarNumeroDoc(datos.us_nd);
                 valor = resultado.length;
                 res.status(200).json({
                     val: valor
@@ -42,7 +42,7 @@ class usuControlador {
             let valor;
             try {
                 const usuarioModelo = new UsuModelo_1.default();
-                resultado = yield usuarioModelo.validarCorreo(datos.Correo_usu);
+                resultado = yield usuarioModelo.validarCorreo(datos.us_c);
                 valor = resultado.length;
                 res.status(200).json({
                     val: valor
@@ -59,9 +59,10 @@ class usuControlador {
         return __awaiter(this, void 0, void 0, function* () {
             let datos = req.body;
             let resultado;
+            console.log(datos);
             try {
                 const usuarioModelo = new UsuModelo_1.default();
-                resultado = yield usuarioModelo.registrar(datos.Nombre_usu, datos.Apellido_usu, datos.Edad_usu, datos.TipoDoc_usu, datos.NumeroDoc_usu, datos.Correo_usu, datos.Contra_usu);
+                resultado = yield usuarioModelo.registrar(datos.us_n, datos.us_a, datos.us_fn, datos.us_td, datos.us_nd, datos.us_c, datos.us_ca);
                 res.status(200).json({
                     message: "Se ha egistrado exitosamente",
                     res: resultado

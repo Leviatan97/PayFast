@@ -17,7 +17,7 @@ class usuControlador {
             const usuarioModelo : usuModel = new usuModel()
 
             resultado = await usuarioModelo.validarNumeroDoc(
-                datos.NumeroDoc_usu
+                datos.us_nd
             )
             valor = resultado.length
 
@@ -46,7 +46,7 @@ class usuControlador {
             const usuarioModelo : usuModel = new usuModel()
 
             resultado = await usuarioModelo.validarCorreo(
-                datos.Correo_usu,
+                datos.us_c,
             )
             valor = resultado.length
 
@@ -69,19 +69,19 @@ class usuControlador {
 
         let datos : Usuario = req.body
         let resultado : any
-
+        console.log(datos)
         try {
 
             const usuarioModelo : usuModel = new usuModel()
 
             resultado = await usuarioModelo.registrar(
-                datos.Nombre_usu, 
-                datos.Apellido_usu, 
-                datos.Edad_usu, 
-                datos.TipoDoc_usu, 
-                datos.NumeroDoc_usu, 
-                datos.Correo_usu, 
-                datos.Contra_usu
+                datos.us_n, 
+                datos.us_a, 
+                datos.us_fn, 
+                datos.us_td, 
+                datos.us_nd, 
+                datos.us_c, 
+                datos.us_ca
             )
 
             res.status(200).json({
