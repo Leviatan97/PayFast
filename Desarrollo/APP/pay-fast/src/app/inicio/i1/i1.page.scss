@@ -18,6 +18,7 @@ ion-searchbar{
 button{
     background: transparent;
     color: #181763;
+    margin-left: 0px;;
 }
 
 .ofertas{
@@ -27,9 +28,10 @@ button{
     margin-right: 0px;
 }
 
-.card{
-    height: 90%;
+ion-card-content{
+    width: 100%;
 }
+
 
 
 
