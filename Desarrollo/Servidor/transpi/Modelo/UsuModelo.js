@@ -14,31 +14,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Coneccion_1 = __importDefault(require("../Coneccion/Coneccion"));
 class usuModel {
-    constructor(Usu_nombre, Usu_apellido, Usu_FechaNacimiento, Usu_TipoDoc, Usu_NumeroDoc, Usu_Correo, Usu_Contra) {
-        this.Usu_nombre = Usu_nombre;
-        this.Usu_apellido = Usu_apellido;
-        this.Usu_FechaNacimiento = Usu_FechaNacimiento;
-        this.Usu_TipoDoc = Usu_TipoDoc;
-        this.Usu_NumeroDoc = Usu_NumeroDoc;
-        this.Usu_Correo = Usu_Correo;
-        this.Usu_Contra = Usu_Contra;
-        this.Usu_nombre = Usu_nombre;
-        this.Usu_apellido = Usu_apellido;
-        this.Usu_FechaNacimiento = Usu_FechaNacimiento;
-        this.Usu_TipoDoc = Usu_TipoDoc;
-        this.Usu_NumeroDoc = Usu_NumeroDoc;
-        this.Usu_Correo = Usu_Correo;
-        this.Usu_Contra = Usu_Contra;
+    constructor() {
     }
-    registrar() {
+    registrar(Usu_nombre, Usu_apellido, Usu_FechaNacimiento, Usu_TipoDoc, Usu_NumeroDoc, Correo, Usu_Contra) {
         const datos = {
-            us_n: this.Usu_nombre,
-            us_a: this.Usu_apellido,
-            us_fn: this.Usu_FechaNacimiento,
-            us_td: this.Usu_TipoDoc,
-            us_nd: this.Usu_NumeroDoc,
-            us_c: this.Usu_Correo,
-            us_ca: this.Usu_Contra
+            us_n: Usu_nombre,
+            us_a: Usu_apellido,
+            us_fn: Usu_FechaNacimiento,
+            us_td: Usu_TipoDoc,
+            us_nd: Usu_NumeroDoc,
+            us_c: Correo,
+            us_ca: Usu_Contra
         };
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             (yield Coneccion_1.default).query('INSERT INTO usuario set ?', [datos]).then((result) => {
@@ -51,6 +37,30 @@ class usuModel {
                     resultado: false,
                     respuesta: error
                 });
+            });
+        }));
+    }
+    validarCorreo(correo) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_c = '${correo}'`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
+            });
+        }));
+    }
+    validarNumeroDoc(numeroDoc) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_nd = '${numeroDoc}'`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
             });
         }));
     }

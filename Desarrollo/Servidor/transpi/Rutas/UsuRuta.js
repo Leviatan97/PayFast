@@ -10,12 +10,20 @@ class usuRuta {
         this.routes = routes;
         this.Registro();
         this.usuValidar();
+        this.usuCorreo();
+        this.usuNumeroDoc();
     }
     Registro() {
         this.routes.route('/Registro').post(UsuControlador_1.default.Registro);
     }
     usuValidar() {
         this.routes.route('/validar').post(UsuControlador_1.default.Ingresar);
+    }
+    usuCorreo() {
+        this.routes.route('/correo').post(UsuControlador_1.default.validarCorreo);
+    }
+    usuNumeroDoc() {
+        this.routes.route('/numeroDoc').post(UsuControlador_1.default.validarNumeroDoc);
     }
     getRoutes() {
         return this.routes;
