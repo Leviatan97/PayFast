@@ -46,18 +46,25 @@ export class FormLogPage implements OnInit {
      
 
     let result: any = null;
+
     try{
       if(this.correo != undefined && this.contrasena != undefined && this.correo != "")
       {
         if(this.correo != null && this.contrasena)
         {
-          const conencrip = md5(this.contrasena)// voy a colgar mientras xd no demoro
+          const conencrip = md5(this.contrasena)
           const datosUsuario = {
             us_c : this.correo, 
             us_ca : conencrip
           }
           result = await this.PromesaUsuValidar(datosUsuario)
-          this.router.navigate(['/inicio/i1'])
+          result = result.result
+          if(result.val == 1){
+            this.router.navigate(['/inicio/i1'])
+          }else{
+            this.usuarioContra()
+          }
+          
         }else
         {
           this.presentToast();
@@ -69,7 +76,7 @@ export class FormLogPage implements OnInit {
     }catch(error){
       console.log(error);
     }
-    console.log(result);
+    
   }
 
   private registrarse(){
@@ -79,6 +86,14 @@ export class FormLogPage implements OnInit {
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Asegurese de llenar los campos requeridos.',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async usuarioContra() {
+    const toast = await this.toastController.create({
+      message: 'El usuario o la contraseña no coinciden',
       duration: 2000
     });
     toast.present();

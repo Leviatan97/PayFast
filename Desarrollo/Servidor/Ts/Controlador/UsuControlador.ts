@@ -15,10 +15,7 @@ class usuControlador {
         try {
 
             const usuarioModelo : usuModel = new usuModel()
-
-            resultado = await usuarioModelo.validarNumeroDoc(
-                datos.us_nd
-            )
+            resultado = await usuarioModelo.validarNumeroDoc(datos.us_nd)
             valor = resultado.length
 
             res.status(200).json({
@@ -103,9 +100,21 @@ class usuControlador {
 
     }
 
-    public Ingresar(req : Request, res : Response, fun : Function){
-        let datos = req.body
-        res.status(200).json(datos)
+    public async Ingresar(req : Request, res : Response, fun : Function){
+        let datos : Usuario = req.body
+        let result: any
+        let valor : any
+        try {
+            const usuarioModelo : usuModel = new usuModel()
+            result = await usuarioModelo.ingresar(datos.us_c,datos.us_ca)
+            valor = result.length
+            res.status(200).json({
+                val: valor
+            })
+        } catch (error) {
+            res.status(200).json(error)
+        }
+        
     }
 }
 

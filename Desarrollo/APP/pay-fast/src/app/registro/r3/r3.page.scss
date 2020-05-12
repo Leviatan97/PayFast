@@ -15,7 +15,7 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     background-color: rgba(0, 0, 0, .27) ;
     border-radius: 17px;
     width: 84%;
-    height: 55%;
+    height: 64%;
     margin-left: 8%;
     margin-right: 8%;
 }
@@ -67,7 +67,7 @@ ion-item{
 {
     border-radius: 17px;
     width: 46%;
-    height: 12%;
+    height: 10%;
     margin-top: 7%;
     background-color: #171762;
     font-family: Arial;
@@ -120,4 +120,8 @@ ion-input, ion-datetime{
     --placeholder-color: white;
     --placeholder-opacity: 1;
     
+}
+h5{
+    margin: 10px 30px 15px 30px;
+    color: #fff;
 }

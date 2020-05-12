@@ -69,6 +69,7 @@ export class R3Page implements OnInit {
         this.router.navigate(['/tutorial/home-tut'])
         result = await this.PromesaUsuRegistrar(this.usu1)
         result2 = await this.PromesaTarjeRegistrar(tarjeta)
+        console.log(result)
       }else{
         this.presentToast(); 
       }
