@@ -93,7 +93,7 @@ export class FormLogPage implements OnInit {
 
   async usuarioContra() {
     const toast = await this.toastController.create({
-      message: 'El usuario o la contraseña no coinciden',
+      message: 'El usuario o la contraseña son incorrectos.',
       duration: 2000
     });
     toast.present();
