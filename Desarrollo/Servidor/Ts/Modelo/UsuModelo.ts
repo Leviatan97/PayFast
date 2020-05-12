@@ -79,8 +79,16 @@ export default class usuModel {
 
     }
 
-    private ingresar(){
-
+    public ingresar(correo : string, contrasena : string){
+        return new Promise(async (resolve, reject)=>{
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_c = '${correo}' AND us_ca = '${contrasena}'`,(error: any,result :any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
     }
 }
 

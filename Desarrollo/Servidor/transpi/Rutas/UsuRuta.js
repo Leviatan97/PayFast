@@ -12,6 +12,7 @@ class usuRuta {
         this.usuValidar();
         this.usuCorreo();
         this.usuNumeroDoc();
+        this.Ingresar();
     }
     Registro() {
         this.routes.route('/Registro').post(UsuControlador_1.default.Registro);
@@ -24,6 +25,9 @@ class usuRuta {
     }
     usuNumeroDoc() {
         this.routes.route('/numeroDoc').post(UsuControlador_1.default.validarNumeroDoc);
+    }
+    Ingresar() {
+        this.routes.route('/login').post(UsuControlador_1.default.Ingresar);
     }
     getRoutes() {
         return this.routes;

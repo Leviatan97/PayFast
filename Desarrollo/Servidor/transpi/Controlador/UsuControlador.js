@@ -20,7 +20,6 @@ class usuControlador {
             let datos = req.body;
             let resultado;
             let valor;
-            let val;
             try {
                 const usuarioModelo = new UsuModelo_1.default();
                 resultado = yield usuarioModelo.validarNumeroDoc(datos.us_nd);
@@ -79,8 +78,22 @@ class usuControlador {
     Actualizar(req, res, fun) {
     }
     Ingresar(req, res, fun) {
-        let datos = req.body;
-        res.status(200).json(datos);
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            let result;
+            let valor;
+            try {
+                const usuarioModelo = new UsuModelo_1.default();
+                result = yield usuarioModelo.ingresar(datos.us_c, datos.us_ca);
+                valor = result.length;
+                res.status(200).json({
+                    val: valor
+                });
+            }
+            catch (error) {
+                res.status(200).json(error);
+            }
+        });
     }
 }
 const UsuControlador = new usuControlador();

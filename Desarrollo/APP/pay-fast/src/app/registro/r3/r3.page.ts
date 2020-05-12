@@ -21,7 +21,6 @@ export class R3Page implements OnInit {
 
   constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService, private toastController:ToastController) {
       this.usu1 = this.usuario.getusuario()
-      console.log(this.usu1)
    }
    
   ngOnInit() {
@@ -70,6 +69,7 @@ export class R3Page implements OnInit {
         this.router.navigate(['/tutorial/home-tut'])
         result = await this.PromesaUsuRegistrar(this.usu1)
         result2 = await this.PromesaTarjeRegistrar(tarjeta)
+        console.log(result)
       }else{
         this.presentToast(); 
       }
