@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, MenuController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 
 @Component({
@@ -16,7 +16,15 @@ export class R1Page implements OnInit {
   private fecha:String;
   private tdocumento:String;
 
-  constructor(private router : Router, private ususerv : UsuarioService, private toastController:ToastController) { }
+  constructor(
+    private router : Router, 
+    private ususerv : UsuarioService, 
+    private toastController:ToastController,
+    private menu: MenuController
+  ) 
+  {
+    this.menu.enable(false)
+  }
 
   ngOnInit() {
   }

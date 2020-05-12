@@ -8,6 +8,7 @@ import { HistorialPageRoutingModule } from './historial-routing.module';
 
 import { HistorialPage } from './historial.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
+import { InicioPageModule } from '../inicio.module';
 
 @NgModule({
   imports: [

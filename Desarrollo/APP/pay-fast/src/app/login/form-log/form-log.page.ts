@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../Servicios/usuario.service'
 import md5 from 'md5'
-import { ToastController } from '@ionic/angular';
+import { ToastController, MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -18,13 +18,15 @@ export class FormLogPage implements OnInit {
   constructor(
     private router: Router,
     private usuarioservice: UsuarioService,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private menu: MenuController
   )
   {
-
+    this.menu.enable(false)
   }
 
   ngOnInit() {
+    
   }
 
   private PromesaUsuValidar(datos : any){
