@@ -15,7 +15,7 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     background-color: rgba(0, 0, 0, .27) ;
     border-radius: 17px;
     width: 84%;
-    height: 48%;
+    height: 57%;
     margin-left: 8%;
     margin-right: 8%;
 }
@@ -119,4 +119,8 @@ ion-item{
 ion-input{
     --placeholder-color: white;
     --placeholder-opacity: 1;
+}
+h5{
+    margin: 10px 30px 15px 30px;
+    color: #fff;
 }

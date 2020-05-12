@@ -1,5 +1,7 @@
 $text-input-placeholder-color: rgba(255, 255, 255);
-    
+ion-content{
+    --background: #fff6e0;
+}
 .opacidad{
     background-color: rgba(0, 0, 0, .27) ;
     border-radius: 17px;
@@ -50,16 +52,22 @@ ion-slide{
     display: block;
 }
 .slide-img{
-    padding: 12%;
+    margin: 12%;
     
 }
 h3{
     font-weight: lighter;
     font-size: 15px;
     text-align: justify;
+    color: #ffff;
 }
 ion-slides{
     --bullet-background: #75736d;
-    --bullet-background-active:black;
-
+    --bullet-background-active:#15146a;
+}
+ion-label{
+    color: #6a68f1;
+    text-decoration: underline #6a68f1;
+    background-image: none;
+    margin: 0% 38% 0% 43%;
 }

@@ -8,6 +8,7 @@
     </button>
     <div class="opacidad">
       <div class="inputs">
+        <h5>Ingresa tus Datos Personales</h5>
         <ion-item>
           <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre"></ion-input>
         </ion-item>
@@ -17,9 +18,6 @@
         <ion-item>
           <ion-input type="number" placeholder="NÚMERO DE TARJETA" [(ngModel)]="this.tnumero"></ion-input>
         </ion-item>
-        <!-- <ion-item>
-          <ion-input type="date" placeholder="FECHA DE VENCIMIENTO (MM/AA)" [(ngModel)]="this.tfvencimiento"></ion-input>
-        </ion-item> -->
         <ion-item>
           <ion-label>FECHA DE VENCIMIENTO</ion-label>
           <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>

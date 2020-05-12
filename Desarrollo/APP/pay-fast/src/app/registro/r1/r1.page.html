@@ -8,15 +8,15 @@
     </button>
     <div class="opacidad">
       <div class="inputs">
+        
+          <h5>Ingresa tus Datos Personales</h5>
+        
         <ion-item>
           <ion-input type="text" placeholder="NOMBRE" [(ngModel)]="this.nombre"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
         </ion-item>
-        <!-- <ion-item>
-          <ion-input type="date" placeholder="FECHA DE NACIMIENTO" [(ngModel)]="this.fnacimiento"></ion-input>
-        </ion-item> -->
         <ion-item>
           <ion-label position="floating">FECHA DE NACIMIENTO</ion-label>
           <ion-datetime displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" [(ngModel)]="this.fnacimiento"></ion-datetime>
