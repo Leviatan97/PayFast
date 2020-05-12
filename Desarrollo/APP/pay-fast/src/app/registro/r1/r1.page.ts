@@ -23,10 +23,10 @@ export class R1Page implements OnInit {
   
   private Registro(){
     const usuario={
-      nombre:this.nombre,
-      apellido:this.apellido,
-      fnacimiento:this.fnacimiento,
-      tdocumento:this.tdocumento
+      us_n:this.nombre,
+      us_a:this.apellido,
+      us_fn:this.fnacimiento,
+      us_td:this.tdocumento
     }
     
     try{

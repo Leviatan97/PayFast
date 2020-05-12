@@ -11,14 +11,12 @@ class usuControlador {
         let datos : Usuario = req.body
         let resultado : any
         let valor : any
+        let val : string
 
         try {
 
             const usuarioModelo : usuModel = new usuModel()
-
-            resultado = await usuarioModelo.validarNumeroDoc(
-                datos.us_nd
-            )
+            resultado = await usuarioModelo.validarNumeroDoc(datos.us_nd)
             valor = resultado.length
 
             res.status(200).json({

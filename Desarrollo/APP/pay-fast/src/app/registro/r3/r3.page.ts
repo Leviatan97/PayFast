@@ -21,6 +21,7 @@ export class R3Page implements OnInit {
 
   constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService, private toastController:ToastController) {
       this.usu1 = this.usuario.getusuario()
+      console.log(this.usu1)
    }
    
   ngOnInit() {

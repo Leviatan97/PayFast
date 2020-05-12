@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavParams } from '@ionic/angular/directives/navigation/nav-params';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { NavController, ToastController } from '@ionic/angular';
+import md5 from 'md5';
 
 @Component({
   selector: 'app-r2',
@@ -26,48 +27,56 @@ export class R2Page implements OnInit {
 
   ngOnInit() {
   }
-  private async Registro(){
-    const usu = {
-      nombre : this.usuario.nombre,
-      apellido : this.usuario.apellido,
-      fnacimiento : this.usuario.fnacimiento,
-      tdocumento : this.usuario.tdocumento,
-      ndocumento : String(this.ndocumento),
-      email : this.email,
-      contrasena : this.contrasena
-    }
-    
-    
+  private async Registro(){  
+      
     let correo : any = null;
-    let result: any = null;
     let numeroDoc: any = null;
+    let uscor: any = null 
+    let Numdoc: any = null
 
     try{
       if(this.ndocumento != undefined && this.email != undefined && this.contrasena != undefined  && this.ndocumento != "" && this.email != "" &&  this.contrasena != "")
       {
         if(this.contrasena == this.contrasena2){
-          correo = await this.PromesaCorreo(this.email)
-          numeroDoc = await this.PromesaTCedula(String(this.ndocumento))
 
-          console.log(correo)
-          console.log(numeroDoc)
-          // if(correo.result.val == 0){
+          uscor = {
+            us_c : String(this.email)
+          }
 
-          //     numeroDoc = this.PromesaTCedula(this.ndocumento)
+          Numdoc = {
+            us_nd : String(this.ndocumento)
+          }
 
-          //     if(numeroDoc.result.val == 0){
+          correo = await this.PromesaCorreo(uscor)
+          numeroDoc = await this.PromesaTCedula(Numdoc)
+          
+          correo = correo.result
+          numeroDoc = numeroDoc.result
+          
+          if(numeroDoc.val == 0){
 
-          //         this.router.navigate(['/registro/r3'])
-          //         this.ususer.setusuario(usu)
-          //         console.log('ok')
+              if(correo.val == 0){
+                const contraenc = md5(this.contrasena)
+                const usu = {
+                  us_n : this.usuario.us_n,
+                  us_a : this.usuario.us_a,
+                  us_fn : this.usuario.us_fn,
+                  us_td : this.usuario.us_td,
+                  us_nd : String(this.ndocumento),
+                  us_c : this.email,
+                  us_ca : contraenc
+                }
 
-          //     }else{
-          //       this.ValidarCedula()
-          //     }
+                  this.router.navigate(['/registro/r3'])
+                  this.ususer.setusuario(usu)
+
+              }else{
+                this.validarCorreo()
+              }
               
-          // }else{
-          //   this.validarCorreo()
-          // }
+          }else{
+            this.ValidarCedula()
+          }
           
         }else{
           this.presentToastC();
@@ -79,12 +88,7 @@ export class R2Page implements OnInit {
       }
     }catch(error){
       console.log(error);
-    }
-    console.log(result);
-    
-    
-
-
+    } 
   }
 
   private PromesaCorreo(usu : any){
@@ -149,7 +153,7 @@ export class R2Page implements OnInit {
   async ValidarCedula() 
   {
     const toast = await this.toastController.create({
-      message: 'Este numero de Documento ya esta',
+      message: 'El numero de documento ya esta registrado',
       duration: 2000
     });
     toast.present();

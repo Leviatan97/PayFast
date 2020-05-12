@@ -20,6 +20,7 @@ class usuControlador {
             let datos = req.body;
             let resultado;
             let valor;
+            let val;
             try {
                 const usuarioModelo = new UsuModelo_1.default();
                 resultado = yield usuarioModelo.validarNumeroDoc(datos.us_nd);
