@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { TarjetaService } from 'src/app/Servicios/tarjeta.service';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-r3',
@@ -19,9 +19,17 @@ export class R3Page implements OnInit {
   
   private usu1:any
 
-  constructor(private router : Router, private usuario:UsuarioService, private tarjetaServicio:TarjetaService, private toastController:ToastController) {
+  constructor(
+    private router : Router, 
+    private usuario:UsuarioService, 
+    private tarjetaServicio:TarjetaService, 
+    private toastController:ToastController,
+    private menu : MenuController
+  ) 
+  {
       this.usu1 = this.usuario.getusuario()
-   }
+      this.menu.enable(false)
+  }
    
   ngOnInit() {
   }
