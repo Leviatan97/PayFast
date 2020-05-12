@@ -12,7 +12,7 @@ export class I1Page implements OnInit {
   componentes: Componente[] = [];
 
   constructor(private menu: MenuController) { 
-    this.menu.enable(true)
+    this.openFirst
   }
 
   openFirst() {
