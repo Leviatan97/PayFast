@@ -5,10 +5,32 @@
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo">Datos Personales</ion-title>
+    <ion-title class="titulo">Metodo de Pago</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card-content>
+    <ion-item>
+          <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre"></ion-input>
+        </ion-item>
 
+        <ion-item>
+          <ion-input type="text" placeholder="APELLIDOS" [(ngModel)]="this.tapellido"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" placeholder="NÚMERO DE TARJETA" [(ngModel)]="this.tnumero"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>FECHA DE VENCIMIENTO</ion-label>
+          <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv"></ion-input>
+        </ion-item>
+
+  </ion-card-content>
 </ion-content>

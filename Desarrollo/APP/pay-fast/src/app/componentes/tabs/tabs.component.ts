@@ -20,6 +20,10 @@ export class TabsComponent implements OnInit {
     this.router.navigate(['/inicio/historial'])
   }
 
+  private perfil(){
+    this.router.navigate(['/inicio/perfil'])
+  }
+
   private tutorial(){
     this.router.navigate(['/tutorial/home-tut'])
   }

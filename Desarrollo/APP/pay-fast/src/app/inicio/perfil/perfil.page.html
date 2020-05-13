@@ -7,11 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<div>
-  <img src="" alt="">
-</div>
+
 
 <ion-content>
+  <div class="perfil">
+    <button slot="start">
+      <img src="../../../assets/icon/perfil.svg" size="large">
+      <!-- <ion-icon src="../../../assets/icon/perfil.svg" size="large"></ion-icon> -->
+    </button>
+  </div>
   <div>
     <ion-card>
       <ion-item>
@@ -27,9 +31,9 @@
       <ion-item>
         <ion-card-content (click)="abrirModalT()">
           <img src="" alt="">
-          Tarjeta
+          Metodo de Pago
         </ion-card-content>
-        <button slot="end" (click)="abrirModalA()"><ion-icon src="../../../assets/icon/etiqueta.svg" size="large"></ion-icon></button>
+        <button slot="end" (click)="abrirModalA()"><ion-icon name="add" size="large"></ion-icon></button>
       </ion-item>
     </ion-card>
   </div>
