@@ -56,7 +56,9 @@ export class R1Page implements OnInit {
     this.router.navigate(['login/form-log'])
   }
 
-
+  private Back(){
+    this.router.navigate(['/'])
+  }
   
 
   async presentToast() 

@@ -8,6 +8,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const UsuRuta_1 = __importDefault(require("./Rutas/UsuRuta"));
 const TarjeRuta_1 = __importDefault(require("./Rutas/TarjeRuta"));
+const SuperMerRutas_1 = __importDefault(require("./Rutas/SuperMerRutas"));
 class main {
     constructor() {
         this.app = express_1.default();
@@ -23,6 +24,8 @@ class main {
     Rutas() {
         this.app.use(UsuRuta_1.default);
         this.app.use(TarjeRuta_1.default);
+        this.app.use(SuperMerRutas_1.default);
+        this.app.use(express_1.default.static('iconos-supermercados'));
     }
     configuracionDePuertos() {
         this.app.set('port', 5000);

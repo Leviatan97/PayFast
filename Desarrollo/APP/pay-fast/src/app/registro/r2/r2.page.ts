@@ -129,6 +129,10 @@ export class R2Page implements OnInit {
     this.router.navigate(['login/form-log'])
   }
 
+  private Back(){
+    this.router.navigate(['registro/r1'])
+  }
+
   async presentToast() 
   {
     const toast = await this.toastController.create({
