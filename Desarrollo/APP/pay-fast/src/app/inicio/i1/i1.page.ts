@@ -11,7 +11,9 @@ export class I1Page implements OnInit {
 
   componentes: Componente[] = [];
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController) { 
+    this.openFirst
+  }
 
   openFirst() {
     this.menu.enable(true, 'first');

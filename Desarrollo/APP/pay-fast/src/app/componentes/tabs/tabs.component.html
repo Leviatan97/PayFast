@@ -1,15 +1,15 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button>
+    <ion-tab-button (click)="inicio()">
       <ion-icon src="../../../assets/icon/home.svg" size="large"> </ion-icon>
     </ion-tab-button>
-    <ion-tab-button>
+    <ion-tab-button (click)=" historial()">
       <ion-icon src="../../../assets/icon/carrito.svg" size="large"> </ion-icon>
     </ion-tab-button>
     <ion-tab-button>
       <ion-icon src="../../../assets/icon/usuario.svg" size="large"> </ion-icon>
     </ion-tab-button>
-    <ion-tab-button>
+    <ion-tab-button (click)="tutorial()">
       <ion-icon src="../../../assets/icon/informacion.svg" size="large"> </ion-icon>
     </ion-tab-button>
   </ion-tab-bar>

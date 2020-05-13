@@ -1,11 +1,9 @@
-<app-menu></app-menu>
+
 <ion-header>
   <ion-toolbar>
-    <button slot="start" class="requerido">
-      <button (click)="menuAbrir()" class="boton">
-        <ion-icon slot="icon-only" name="menu" size="large"></ion-icon>
-      </button>
-    </button>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" menuId="first" contentId="main"></ion-menu-button>
+    </ion-buttons>
     <ion-searchbar placeholder="Buscar..."><ion-icon></ion-icon></ion-searchbar>
   </ion-toolbar>
 </ion-header>

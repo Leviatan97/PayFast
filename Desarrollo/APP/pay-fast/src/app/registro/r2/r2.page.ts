@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavParams } from '@ionic/angular/directives/navigation/nav-params';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, MenuController } from '@ionic/angular';
 import md5 from 'md5';
 
 @Component({
@@ -20,9 +20,15 @@ export class R2Page implements OnInit {
   private contrasena2:String;
   
 
-  constructor(private router : Router, private ususer : UsuarioService, private toastController:ToastController) {
+  constructor(
+    private router : Router, 
+    private ususer : UsuarioService, 
+    private toastController:ToastController,
+    private menu : MenuController
+  ) 
+  {
     this.usuario = ususer.getusuario()
-    
+    this.menu.enable(false)    
   }
 
   ngOnInit() {
