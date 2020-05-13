@@ -8,7 +8,7 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    padding-top: 14%;
+    padding-top: 1%;
 }
   
 .opacidad{
@@ -124,4 +124,9 @@ ion-input, ion-datetime{
 h5{
     margin: 10px 30px 15px 30px;
     color: #fff;
+}
+.header{
+    background-color: #fff6e0;
+    color: #171762;
+    
 }

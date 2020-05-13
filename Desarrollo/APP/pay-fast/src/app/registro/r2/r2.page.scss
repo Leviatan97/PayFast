@@ -8,7 +8,7 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    padding-top: 14%;
+    padding-top: 1%;
 }
     
 .opacidad{
@@ -123,4 +123,19 @@ ion-input{
 h5{
     margin: 10px 30px 15px 30px;
     color: #fff;
+}
+.back{
+    padding: 0% 0% 5% 3%;
+}
+.btn-back
+{
+    background-color: #fff6e000;
+    font-family: Arial;
+    font-size: larger;
+    color: #171762;
+}
+.header{
+    background-color: #fff6e0;
+    color: #171762;
+    
 }

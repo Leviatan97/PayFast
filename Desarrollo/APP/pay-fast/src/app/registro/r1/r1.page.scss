@@ -8,7 +8,7 @@ $text-input-placeholder-color: rgba(255, 255, 255);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    padding-top: 14%;
+    padding-top: 1%;
 }
     
 .opacidad{
@@ -116,11 +116,28 @@ ion-item{
     margin-left: 16%;
     font-weight: bold;
 }
-ion-input{
+ion-input,  ion-datetime{
     --placeholder-color: white;
     --placeholder-opacity: 1;
+    padding: 0%;
+    
 }
 h5{
     margin: 10px 30px 15px 30px;
     color: #fff;
+}
+.back{
+    padding: 0% 0% 5% 3%;
+}
+.btn-back
+{
+    background-color: #fff6e000;
+    font-family: Arial;
+    font-size: larger;
+    color: #171762;
+}
+.header{
+    background-color: #fff6e0;
+    color: #171762;
+    
 }
