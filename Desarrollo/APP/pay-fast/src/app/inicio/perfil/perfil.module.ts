@@ -10,10 +10,17 @@ import { PerfilPage } from './perfil.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
 import { PerfilmodalPage } from '../perfilmodal/perfilmodal.page';
 import { PerfilmodalPageModule } from '../perfilmodal/perfilmodal.module';
+import { PerfiltmodalPageModule } from '../perfiltmodal/perfiltmodal.module';
+import { PerfilatmodalPage } from '../perfilatmodal/perfilatmodal.page';
+import { PerfilatmodalPageModule } from '../perfilatmodal/perfilatmodal.module';
+import { PerfiltmodalPage } from '../perfiltmodal/perfiltmodal.page';
 
 @NgModule({
   entryComponents:[
-    PerfilmodalPage
+    PerfilmodalPage,
+    PerfiltmodalPage,
+    PerfilatmodalPage
+    
   ],
   imports: [
     CommonModule,
@@ -21,7 +28,11 @@ import { PerfilmodalPageModule } from '../perfilmodal/perfilmodal.module';
     IonicModule,
     PerfilPageRoutingModule,
     ComponentesModule,
-    PerfilmodalPageModule
+    PerfilmodalPageModule,
+    PerfiltmodalPageModule,
+    PerfilatmodalPageModule
+
+    
   ],
   declarations: [PerfilPage]
 })

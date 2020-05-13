@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PerfilmodalPage } from '../perfilmodal/perfilmodal.page';
+import { PerfiltmodalPage } from '../perfiltmodal/perfiltmodal.page';
+import { PerfilatmodalPage } from '../perfilatmodal/perfilatmodal.page';
 
 @Component({
   selector: 'app-perfil',
@@ -17,6 +19,28 @@ export class PerfilPage implements OnInit {
   async abrirModal(){
     const modal = await this.modalCtrl.create({
       component: PerfilmodalPage,
+      componentProps: {
+        Nombre: 'Cesar',
+        Apellido: 'Gonzalez'
+      }
+    })
+    await modal.present();
+  }
+
+  async abrirModalT(){
+    const modal = await this.modalCtrl.create({
+      component: PerfiltmodalPage,
+      componentProps: {
+        Nombre: 'Cesar',
+        Apellido: 'Gonzalez'
+      }
+    })
+    await modal.present();
+  }
+
+  async abrirModalA(){
+    const modal = await this.modalCtrl.create({
+      component: PerfilatmodalPage,
       componentProps: {
         Nombre: 'Cesar',
         Apellido: 'Gonzalez'

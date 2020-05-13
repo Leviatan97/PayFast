@@ -1,14 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons>
-      <ion-button>
+    <ion-buttons slot="start">
+      <ion-button (click)="Salir()">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Datos Personales</ion-title>
+    <ion-title class="titulo">Datos Personales</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card-content>
+    <ion-item>
+      <ion-input type="text" placeholder="NOMBRE" [(ngModel)]="this.nombre" disabled=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime placeholder="FECHA DE NACIMIENTO" displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" [(ngModel)]="this.fnacimiento"></ion-datetime>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
+      <ion-select ok-text="Aceptar" cancel-text="Cancelar" [(ngModel)]="this.tdocumento">
+        <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
+        <ion-select-option value="CE">Cedula extranjera</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" [(ngModel)]="this.ndocumento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="CORREO ELECTRONICO" [(ngModel)]="this.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasena2"></ion-input>
+    </ion-item>
+
+  </ion-card-content>
 </ion-content>

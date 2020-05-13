@@ -19,7 +19,15 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },  {
+    path: 'perfiltmodal',
+    loadChildren: () => import('./perfiltmodal/perfiltmodal.module').then( m => m.PerfiltmodalPageModule)
+  },
+  {
+    path: 'perfilatmodal',
+    loadChildren: () => import('./perfilatmodal/perfilatmodal.module').then( m => m.PerfilatmodalPageModule)
   }
+
   
 
 ];
