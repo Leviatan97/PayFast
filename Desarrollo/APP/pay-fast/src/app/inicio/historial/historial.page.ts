@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-historial',
@@ -8,7 +9,12 @@ import { MenuController } from '@ionic/angular';
 })
 export class HistorialPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  constructor
+  (
+    private menu: MenuController,
+    private router: Router
+  ) 
+  { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -24,6 +30,10 @@ export class HistorialPage implements OnInit {
 
   private menuAbrir(){
     this.menu.toggle();
+  }
+
+  private prueba(){
+    this.router.navigate(['inicio/historial/detalles'])
   }
 
 }
