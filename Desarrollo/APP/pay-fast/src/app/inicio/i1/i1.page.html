@@ -9,11 +9,10 @@
 </ion-header>
 <ion-content>
   <div>
-    <ion-card>
+    <ion-card *ngFor="let sup of this.supermercado">
       <ion-item>
         <ion-card-content (click)="prueba()">
-          <img src="" alt="">
-          Nombre y logo del supermercado.
+          <img [src]="sup.smo_im" alt="">
         </ion-card-content>
         <button slot="end"><ion-icon src="../../../assets/icon/etiqueta.svg" size="large"></ion-icon></button>
       </ion-item>

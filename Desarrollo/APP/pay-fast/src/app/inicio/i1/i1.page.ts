@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Componente } from 'src/app/interfaces/interfaces';
+import { SupermercadoService } from '../../Servicios/supermercado.service';
 
 @Component({
   selector: 'app-i1',
@@ -9,10 +10,12 @@ import { Componente } from 'src/app/interfaces/interfaces';
 })
 export class I1Page implements OnInit {
 
+  private supermercado : any;
   componentes: Componente[] = [];
 
-  constructor(private menu: MenuController) { 
-    this.openFirst
+  constructor(private menu: MenuController, private superService : SupermercadoService) { 
+    this.menu.enable(true)
+    this.verSupermercado()
   }
 
   openFirst() {
@@ -27,8 +30,29 @@ export class I1Page implements OnInit {
   ngOnInit() {
   }
 
-  private menuAbrir(){
-    this.menu.toggle();
+  private promesaSupermercado(){
+    return new Promise((resolve,reject)=>{
+      this.superService.verSuperMercado().subscribe((result:any)=>{
+        resolve({
+          result,resultado:'ok'
+        })
+      },(error:object)=>{
+        reject({
+          error,resultado:'error'
+        })
+      });
+    })
+  }
+
+  private async verSupermercado(){
+    try {
+      this.supermercado = await this.promesaSupermercado()
+      this.supermercado = this.supermercado.result
+      this.supermercado = this.supermercado.res
+      return this.supermercado
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   private prueba(){
