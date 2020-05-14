@@ -61,6 +61,7 @@ export class FormLogPage implements OnInit {
           }
           result = await this.PromesaUsuValidar(datosUsuario)
           result = result.result
+          this.usuarioservice.setusuarioEdit(result.resultado)
           if(result.val == 1){
             this.router.navigate(['/inicio/i1'])
           }else{

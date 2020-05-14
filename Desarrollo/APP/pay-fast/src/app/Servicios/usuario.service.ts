@@ -6,31 +6,40 @@ import { Componente } from '../interfaces/interfaces';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private usuario1:any
+  private usuario1: any;
+  private usuario: any;
 
   constructor(private http: HttpClient) { }
 
-  public validarUsuario(datos:any){
+  public validarUsuario(datos: any){
     return this.http.post('http://localhost:5000/validar',datos);
   }
 
   public getusuario(){
-    return this.usuario1
+    return this.usuario1;
   }
 
-  public setusuario(datos:any){
-    this.usuario1 = datos
+  public setusuario(datos: any){
+    this.usuario1 = datos;
   }
 
-  public registrarUsuario(datos:any){
+  public getusuarioEdit(){
+    return this.usuario;
+  }
+
+  public setusuarioEdit(datos: any){
+    this.usuario = datos;
+  }
+
+  public registrarUsuario(datos: any){
     return this.http.post('http://localhost:5000/Registro',datos);
   }
   
-  public validarCorreo(datos : any){
+  public validarCorreo(datos: any){
     return this.http.post('http://localhost:5000/correo',datos);
   }
 
-  public validarNumeroDoc(datos : any){
+  public validarNumeroDoc(datos: any){
     return this.http.post('http://localhost:5000/numeroDoc',datos);
   }
 

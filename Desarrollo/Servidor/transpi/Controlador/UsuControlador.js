@@ -87,7 +87,8 @@ class usuControlador {
                 result = yield usuarioModelo.ingresar(datos.us_c, datos.us_ca);
                 valor = result.length;
                 res.status(200).json({
-                    val: valor
+                    val: valor,
+                    resultado: result
                 });
             }
             catch (error) {
