@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="Salir()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo">Cambiar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-input type="text" placeholder="CONTRASEÑA ACTUAL" [(ngModel)]="this.contrasena"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="NUEVA CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
+    </ion-item>
+  </ion-card-content>
+
+</ion-content>
