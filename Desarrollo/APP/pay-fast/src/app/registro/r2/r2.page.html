@@ -1,42 +1,37 @@
 
 <ion-header class="ion-no-border"> 
   <div class="header" >
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons slot="start" >
+      <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
   </div>
 </ion-header>
 
-<ion-content>
-  <div class="Fondo">
-    <button class="btn-ingresar" (click)="Login()">
-      Ingresar
-    </button>
-    <button class="btn-registrar" (click)="registrarse()">
-      Registrarse
-    </button>
-    <div class="opacidad">
-      <div class="inputs">
-        <h5>Ingresa tus Datos Personales</h5>
-        <ion-item>
+<ion-content class="background">
+
+  <app-botones-lr></app-botones-lr>
+
+  <ion-card class="fondo">
+    <ion-card-content>
+        <h2>Ingresa tus Datos Personales</h2>
+        <ion-item class="log">
           <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" [(ngModel)]="this.ndocumento"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="email" placeholder="CORREO ELECTRONICO" [(ngModel)]="this.email"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="password" placeholder="CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasena2"></ion-input>
         </ion-item>
-      </div>
-      <button class="btn-iniciarsesion" (click)="Registro()">
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
 
-    </div>
 
-  </div>
-  
+        <ion-button color="primary" expand="block" class="margen" (click)="Registro()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
 </ion-content>
