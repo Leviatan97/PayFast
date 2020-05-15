@@ -1,22 +1,22 @@
 [
     {
-        "icon": "../../../assets/icon/pago.svg",
+        "icon": "wallet",
         "name": "Metodos de Pago",
         "redirectTo": ""
     },
     {
-        "icon": "../../../assets/icon/ayuda.svg",
+        "icon": "help-circle",
         "name": "Ayuda al Usuario",
         "redirectTo": ""
     },
     {
-        "icon": "../../../assets/icon/compartir.svg",
+        "icon": "share-social",
         "name": "Compartir",
         "redirectTo": ""
     }
     ,
     {
-        "icon": "../../../assets/icon/acerca-de.svg",
+        "icon": "chatbox",
         "name": "Acerca de la Aplicacion",
         "redirectTo": ""
     }

@@ -1,14 +1,14 @@
 <ion-menu side="start" menuId="first" contentId="main">
   <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Pay Fast</ion-title>
+    <ion-toolbar color="light">
+      <ion-title color="" >Pay Fast</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
       <ion-menu-toggle *ngFor="let co of componentes">
         <ion-item [routerLink]="co.redirectTo">
-          <ion-icon [src]="co.icon" slot="end" size="medium"></ion-icon>
+          <ion-icon [name]="co.icon" slot="end" size="large" color="light"></ion-icon>
           <label>{{co.name}}</label>
         </ion-item>
       </ion-menu-toggle>
