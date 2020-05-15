@@ -1,5 +1,7 @@
 {
   "name": "Pay Fast",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'perfilatmodal',
     loadChildren: () => import('./perfilatmodal/perfilatmodal.module').then( m => m.PerfilatmodalPageModule)
+  },
+  {
+    path: 'perfilcmodal',
+    loadChildren: () => import('./perfilcmodal/perfilcmodal.module').then( m => m.PerfilcmodalPageModule)
+  },
+  {
+    path: 'ofertas',
+    loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
   }
 
   
