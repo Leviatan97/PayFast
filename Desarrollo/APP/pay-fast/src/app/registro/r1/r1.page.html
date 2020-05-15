@@ -1,47 +1,30 @@
 
-  <ion-header class="ion-no-border"> 
-    <div class="header" >
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-    </div>
-  </ion-header>
-
-<ion-content>
-  
-  <div class="Fondo">
-
-    <!-- <div class="back">
-      <button slot="start" (click)="Back()" class="btn-back">
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
-    </div> -->
-
+<ion-content class="background">
     
-      <button class="btn-ingresar" (click)="Login()">
-        Ingresar
-      </button>
-      <button class="btn-registrar" (click)="registrarse()">
-        Registrarse
-      </button>
+  <ion-button class="btn-ingresar" color="secondary" (click)="Login()">
+    Ingresar
+  </ion-button>
+  <ion-button class="btn-registrar" color="primary" (click)="registrarse()">
+    Registrarse
+  </ion-button>
     
 
-    <div class="opacidad">
-      <div class="inputs">
+    <ion-card class="fondo">
+      <ion-card-content>
         
-          <h5>Ingresa tus Datos Personales</h5>
+          <h2>Ingresa tus Datos Personales</h2>
         
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="text" placeholder="NOMBRE" [(ngModel)]="this.nombre"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-datetime placeholder="FECHA DE NACIMIENTO" displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" [(ngModel)]="this.fnacimiento"></ion-datetime>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="log">
           <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
           <ion-select ok-text="Aceptar" cancel-text="Cancelar" [(ngModel)]="this.tdocumento">
             <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
@@ -49,13 +32,10 @@
           </ion-select>
         </ion-item>
 
-      </div>
-      <button class="btn-iniciarsesion" (click)="Registro()">
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+        <ion-button color="primary" expand="block" class="margen" (click)="Registro()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
 
-    </div>
-
-  </div>
-  
+      </ion-card-content>
+    </ion-card>
 </ion-content>

@@ -4,6 +4,7 @@ import {MenuComponent} from './menu/menu.component'
 import { IonicModule } from '@ionic/angular';
 import { TabsComponent } from './tabs/tabs.component';
 import { Router, RouterModule } from '@angular/router';
+import { BotonesLRComponent } from './botones-lr/botones-lr.component';
 
 
 
@@ -11,11 +12,13 @@ import { Router, RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     MenuComponent,
-    TabsComponent
+    TabsComponent,
+    BotonesLRComponent
   ],
   exports: [
     MenuComponent,
-    TabsComponent
+    TabsComponent,
+    BotonesLRComponent
   ],
   imports: [
     CommonModule,

@@ -6,40 +6,34 @@
   </div>
 </ion-header>
 
-<ion-content>
-  <div class="Fondo">
-    <button class="btn-ingresar" (click)="Login()">
-      Ingresar
-    </button>
-    <button class="btn-registrar" (click)="registrarse()">
-      Registrarse
-    </button>
-    <div class="opacidad">
-      <div class="inputs">
-        <h5>Ingresa tus Datos Personales</h5>
-        <ion-item>
+<ion-content class="background">
+  
+  <app-botones-lr></app-botones-lr>
+
+  <ion-card class="fondo">
+    <ion-card-content>
+        <h2>Ingresa tus Datos Personales</h2>
+        <ion-item class="log">
           <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre"></ion-input>
-        </ion-item>
-        <ion-item>
+        </ion-item >
+        <ion-item class="log">
           <ion-input type="text" placeholder="APELLIDOS" [(ngModel)]="this.tapellido"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="number" placeholder="NÚMERO DE TARJETA" [(ngModel)]="this.tnumero"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-label>FECHA DE VENCIMIENTO</ion-label>
           <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>
         </ion-item>
-        <ion-item>
+        <ion-item class="log">
           <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv"></ion-input>
         </ion-item>
-      </div>
-      <button class="btn-iniciarsesion" (click)="Inicio()">
+
+      <ion-button color="primary" expand="block" class="margen" (click)="Inicio()">
         <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+      </ion-button>
 
-    </div>
-
-  </div>
-  
+    </ion-card-content>
+    </ion-card>
 </ion-content>
