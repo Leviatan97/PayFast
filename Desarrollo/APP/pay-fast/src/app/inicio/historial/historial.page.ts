@@ -32,7 +32,7 @@ export class HistorialPage implements OnInit {
     this.menu.toggle();
   }
 
-  private prueba(){
+  private detalles(){
     this.router.navigate(['inicio/historial/detalles'])
   }
 
