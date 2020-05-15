@@ -9,6 +9,6 @@ export class SupermercadoService {
   constructor(private http : HttpClient) { }
 
   public verSuperMercado(){
-    return this.http.get('http://localhost:5000/supermercado')
+    return this.http.get('http://192.168.0.20:5000/supermercado')
   }
 }

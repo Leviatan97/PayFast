@@ -14,12 +14,15 @@ import { PerfiltmodalPageModule } from '../perfiltmodal/perfiltmodal.module';
 import { PerfilatmodalPage } from '../perfilatmodal/perfilatmodal.page';
 import { PerfilatmodalPageModule } from '../perfilatmodal/perfilatmodal.module';
 import { PerfiltmodalPage } from '../perfiltmodal/perfiltmodal.page';
+import { PerfilcmodalPage } from '../perfilcmodal/perfilcmodal.page';
+import { PerfilcmodalPageModule } from '../perfilcmodal/perfilcmodal.module';
 
 @NgModule({
   entryComponents:[
     PerfilmodalPage,
     PerfiltmodalPage,
-    PerfilatmodalPage
+    PerfilatmodalPage,
+    PerfilcmodalPage
     
   ],
   imports: [
@@ -30,7 +33,8 @@ import { PerfiltmodalPage } from '../perfiltmodal/perfiltmodal.page';
     ComponentesModule,
     PerfilmodalPageModule,
     PerfiltmodalPageModule,
-    PerfilatmodalPageModule
+    PerfilatmodalPageModule,
+    PerfilcmodalPageModule
 
     
   ],
