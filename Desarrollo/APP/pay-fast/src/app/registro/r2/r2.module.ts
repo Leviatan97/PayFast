@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { R2PageRoutingModule } from './r2-routing.module';
 
 import { R2Page } from './r2.page';
+import { ComponentesModule } from 'src/app/componentes/componentes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    R2PageRoutingModule
+    R2PageRoutingModule,
+    ComponentesModule
   ],
   declarations: [R2Page]
 })
