@@ -3,7 +3,13 @@
     <ion-buttons slot="start">
       <ion-menu-button color="primary" menuId="first" contentId="main"></ion-menu-button>
     </ion-buttons>
-   <b><label class="titulo">Historial de compras</label></b>
+    <ion-grid class="titulo">
+      <ion-row>
+        <ion-col>
+          <label>Historial de compras</label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>   
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +21,7 @@
           <label class="fecha">Fecha de la compra</label>
       </ion-row>
       <ion-row>
-        <ion-card (click)="prueba()">
+        <ion-card (click)="detalles()">
           <ion-card-content>
             <ion-grid>
               <ion-row class="supermercado">
