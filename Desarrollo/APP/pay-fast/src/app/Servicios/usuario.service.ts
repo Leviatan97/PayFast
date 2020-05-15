@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   public validarUsuario(datos: any){
-    return this.http.post('http://localhost:5000/validar',datos);
+    return this.http.post('http://192.168.0.20:5000/validar',datos);
   }
 
   public getusuario(){
