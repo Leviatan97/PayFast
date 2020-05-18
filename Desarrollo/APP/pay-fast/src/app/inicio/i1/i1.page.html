@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button color="primary" menuId="first" contentId="main" style="border: 1px solid black; margin: auto;"></ion-menu-button>
+      <ion-menu-button color="light" menuId="first" contentId="main" style="border: 1px solid black; margin: auto;"></ion-menu-button>
     </ion-buttons>
     <ion-searchbar color="dark" placeholder="Buscar..."><ion-icon></ion-icon></ion-searchbar>
   </ion-toolbar>
@@ -12,9 +12,9 @@
     <ion-card *ngFor="let sup of this.supermercado">
       <ion-item>
         <ion-card-content (click)="prueba()">
-          <img [src]="sup.smo_im" alt="">
+          <img [src]="sup.smo_im" alt="" class="logo-sup">
         </ion-card-content>
-        <button slot="end"><ion-icon src="../../../assets/icon/etiqueta.svg" size="large"></ion-icon></button>
+        <button slot="end"><ion-icon name="pricetags" color="light" size="large" class="ofertas"></ion-icon></button>
       </ion-item>
     </ion-card>
   </div>
