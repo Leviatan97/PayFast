@@ -1,22 +1,11 @@
-$text-input-placeholder-color: rgba(255, 255, 255);
-ion-content{
-    --background: #fff6e0;
-}
-.opacidad{
-    background-color: rgba(0, 0, 0, .27) ;
-    border-radius: 17px;
-    width: 84%;
-    height: 55%;
-    margin: 15% 8% 0% 8%;
-}
-
 .inputs{
     padding-top: 3%;
     padding-bottom: 6%;
     margin: 10% 4% 0% 4%;
 }
 
-ion-item{
+
+ion-item.log{
     width: 95%;
     margin-left: 2.5%;
     --highlight-height: 0;
@@ -26,6 +15,7 @@ ion-item{
     font-size: small;
     font-weight: lighter; 
 }
+
 
 .btn-siguiente
 {
@@ -41,12 +31,6 @@ ion-item{
     color: #ffff;
     font-size: x-large;   
 
-}
-
-ion-input, ion-datetime{
-    --placeholder-color: white;
-    --placeholder-opacity: 1;
-    
 }
 ion-slide{
     display: block;
@@ -64,10 +48,94 @@ h3{
 ion-slides{
     --bullet-background: #75736d;
     --bullet-background-active:#15146a;
+    --padding:10% 0% 0% 0%;
 }
 ion-label{
     color: #6a68f1;
-    text-decoration: underline #6a68f1;
     background-image: none;
     margin: 0% 38% 0% 43%;
+}
+
+
+
+
+
+
+
+
+ion-card.fondo {
+    background-color: rgba(0, 0, 0, .27) ;
+    border-radius: 17px;
+    margin-left: 6.9%;
+    margin-right: 6.9%;
+}
+
+
+
+
+
+ion-label.url{
+    margin-top: 3%;
+    --background: transparent;
+    font-family: Arial;
+    color: #ffff;
+    width: 67%;
+    height: 8.5%;
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: small;
+}
+
+
+ion-button.margen {
+    margin: 0% 30% 30% 30%;
+}
+
+
+
+.image{
+    height: 5%;
+    margin-top: -1.5%;
+    margin-left: 1%;
+    position: fixed;
+    font-size: 22px;
+}
+
+.texto{
+    height: 10%;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+ion-img{
+    width: 10%;
+    height: 80%;
+}
+
+.imag{
+    width: 10%;
+    height: 57%;
+}
+
+.imageg{
+    height: 5%;
+    margin-top: -0.4%;
+    margin-left: 2%;
+    position: fixed;
+    font-size: large;
+}
+
+.btn-rec
+{
+    margin-top: 3%;
+    background-color: transparent;
+    font-family: Arial;
+    color: #ffff;
+    width: 67%;
+    height: 8.5%;
+    margin-left: 16%;
+    font-weight: bold;
+}
+swiper-pagination swiper-pagination-bullets{
+    padding-bottom: 50%;
 }

@@ -1,6 +1,6 @@
-<ion-content >
+<ion-content color="warning">
 
-  <div class="Fondo">
+  
 
     <ion-slides pager="true">
 
@@ -8,19 +8,19 @@
 
         <div class="slide-img">
           <img [src]="slide.img">
-        
         </div>
-        <div>
-          <div class="opacidad">
-            <div class="inputs">
-              <h3 [innerHTML]="slide.titulo"></h3>
-            </div>
-          </div>
-          <div [ngStyle]="{'display': slide.txtbtn}" class="inputs">
-            <button  class="btn-siguiente" (click)="Inicio()">
-              <ion-icon name="arrow-forward"></ion-icon>
-            </button>
-          </div>
+
+        <ion-card class="fondo">
+          <ion-card-content>
+            <h3 [innerHTML]="slide.titulo"></h3>
+          </ion-card-content>
+  
+        </ion-card>
+
+        <div [ngStyle]="{'display': slide.txtbtn}">
+          <ion-button color="primary" expand="block" class="margen" (click)="Inicio()">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>  
         </div>
 
       </ion-slide>
@@ -30,7 +30,7 @@
       <ion-label (click)="Inicio()">Omitir</ion-label>
     </ion-footer>
 
-  </div>
+
 </ion-content>
 
 <ion-footer>
