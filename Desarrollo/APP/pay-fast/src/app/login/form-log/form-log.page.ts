@@ -46,7 +46,7 @@ export class FormLogPage implements OnInit {
   
   private async ValidarUsu(){
      
-
+    console.log(this.correo);
     let result: any = null;
 
     try{

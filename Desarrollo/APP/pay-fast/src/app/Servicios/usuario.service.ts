@@ -9,10 +9,10 @@ export class UsuarioService {
   private usuario1: any;
   private usuario: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
 
-  public validarUsuario(datos: any) {
-    return this.http.post('http://192.168.0.20:5000/validar', datos);
+  public validarUsuario(datos: any){
+    return this.http.post('http://localhost:5000/validar', datos);
   }
 
   public getusuario(){

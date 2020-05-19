@@ -2,22 +2,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button color="light" menuId="first" contentId="main" style="border: 1px solid black; margin: auto;"></ion-menu-button>
+      <ion-menu-button color="light" menuId="first" contentId="main"></ion-menu-button>
     </ion-buttons>
-    <ion-searchbar color="dark" placeholder="Buscar..."><ion-icon></ion-icon></ion-searchbar>
+    <ion-searchbar color="dark" placeholder="Buscar..." (ionChange)="buscar( $event )"><ion-icon></ion-icon></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div>
-    <ion-card *ngFor="let sup of this.supermercado">
+    <ion-card *ngFor="let sup of this.supermercado | filtro: buscador">
       <ion-item>
-        <ion-card-content (click)="prueba()">
-          <img [src]="sup.smo_im" alt="">
+        <ion-card-content (click)="scanerTrue()" class="supermercado">
+          <img [src]="sup.smo_im" alt="" class="logo-sup">
+          <button (click)="ofertaTrue()" class="ofertas"><ion-icon name="pricetags" color="light" size="large"></ion-icon></button>
         </ion-card-content>
-        <button slot="end"><ion-icon src="../../../assets/icon/etiqueta.svg" size="large"></ion-icon></button>
       </ion-item>
     </ion-card>
-  </div>
 </ion-content>
 <app-tabs></app-tabs>
 
