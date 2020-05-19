@@ -28,8 +28,12 @@ button{
 }
 
 .ofertas{
+    position: absolute;
     margin-right: 0px;
     margin-top: 0px;
+    transform: scaleX(-1);
+    transform: translate(-100%, 0%);
+    left: 100%;
 }
 
 ion-card-content{

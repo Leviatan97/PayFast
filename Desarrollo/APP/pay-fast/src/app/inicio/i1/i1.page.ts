@@ -12,6 +12,9 @@ export class I1Page implements OnInit {
 
   private supermercado : any;
   componentes: Componente[] = [];
+  private ofertas: number = 0;
+  buscador: string = '';
+
 
   constructor(private menu: MenuController, private superService : SupermercadoService) { 
     this.menu.enable(true)
@@ -27,8 +30,7 @@ export class I1Page implements OnInit {
     this.menu.open('end');
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   private promesaSupermercado(){
     return new Promise((resolve,reject)=>{
@@ -55,7 +57,20 @@ export class I1Page implements OnInit {
     }
   }
 
-  private prueba(){
-    console.log('OK')
+  private ofertaTrue(){
+      this.ofertas = 1
+      console.log(this.ofertas)
+  }
+
+  private scanerTrue(){
+    if(this.ofertas == 0){
+      console.log('OK')
+      console.log(this.ofertas)
+      
+    }
+  }
+  
+  private buscar(event){
+    this.buscador = event.detail.value;
   }
 }
