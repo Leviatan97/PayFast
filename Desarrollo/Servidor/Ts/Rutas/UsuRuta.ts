@@ -12,6 +12,7 @@ class usuRuta
         this.usuCorreo()
         this.usuNumeroDoc()
         this.Ingresar()
+        this.verUsuario()
     }
 
     public Registro()
@@ -32,6 +33,11 @@ class usuRuta
     public usuNumeroDoc()
     {
         this.routes.route('/numeroDoc').post(UsuControlador.validarNumeroDoc)
+    }
+
+    public verUsuario()
+    {
+        this.routes.route('/usuario').post(UsuControlador.verUsuario)
     }
 
     public Ingresar()

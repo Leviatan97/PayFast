@@ -90,5 +90,17 @@ export default class usuModel {
             })
         })
     }
+
+    public verUsuario(id: number) {
+        return new Promise(async (resolve, reject) => {
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_i = ${id}`,(error: any,result :any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
 }
 

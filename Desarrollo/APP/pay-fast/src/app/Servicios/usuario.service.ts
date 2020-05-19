@@ -11,15 +11,15 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  public validarUsuario(datos: any){
-    return this.http.post('http://192.168.0.20:5000/validar',datos);
+  public validarUsuario(datos: any) {
+    return this.http.post('http://192.168.0.20:5000/validar', datos);
   }
 
   public getusuario(){
     return this.usuario1;
   }
 
-  public setusuario(datos: any){
+  public setusuario(datos: any) {
     this.usuario1 = datos;
   }
 
@@ -27,25 +27,24 @@ export class UsuarioService {
     return this.usuario;
   }
 
-  public setusuarioEdit(datos: any){
+  public setusuarioEdit(datos: any) {
     this.usuario = datos;
   }
 
-  public registrarUsuario(datos: any){
-    return this.http.post('http://localhost:5000/Registro',datos);
-  }
-  
-  public validarCorreo(datos: any){
-    return this.http.post('http://localhost:5000/correo',datos);
+  public registrarUsuario(datos: any) {
+    return this.http.post('http://localhost:5000/Registro', datos);
   }
 
-  public validarNumeroDoc(datos: any){
-    return this.http.post('http://localhost:5000/numeroDoc',datos);
+  public validarCorreo(datos: any) {
+    return this.http.post('http://localhost:5000/correo', datos);
   }
 
-  public menuOpciones(){
-    return this.http.get('assets/data/menu.json');
+  public validarNumeroDoc(datos: any) {
+    return this.http.post('http://localhost:5000/numeroDoc', datos);
   }
 
+  public verUsuario(datos: any) {
+    return this.http.post('http://localhost:5000/usuario', datos);
+  }
 
 }
