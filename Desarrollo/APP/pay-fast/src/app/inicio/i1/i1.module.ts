@@ -8,6 +8,7 @@ import { I1PageRoutingModule } from './i1-routing.module';
 
 import { I1Page } from './i1.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ComponentesModule } from 'src/app/componentes/componentes.module';
     IonicModule,
     I1PageRoutingModule,
     ComponentesModule,
+    PipesModule
   ],
   declarations: [I1Page]
 })

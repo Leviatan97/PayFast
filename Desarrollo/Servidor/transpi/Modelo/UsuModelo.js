@@ -78,5 +78,17 @@ class usuModel {
             });
         }));
     }
+    verUsuario(id) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_i = ${id}`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
+            });
+        }));
+    }
 }
 exports.default = usuModel;

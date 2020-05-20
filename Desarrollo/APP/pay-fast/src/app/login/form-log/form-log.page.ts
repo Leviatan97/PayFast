@@ -46,7 +46,7 @@ export class FormLogPage implements OnInit {
   
   private async ValidarUsu(){
      
-
+    console.log(this.correo);
     let result: any = null;
 
     try{
@@ -61,8 +61,10 @@ export class FormLogPage implements OnInit {
           }
           result = await this.PromesaUsuValidar(datosUsuario)
           result = result.result
-          this.usuarioservice.setusuarioEdit(result.resultado)
+          
           if(result.val == 1){
+            result = result.resultado
+            this.usuarioservice.setusuarioEdit(result[0].us_i)
             this.router.navigate(['/inicio/i1'])
           }else{
             this.usuarioContra()
