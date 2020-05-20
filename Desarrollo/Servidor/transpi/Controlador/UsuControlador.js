@@ -88,6 +88,24 @@ class usuControlador {
         });
     }
     Actualizar(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            let result;
+            try {
+                const usuarioModelo = new UsuModelo_1.default();
+                result = yield usuarioModelo.actualizar(datos);
+                res.status(200).json({
+                    respuesta: "OK",
+                    resultado: result
+                });
+            }
+            catch (error) {
+                res.status(200).json({
+                    error: "Error",
+                    respuesta: error
+                });
+            }
+        });
     }
     Ingresar(req, res, fun) {
         return __awaiter(this, void 0, void 0, function* () {
