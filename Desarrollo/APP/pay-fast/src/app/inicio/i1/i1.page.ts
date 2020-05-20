@@ -70,21 +70,21 @@ export class I1Page implements OnInit {
   private ofertaTrue(){
       this.ofertas = 1
       console.log(this.ofertas)
+      this.router.navigate(['inicio/ofertas'])
   }
 
   private scanerTrue(){
-    if(this.ofertas == 0){
+    
       console.log('OK')
       console.log(this.ofertas)
+      this.router.navigate(['inicio/perfil'])
       
-    }
+    
   }
   
   private buscar(event){
     this.buscador = event.detail.value;
   }
 
-  private oferta(){
-    this.router.navigate(['inicio/ofertas'])
-  }
+  
 }

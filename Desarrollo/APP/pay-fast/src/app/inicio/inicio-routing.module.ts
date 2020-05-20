@@ -35,7 +35,11 @@ const routes: Routes = [
   {
     path: 'ofertas',
     loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
+  },  {
+    path: 'acercade',
+    loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
   }
+
 
   
 
