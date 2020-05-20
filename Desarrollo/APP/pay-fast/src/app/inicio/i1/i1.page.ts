@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Componente } from 'src/app/interfaces/interfaces';
 import { SupermercadoService } from '../../Servicios/supermercado.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-i1',
@@ -13,7 +14,7 @@ export class I1Page implements OnInit {
   private supermercado : any;
   componentes: Componente[] = [];
 
-  constructor(private menu: MenuController, private superService : SupermercadoService) { 
+  constructor(private menu: MenuController, private superService : SupermercadoService, private router:Router) { 
     this.menu.enable(true)
     this.verSupermercado()
   }
@@ -57,5 +58,9 @@ export class I1Page implements OnInit {
 
   private prueba(){
     console.log('OK')
+  }
+
+  private ofertas(){
+    this.router.navigate(['inicio/ofertas'])
   }
 }

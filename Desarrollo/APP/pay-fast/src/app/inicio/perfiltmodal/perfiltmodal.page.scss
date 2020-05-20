@@ -1,6 +1,9 @@
-.titulo{
-    color: #181763;
-    margin: 0% 15% 0% 15%;
+.titulo{ 
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-right: 15%;
 }
 
 ion-card{

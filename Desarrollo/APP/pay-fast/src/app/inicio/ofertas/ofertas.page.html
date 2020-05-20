@@ -1,36 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button color="primary" menuId="first" contentId="main"></ion-menu-button>
+      <ion-menu-button color="ligth" menuId="first" contentId="main"></ion-menu-button>
     </ion-buttons>
+    <ion-grid class="titulo">
+      <ion-row>
+        <ion-col>
+          <ion-label color="light">Ofertas</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="o1">
-    <p>oferta 1</p>
-  </ion-card>
-    
-  <ion-card class="o2">
-    <p>oferta 2</p>
-  </ion-card>
 
-  <ion-card class="o3">
-    <p>oferta 3</p>
-  </ion-card>
+    <ion-card class="{{ofer.clase}}" *ngFor = "let ofer of Mofertas">
+        <p>{{ofer.titulo}}</p>
+        <img [src]="ofer.img">      
+    </ion-card>
+ 
+  
+
 
   <ion-grid>
     <ion-row class="col">
-      <ion-col >
-        <ion-card class="o4">
-          <p>oferta 4</p>
+      <ion-col *ngFor = "let ofer of ofertas">
+        <ion-card class="{{ofer.clase}}">
+          <p>{{ofer.titulo}}</p>
+          <img [src]="ofer.img">
         </ion-card>
       </ion-col>
-      <ion-col>
+      <!-- <ion-col>
         <ion-card class="o5">
           <p>oferta 5</p>
+          <img src="assets/img-ofertas/papelh.svg">
         </ion-card>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </ion-grid>
 

@@ -1,15 +1,17 @@
-.titulo{
-    color: #181763;
-    text-align: center;
+.titulo{ 
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-right: 15%;
 }
-label{
-    text-align: center;
-}
+
 button{
     background: transparent;
     color: #181763;
     
 }
+
 img{
     width: 50%;
     height: 50%;
