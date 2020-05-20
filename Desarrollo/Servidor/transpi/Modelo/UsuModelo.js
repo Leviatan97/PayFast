@@ -64,7 +64,14 @@ class usuModel {
             });
         }));
     }
-    actualizar() {
+    actualizar(data) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${data.us_i}`, [data]).then(result => {
+                resolve(result);
+            }, (error) => {
+                reject(error);
+            });
+        }));
     }
     ingresar(correo, contrasena) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {

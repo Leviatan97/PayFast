@@ -112,8 +112,22 @@ class usuControlador {
     }    
         
 
-    private Actualizar(req : Request, res : Response, fun : Function){
-
+    public async Actualizar(req : Request, res : Response, fun : Function){
+        let datos  : Usuario = req.body;
+        let result : any;
+        try {
+            const usuarioModelo: usuModel = new usuModel()
+            result = await usuarioModelo.actualizar(datos)
+            res.status(200).json({
+                respuesta: "OK",
+                resultado: result
+            })
+        } catch (error) {
+            res.status(200).json({
+                error: "Error",
+                respuesta: error
+            })
+        }
     }
 
     public async Ingresar(req : Request, res : Response, fun : Function){

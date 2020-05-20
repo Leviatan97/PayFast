@@ -13,6 +13,7 @@ class usuRuta
         this.usuNumeroDoc()
         this.Ingresar()
         this.verUsuario()
+        this.actualizar()
     }
 
     public Registro()
@@ -43,6 +44,11 @@ class usuRuta
     public Ingresar()
     {
         this.routes.route('/login').post(UsuControlador.Ingresar)
+    }
+
+    public actualizar() 
+    {
+        this.routes.route('/actualizar').put(UsuControlador.Actualizar)
     }
 
     public getRoutes()
