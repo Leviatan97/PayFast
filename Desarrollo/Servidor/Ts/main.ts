@@ -5,6 +5,7 @@ import cors from 'cors'
 import UsuRuta_ from './Rutas/UsuRuta';
 import TarjeRuta_ from './Rutas/TarjeRuta'
 import SuperMerRutas_ from './Rutas/SuperMerRutas';
+import session from "express-session";
 
 
 
@@ -25,6 +26,11 @@ class main{
     }
 
     public Rutas(){
+        this.app.use(session({
+            secret: "Esto es un secreto",
+            resave: true,
+            saveUninitialized: true
+        }))
         this.app.use(UsuRuta_)
         this.app.use(TarjeRuta_)
         this.app.use(SuperMerRutas_)

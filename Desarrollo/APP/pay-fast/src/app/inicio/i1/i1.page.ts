@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Componente } from 'src/app/interfaces/interfaces';
 import { SupermercadoService } from '../../Servicios/supermercado.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UsuarioService } from 'src/app/Servicios/usuario.service';
+
 
 @Component({
   selector: 'app-i1',
@@ -10,15 +13,22 @@ import { SupermercadoService } from '../../Servicios/supermercado.service';
 })
 export class I1Page implements OnInit {
 
-  private supermercado : any;
+  private supermercado: any;
   componentes: Componente[] = [];
   private ofertas: number = 0;
   buscador: string = '';
 
 
-  constructor(private menu: MenuController, private superService : SupermercadoService) { 
-    this.menu.enable(true)
-    this.verSupermercado()
+  constructor(
+    private menu: MenuController,
+    private superService: SupermercadoService,
+    private activarR: ActivatedRoute,
+    private usuario: UsuarioService,
+    private router:Router
+  ) {
+    this.menu.enable(true);
+    this.verSupermercado();
+
   }
 
   openFirst() {
@@ -34,16 +44,16 @@ export class I1Page implements OnInit {
 
   private promesaSupermercado(){
     return new Promise((resolve,reject)=>{
-      this.superService.verSuperMercado().subscribe((result:any)=>{
+      this.superService.verSuperMercado().subscribe((result: any) => {
         resolve({
-          result,resultado:'ok'
+          result, resultado: 'ok'
         })
-      },(error:object)=>{
+      },(error: object) => {
         reject({
-          error,resultado:'error'
-        })
+          error, resultado: 'error'
+        });
       });
-    })
+    });
   }
 
   private async verSupermercado(){
@@ -60,17 +70,21 @@ export class I1Page implements OnInit {
   private ofertaTrue(){
       this.ofertas = 1
       console.log(this.ofertas)
+      this.router.navigate(['inicio/ofertas'])
   }
 
   private scanerTrue(){
-    if(this.ofertas == 0){
+    
       console.log('OK')
       console.log(this.ofertas)
+      this.router.navigate(['inicio/perfil'])
       
-    }
+    
   }
   
   private buscar(event){
     this.buscador = event.detail.value;
   }
+
+  
 }

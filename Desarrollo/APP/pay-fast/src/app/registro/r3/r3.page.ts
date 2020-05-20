@@ -16,6 +16,7 @@ export class R3Page implements OnInit {
   private tnumero:String;
   private tfvencimiento:Date;
   private tcvv:String;
+  private check:boolean;
   
   private usu1:any
 
@@ -74,10 +75,21 @@ export class R3Page implements OnInit {
     let result2 : any = null
     try {
       if(this.tnombre != undefined && this.tapellido != undefined && this.tnumero != undefined && this.tfvencimiento != undefined && this.tcvv != undefined && this.tnombre != "" && this.tapellido != "" && this.tnumero != "" && this.tcvv != ""){
-        this.router.navigate(['/tutorial/home-tut'])
+        
+        if(this.check == false){
+          this.presentToastTyC(); 
+        }
+        else{
         result = await this.PromesaUsuRegistrar(this.usu1)
         result2 = await this.PromesaTarjeRegistrar(tarjeta)
+        result = result.result
+        result = result.res
+        result = result.respuesta
+        this.usuario.setusuarioEdit(result.insertId)
+        this.router.navigate(['/tutorial/home-tut'])
+        
         console.log(result)
+      }
       }else{
         this.presentToast(); 
       }
@@ -90,10 +102,22 @@ export class R3Page implements OnInit {
     this.router.navigate(['login/form-log'])
   }
 
+  private tyc(){
+    this.router.navigate(['tyc/home-tyc'])
+  }
+
   async presentToast() 
   {
     const toast = await this.toastController.create({
       message: 'Asegurese de llenar los campos requeridos.',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async presentToastTyC() 
+  {
+    const toast = await this.toastController.create({
+      message: 'Debe aceptar los terminos y condiciones',
       duration: 2000
     });
     toast.present();

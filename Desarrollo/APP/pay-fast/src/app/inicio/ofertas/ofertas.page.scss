@@ -1,27 +1,46 @@
+.titulo{ 
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-right: 15%;
+    margin-top: 0%;
+}
 .col{
     padding: 5% 0% 5% 0%;
 }
 .o1{
-    background: #a900008f;
-    height: 15%;
+    background: #d44b6499;
+    height: 20%;
 }
 .o2{
-    background: blue;
-    height: 15%;
+    background: #ea9f4a91;
+    height: 20%;
     
 }
 .o3{
-    background: yellow;
-    height: 15%;
-    margin: 0% 5% 0% 5%;
+    background: #f9d03ea1;
+    height: 20%;
+    
 }
 .o4{
-    background: pink;
-    height: 200%;
-    margin: 0% 0% 0% 5%;
+    background: #35ff9f7d;
+    height: 60%;
+    margin: 0% 0% 0% 0%;
 }
 .o5{
-    background: gray;
-    height: 200%;
-    margin: 0% 5% 0% 0%;
+    background: #c7e28982;
+    height: 60%;
+    margin: 0% 0% 0% 0%;
+}
+ion-grid{
+    margin:-7% 0% 0% 0%;
+}
+p{
+    text-align: center;
+}
+img{
+    opacity: 50%;
+    height: 100%;
+    width: 100%;
 }

@@ -9,6 +9,7 @@ const cors_1 = __importDefault(require("cors"));
 const UsuRuta_1 = __importDefault(require("./Rutas/UsuRuta"));
 const TarjeRuta_1 = __importDefault(require("./Rutas/TarjeRuta"));
 const SuperMerRutas_1 = __importDefault(require("./Rutas/SuperMerRutas"));
+const express_session_1 = __importDefault(require("express-session"));
 class main {
     constructor() {
         this.app = express_1.default();
@@ -22,6 +23,11 @@ class main {
         this.app.use(express_1.default.json());
     }
     Rutas() {
+        this.app.use(express_session_1.default({
+            secret: "Esto es un secreto",
+            resave: true,
+            saveUninitialized: true
+        }));
         this.app.use(UsuRuta_1.default);
         this.app.use(TarjeRuta_1.default);
         this.app.use(SuperMerRutas_1.default);

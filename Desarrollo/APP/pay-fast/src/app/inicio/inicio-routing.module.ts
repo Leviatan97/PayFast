@@ -19,7 +19,8 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },  {
+  },
+  {
     path: 'perfiltmodal',
     loadChildren: () => import('./perfiltmodal/perfiltmodal.module').then( m => m.PerfiltmodalPageModule)
   },
@@ -34,7 +35,11 @@ const routes: Routes = [
   {
     path: 'ofertas',
     loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
+  },  {
+    path: 'acercade',
+    loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
   }
+
 
   
 

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-grid class="titulo">
+      <ion-row>
+        <ion-col>
+          <ion-label color="light">Acerca de</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="perfil">
+    <button slot="start">
+      <img src="../../../assets/icon/PayFast.svg" size="large">
+    </button>
+  </div>
+
+  <div class="bienvenida">
+    <ion-text color="light">
+      <h3>PAY FAST</h3>
+      <h4>version 1.0.0</h4>
+    </ion-text>
+  </div>
+
+    <ion-card (click)="tyc()">
+      <ion-item>
+        <ion-card-content>
+          <ion-text color="light">
+          Terminos y Condiciones
+          </ion-text>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+
+  
+    <ion-card>
+      <ion-item>
+        <ion-card-content>
+          <ion-text color="light">
+            Acuerdo de licencia con el usuario final
+          </ion-text>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+  
+
+  
+
+</ion-content>

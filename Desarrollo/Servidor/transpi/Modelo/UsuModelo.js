@@ -63,11 +63,30 @@ class usuModel {
             });
         }));
     }
-    actualizar() {
+    actualizar(data) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${data.us_i}`, [data]).then(result => {
+                resolve(result);
+            }, (error) => {
+                reject(error);
+            });
+        }));
     }
     ingresar(correo, contrasena) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_c = '${correo}' AND us_ca = '${contrasena}'`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
+            });
+        }));
+    }
+    verUsuario(id) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_i = ${id}`, (error, result) => {
                 if (error) {
                     reject(error);
                 }

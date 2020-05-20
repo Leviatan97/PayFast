@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const UsuModelo_1 = __importDefault(require("../Modelo/UsuModelo"));
+const passport = require('passport-facebook');
+const FacebookStrategy = require('passport-facebook');
 class usuControlador {
     constructor() { }
     validarNumeroDoc(req, res, fun) {
@@ -74,7 +76,35 @@ class usuControlador {
             }
         });
     }
+    registroFacebook(req, res, fun) {
+        passport.use(new FacebookStrategy({
+            clientID: '915792222257169',
+            clientSecret: 'af4e62d90781bd6dbfe9c20a7cb9e4b7',
+            callbackURL: "/auth/facebook/callback"
+        }), function (accessToken, refreshToken, profile, cb) {
+            console.log(profile);
+            res.status(200).json(profile);
+        });
+    }
     Actualizar(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            let result;
+            try {
+                const usuarioModelo = new UsuModelo_1.default();
+                result = yield usuarioModelo.actualizar(datos);
+                res.status(200).json({
+                    respuesta: "OK",
+                    resultado: result
+                });
+            }
+            catch (error) {
+                res.status(200).json({
+                    error: "Error",
+                    respuesta: error
+                });
+            }
+        });
     }
     Ingresar(req, res, fun) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -87,6 +117,23 @@ class usuControlador {
                 valor = result.length;
                 res.status(200).json({
                     val: valor,
+                    resultado: result
+                });
+            }
+            catch (error) {
+                res.status(200).json(error);
+            }
+        });
+    }
+    verUsuario(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            let result;
+            try {
+                const usuarioModelo = new UsuModelo_1.default();
+                result = yield usuarioModelo.verUsuario(datos.us_i);
+                res.status(200).json({
+                    respuesta: "OK",
                     resultado: result
                 });
             }

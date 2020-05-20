@@ -30,6 +30,14 @@
           <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv"></ion-input>
         </ion-item>
 
+        
+          <ion-checkbox color="light" [(ngModel)]="this.check"></ion-checkbox>
+          <ion-text color="primary">
+            <label (click)="tyc()">TERMINOS Y CONDICIONES</label>
+          </ion-text>
+          
+        
+
       <ion-button color="primary" expand="block" class="margen" (click)="Inicio()">
         <ion-icon name="arrow-forward"></ion-icon>
       </ion-button>

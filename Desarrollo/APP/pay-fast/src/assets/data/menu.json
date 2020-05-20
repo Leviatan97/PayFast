@@ -18,6 +18,6 @@
     {
         "icon": "chatbox",
         "name": "Acerca de la Aplicacion",
-        "redirectTo": ""
+        "redirectTo": "inicio/acercade"
     }
 ]
