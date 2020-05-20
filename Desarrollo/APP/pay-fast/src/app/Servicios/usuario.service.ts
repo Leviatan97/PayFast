@@ -9,7 +9,7 @@ export class UsuarioService {
   private usuario1: any;
   private usuario: any;
 
-  constructor(private http: HttpClient) { } 
+  constructor(private http: HttpClient) { }
 
   public validarUsuario(datos: any){
     return this.http.post('http://localhost:5000/validar', datos);
@@ -45,6 +45,10 @@ export class UsuarioService {
 
   public verUsuario(datos: any) {
     return this.http.post('http://localhost:5000/usuario', datos);
+  }
+
+  public actualizarUsuario(datos: any) {
+    return this.http.put('http://localhost:5000/actualizar', datos);
   }
 
 }
