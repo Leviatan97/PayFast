@@ -3,9 +3,9 @@ import { MysqlError } from 'mysql';
 
 class Coneccion{
     public BD = mysql.createPool({
-        host     : 'Localhost',
+        host     : 'localhost',
         user     : 'root',
-        password : '',
+        password : 'password',
         database : 'payfastv3'
     })
     constructor() {

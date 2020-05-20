@@ -1,22 +1,45 @@
-<<ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
     <ion-grid class="titulo">
       <ion-row>
         <ion-col>
-          <label>Detalles de Compra</label>
+          <ion-label color="light">Detalles de Compra</ion-label>
         </ion-col>
       </ion-row>
     </ion-grid> 
   </ion-toolbar>
 </ion-header>
-<ion-content id="main" class="contenido">
-  <ion-item lines="none">
-    <ion-grid>
-      <ion-row>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+<ion-content class="background">
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>Fecha: 01/01/2001</ion-row>
+        <ion-row>Supermercado: Supermercado 1</ion-row>
+        <ion-row>Puntos: 0</ion-row>
+        <ion-row class="Theader">
+          <ion-col>Producto</ion-col>
+          <ion-col>Cantidad</ion-col>
+          <ion-col>Precio</ion-col>
+        </ion-row>
+        <ion-row class="Trow">
+          <ion-col>Producto</ion-col>
+          <ion-col>x0</ion-col>
+          <ion-col>$0.00</ion-col>
+        </ion-row>
+        <ion-row class="Trow">
+          <ion-col>Producto</ion-col>
+          <ion-col>x0</ion-col>
+          <ion-col>$0.00</ion-col>
+        </ion-row>
+        <ion-row class="Ttotal">
+          <ion-col></ion-col>
+          <ion-col>Total</ion-col>
+          <ion-col>$0.00</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
