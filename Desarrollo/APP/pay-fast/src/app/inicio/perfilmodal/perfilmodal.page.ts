@@ -26,13 +26,13 @@ export class PerfilmodalPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  private promesaVerUsuario(datos: any){
+  private promesaVerUsuario(datos: any) {
     return new Promise((resolve, reject) => {
       this.usuarioServie.verUsuario(datos).subscribe((result: any) => {
         resolve({
           result, resultado: 'ok'
-        })
-      },(error: object) => {
+        });
+      }, (error: object) => {
         reject({
           error, resultado: 'error'
         });
@@ -52,6 +52,10 @@ export class PerfilmodalPage implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  private editarDatos() {
+    console.log(this.datos);
   }
 
 }

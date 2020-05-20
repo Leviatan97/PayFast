@@ -22,8 +22,8 @@
     </button>
   </div>
 
-  <div class="bienvenida">
-    <h2>Hola {{this.nombre}} !</h2>
+  <div class="bienvenida" *ngFor="let nom of this.nombre">
+    <h2>Hola {{this.nom.us_n}} !</h2>
   </div>
 
 

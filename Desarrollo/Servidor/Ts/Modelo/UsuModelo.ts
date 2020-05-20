@@ -75,8 +75,16 @@ export default class usuModel {
         
     }
 
-    private actualizar(){
-
+    public actualizar(data: any){
+        return new Promise(async (resolve, reject) =>{
+            (await coneccion).query(`UPDATE usuario SET ? WHERE usuarios.us_i = {${data.us_i}}`,[data]).then(
+                result=>{
+                    resolve(result)
+                },(error)=>{
+                    reject(error)
+                }
+            )
+        })
     }
 
     public ingresar(correo : string, contrasena : string){
