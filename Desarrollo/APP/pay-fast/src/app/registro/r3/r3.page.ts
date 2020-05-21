@@ -77,7 +77,8 @@ export class R3Page implements OnInit {
       if(this.tnombre != undefined && this.tapellido != undefined && this.tnumero != undefined && this.tfvencimiento != undefined && this.tcvv != undefined && this.tnombre != "" && this.tapellido != "" && this.tnumero != "" && this.tcvv != ""){
         
         if(this.check == false){
-          this.presentToastTyC(); 
+          this.presentToastTyC();
+          console.log(this.check)
         }
         else{
         result = await this.PromesaUsuRegistrar(this.usu1)
