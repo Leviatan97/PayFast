@@ -15,6 +15,7 @@ class usuRuta {
         this.Ingresar();
         this.verUsuario();
         this.actualizar();
+        this.verificarContra();
     }
     Registro() {
         this.routes.route('/Registro').post(UsuControlador_1.default.Registro);
@@ -36,6 +37,9 @@ class usuRuta {
     }
     actualizar() {
         this.routes.route('/actualizar').put(UsuControlador_1.default.Actualizar);
+    }
+    verificarContra() {
+        this.routes.route('/contra').post(UsuControlador_1.default.verficarContra);
     }
     getRoutes() {
         return this.routes;

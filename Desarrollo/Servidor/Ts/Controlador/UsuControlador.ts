@@ -162,6 +162,22 @@ class usuControlador {
             res.status(200).json(error)
         }
     }
+
+    public async verficarContra(req : Request, res : Response, fun : Function) {
+        let datos = req.body
+        let result : any
+        let valor  : any
+        try {
+            const usuarioModelo : usuModel = new usuModel()
+            result = await usuarioModelo.verficarContra(datos.us_ca, datos.us_i)
+            valor = result.length
+            res.status(200).json({
+                val: valor,
+            })
+        } catch (error) {
+            res.status(200).json(error)
+        }
+    }
 }
 
 const UsuControlador : usuControlador = new usuControlador()

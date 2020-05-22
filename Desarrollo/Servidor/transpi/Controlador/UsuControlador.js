@@ -143,6 +143,24 @@ class usuControlador {
             }
         });
     }
+    verficarContra(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            let result;
+            let valor;
+            try {
+                const usuarioModelo = new UsuModelo_1.default();
+                result = yield usuarioModelo.verficarContra(datos.us_ca, datos.us_i);
+                valor = result.length;
+                res.status(200).json({
+                    val: valor,
+                });
+            }
+            catch (error) {
+                res.status(200).json(error);
+            }
+        });
+    }
 }
 const UsuControlador = new usuControlador();
 exports.default = UsuControlador;
