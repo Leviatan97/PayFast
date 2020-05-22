@@ -18,7 +18,7 @@ class Coneccion {
         this.BD = promise_mysql_1.default.createPool({
             host: 'localhost',
             user: 'root',
-            password: 'password',
+            password: '',
             database: 'payfastv3'
         });
         this.conectar();
