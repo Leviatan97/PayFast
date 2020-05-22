@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="Salir()">
-        <ion-icon name="close"></ion-icon>
+        <ion-icon color="light" name="close" size="large"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-grid class="titulo">
@@ -12,6 +12,11 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-buttons slot="end">
+      <ion-button (click)="verficarContra()">
+        <ion-icon color="light" name="checkmark-sharp" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -19,13 +24,13 @@
 
   <ion-card-content>
     <ion-item>
-      <ion-input type="text" placeholder="CONTRASEÑA ACTUAL" [(ngModel)]="this.contrasena"></ion-input>
+      <ion-input type="password" placeholder="CONTRASEÑA ACTUAL" [(ngModel)]="this.contrasenaA"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="NUEVA CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
+      <ion-input type="password" placeholder="NUEVA CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
+      <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasenaO"></ion-input>
     </ion-item>
   </ion-card-content>
 

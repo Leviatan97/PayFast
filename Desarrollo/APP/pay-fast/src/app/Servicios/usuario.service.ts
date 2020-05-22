@@ -51,4 +51,8 @@ export class UsuarioService {
     return this.http.put('http://localhost:5000/actualizar', datos);
   }
 
+  public verificarContra(datos: any) {
+    return this.http.post('http://localhost:5000/contra', datos);
+  }
+
 }

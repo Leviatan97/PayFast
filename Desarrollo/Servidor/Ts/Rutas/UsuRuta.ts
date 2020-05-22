@@ -14,6 +14,7 @@ class usuRuta
         this.Ingresar()
         this.verUsuario()
         this.actualizar()
+        this.verificarContra()
     }
 
     public Registro()
@@ -49,6 +50,11 @@ class usuRuta
     public actualizar() 
     {
         this.routes.route('/actualizar').put(UsuControlador.Actualizar)
+    }
+
+    public verificarContra() 
+    {
+        this.routes.route('/contra').post(UsuControlador.verficarContra)
     }
 
     public getRoutes()

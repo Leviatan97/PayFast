@@ -110,5 +110,17 @@ export default class usuModel {
             })
         })
     }
+
+    public verficarContra(us_ca: string, us_i: number) {
+        return new Promise(async (resolve, reject) => {
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_i = ${us_i} AND us_ca = '${us_ca}'`,(error: any,result :any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
 }
 
