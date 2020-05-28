@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: I1Page
+  },  {
+    path: 'scanner',
+    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
   }
+
 ];
 
 @NgModule({
