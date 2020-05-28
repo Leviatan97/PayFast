@@ -1,5 +1,5 @@
 ion-content.background{
-    --background: url('../../../../assets/background/fondo-detalle.jpg') 0 0/100% 100% no-repeat;
+    --background: #fff url("../../../../assets/background/fondo-detalle.jpg") no-repeat bottom center / cover;
 }
 
 .titulo{
@@ -45,6 +45,6 @@ ion-row.Ttotal{
     }
 
     ion-content.background{
-        --background: url('../../../../assets/background/fondo-detalle-dark.jpg') 0 0/100% 100% no-repeat;
+        --background: #fff url('../../../../assets/background/fondo-detalle-dark.jpg') no-repeat bottom center / cover;
     }
 }
