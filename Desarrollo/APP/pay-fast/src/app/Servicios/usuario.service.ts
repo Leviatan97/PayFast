@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Componente } from '../interfaces/interfaces';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,22 @@ import { Componente } from '../interfaces/interfaces';
 export class UsuarioService {
   private usuario1: any;
   private usuario: any;
-
-  constructor(private http: HttpClient) { }
+  private token: string = null;
+  constructor(private http: HttpClient, private storage: Storage) { }
 
   public validarUsuario(datos: any){
     return this.http.post('http://localhost:5000/validar', datos);
   }
-
+  public async guardarToken(token: string) {
+    if (token == undefined) {
+      this.token = null
+      this.storage.clear()
+    }else {
+      this.token = token
+      await this.storage.set('token',this.token)  
+    }
+    
+  }
   public getusuario(){
     return this.usuario1;
   }

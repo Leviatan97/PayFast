@@ -75,9 +75,9 @@ export default class usuModel {
         
     }
 
-    public actualizar(data: any){
+    public actualizar(data: any, id: number){
         return new Promise(async (resolve, reject) =>{
-            (await coneccion).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${data.us_i}`,[data]).then(
+            (await coneccion).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${id}`,[data]).then(
                 result=>{
                     resolve(result)
                 },(error)=>{

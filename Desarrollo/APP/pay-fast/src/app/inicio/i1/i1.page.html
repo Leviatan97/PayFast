@@ -10,10 +10,9 @@
 <ion-content>
     <ion-card *ngFor="let sup of this.supermercado | filtro: buscador">
       <ion-item>
-        <ion-card-content (click)="scanerTrue()" class="supermercado">
-          <img [src]="sup.smo_im" alt="" class="logo-sup">
-         
-          <button (click)="ofertaTrue()" class="ofertas"><ion-icon name="pricetags" color="light" size="large"></ion-icon></button>
+        <ion-card-content class="supermercado">
+            <img (click)="scanerTrue()" [src]="sup.smo_im" alt="" class="logo-sup">
+            <button (click)="ofertaTrue()" class="ofertas"><ion-icon name="pricetags" color="light" size="large"></ion-icon></button>
         </ion-card-content>
         
       </ion-item>

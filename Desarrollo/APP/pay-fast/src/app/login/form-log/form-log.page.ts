@@ -55,6 +55,7 @@ export class FormLogPage implements OnInit {
         if(this.correo != null && this.contrasena)
         {
           const conencrip = md5(this.contrasena)
+          
           const datosUsuario = {
             us_c : this.correo, 
             us_ca : conencrip
@@ -62,11 +63,11 @@ export class FormLogPage implements OnInit {
           result = await this.PromesaUsuValidar(datosUsuario)
           result = result.result
           
-          if(result.val == 1){
-            result = result.resultado
-            this.usuarioservice.setusuarioEdit(result[0].us_i)
+          if(result.val == 1) {
+            this.usuarioservice.guardarToken(result.token_)
             this.router.navigate(['/inicio/i1'])
           }else{
+            this.usuarioservice.guardarToken(null)
             this.usuarioContra()
           }
           
