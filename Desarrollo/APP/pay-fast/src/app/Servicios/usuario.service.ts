@@ -81,8 +81,11 @@ export class UsuarioService {
     return this.http.post('http://localhost:5000/numeroDoc', datos);
   }
 
-  public verUsuario(datos: any) {
-    return this.http.get('http://localhost:5000/usuario');
+  public verUsuario() {
+    const headers =  new HttpHeaders({
+      'x-token': this.token
+    })
+    return this.http.get('http://localhost:5000/usuario',{headers});
   }
 
   public actualizarUsuario(datos: any) {
