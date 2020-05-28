@@ -15,6 +15,7 @@ export class UsuarioService {
   public validarUsuario(datos: any){
     return this.http.post('http://localhost:5000/validar', datos);
   }
+
   public async guardarToken(token: string) {
     if (token == undefined) {
       this.token = null
@@ -24,6 +25,14 @@ export class UsuarioService {
       await this.storage.set('token',this.token)  
     }
     
+  }
+
+  public validarToken() {
+
+    return new Promise((resolve, reject) => {
+      
+    })
+
   }
   public getusuario(){
     return this.usuario1;
