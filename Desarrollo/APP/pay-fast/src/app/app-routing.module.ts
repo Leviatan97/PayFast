@@ -28,15 +28,11 @@ const routes: Routes = [
   {
     path: 'tutorial',
     loadChildren: () => import('./tutorial/tutorial.module').then( m => m.TutorialPageModule)
-  },  {
-    path: 'tyc',
-    loadChildren: () => import('./tyc/tyc.module').then( m => m.TycPageModule)
   },
   {
-    path: 'supermercado',
-    loadChildren: () => import('./supermercado/supermercado.module').then( m => m.SupermercadoPageModule)
+    path: 'tyc',
+    loadChildren: () => import('./tyc/tyc.module').then( m => m.TycPageModule)
   }
-
 ];
 
 @NgModule({
