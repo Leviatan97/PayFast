@@ -7,7 +7,8 @@
       <ion-slide *ngFor="let slide of slides">
 
         <div class="slide-img">
-          <img [src]="slide.img">
+          <img class="imagenLight" [src]="slide.img">
+          <img class="imagenDark" [src]="slide.img2">
         </div>
 
         <ion-card class="fondo">
@@ -27,7 +28,7 @@
     </ion-slides>
 
     <ion-footer class="ion-no-border">
-      <ion-label (click)="Inicio()">Omitir</ion-label>
+      <ion-label color="light" (click)="Inicio()">Omitir</ion-label>
     </ion-footer>
 
 
