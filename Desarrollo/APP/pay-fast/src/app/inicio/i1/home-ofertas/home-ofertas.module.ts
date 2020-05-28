@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OfertasPageRoutingModule } from './ofertas-routing.module';
+import { HomeOfertasPageRoutingModule } from './home-ofertas-routing.module';
 
-import { OfertasPage } from './ofertas.page';
+import { HomeOfertasPage } from './home-ofertas.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentesModule } from 'src/app/componentes/componentes.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    OfertasPageRoutingModule,
+    HomeOfertasPageRoutingModule,
     ComponentesModule
   ],
-  declarations: [OfertasPage]
+  declarations: [HomeOfertasPage]
 })
-export class OfertasPageModule {}
+export class HomeOfertasPageModule {}

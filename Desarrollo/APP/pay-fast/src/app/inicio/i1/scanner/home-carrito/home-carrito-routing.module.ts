@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeCarritoPage
+  },
+  {
+    path: 'home-metodo',
+    loadChildren: () => import('./home-metodo/home-metodo.module').then( m => m.HomeMetodoPageModule)
   }
 ];
 
