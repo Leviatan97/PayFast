@@ -1,5 +1,6 @@
 import Routes from 'express';
 import UsuControlador from '../Controlador/UsuControlador';
+import { verificaToken } from '../middleware/Autenticacion';
 
 class usuRuta
 {
@@ -14,6 +15,9 @@ class usuRuta
         this.Ingresar()
         this.verUsuario()
         this.actualizar()
+        this.verificarContra()
+        this.actualizarFoto()
+        this.verFoto()
     }
 
     public Registro()
@@ -38,7 +42,7 @@ class usuRuta
 
     public verUsuario()
     {
-        this.routes.route('/usuario').post(UsuControlador.verUsuario)
+        this.routes.get('/usuario',verificaToken,UsuControlador.verUsuario)
     }
 
     public Ingresar()
@@ -48,7 +52,22 @@ class usuRuta
 
     public actualizar() 
     {
-        this.routes.route('/actualizar').put(UsuControlador.Actualizar)
+        this.routes.put('/actualizar',verificaToken,UsuControlador.Actualizar)
+    }
+
+    public actualizarFoto() 
+    {
+        this.routes.put('/fotoPerfil',verificaToken,UsuControlador.ActualizarFoto)
+    }
+
+    public verFoto() 
+    {
+        this.routes.get('/perfil/:userId/:img',UsuControlador.verFotoPerfil)
+    }
+
+    public verificarContra() 
+    {
+        this.routes.route('/contra').post(UsuControlador.verficarContra)
     }
 
     public getRoutes()

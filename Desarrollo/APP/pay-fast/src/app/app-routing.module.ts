@@ -31,6 +31,10 @@ const routes: Routes = [
   },  {
     path: 'tyc',
     loadChildren: () => import('./tyc/tyc.module').then( m => m.TycPageModule)
+  },
+  {
+    path: 'supermercado',
+    loadChildren: () => import('./supermercado/supermercado.module').then( m => m.SupermercadoPageModule)
   }
 
 ];

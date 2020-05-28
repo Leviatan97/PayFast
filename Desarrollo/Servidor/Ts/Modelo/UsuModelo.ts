@@ -75,9 +75,9 @@ export default class usuModel {
         
     }
 
-    public actualizar(data: any){
+    public actualizar(data: any, id: number){
         return new Promise(async (resolve, reject) =>{
-            (await coneccion).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${data.us_i}`,[data]).then(
+            (await coneccion).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${id}`,[data]).then(
                 result=>{
                     resolve(result)
                 },(error)=>{
@@ -102,6 +102,18 @@ export default class usuModel {
     public verUsuario(id: number) {
         return new Promise(async (resolve, reject) => {
             (await coneccion).query(`SELECT * FROM usuario WHERE us_i = ${id}`,(error: any,result :any)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    public verficarContra(us_ca: string, us_i: number) {
+        return new Promise(async (resolve, reject) => {
+            (await coneccion).query(`SELECT * FROM usuario WHERE us_i = ${us_i} AND us_ca = '${us_ca}'`,(error: any,result :any)=>{
                 if(error){
                     reject(error)
                 }else{

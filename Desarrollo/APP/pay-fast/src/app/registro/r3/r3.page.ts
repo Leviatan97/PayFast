@@ -82,17 +82,14 @@ export class R3Page implements OnInit {
           console.log(this.check)
         }
         else{
-          result = await this.PromesaUsuRegistrar(this.usu1)
-          result2 = await this.PromesaTarjeRegistrar(tarjeta)
-          result = result.result
-          result = result.res
-          result = result.respuesta
-          this.usuario.setusuarioEdit(result.insertId)
-          this.router.navigate(['/tutorial/home-tut'])
-        
-          console.log(result)
-        }
-      }else{
+
+        result = await this.PromesaUsuRegistrar(this.usu1)
+        result2 = await this.PromesaTarjeRegistrar(tarjeta)
+        result = result.result
+        this.usuario.guardarToken(result.token)
+        this.router.navigate(['/tutorial/home-tut'])
+      }
+    }else{
         this.presentToast(); 
       }
     } catch (error) {

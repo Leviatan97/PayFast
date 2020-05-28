@@ -64,9 +64,9 @@ class usuModel {
             });
         }));
     }
-    actualizar(data) {
+    actualizar(data, id) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            (yield Coneccion_1.default).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${data.us_i}`, [data]).then(result => {
+            (yield Coneccion_1.default).query(`UPDATE usuario SET ? WHERE usuario.us_i = ${id}`, [data]).then(result => {
                 resolve(result);
             }, (error) => {
                 reject(error);
@@ -88,6 +88,18 @@ class usuModel {
     verUsuario(id) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_i = ${id}`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
+            });
+        }));
+    }
+    verficarContra(us_ca, us_i) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM usuario WHERE us_i = ${us_i} AND us_ca = '${us_ca}'`, (error, result) => {
                 if (error) {
                     reject(error);
                 }

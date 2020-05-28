@@ -6,4 +6,5 @@ export interface Usuario{
     us_nd:string
     us_c : string
     us_ca:string
+    us_im: string
 }
