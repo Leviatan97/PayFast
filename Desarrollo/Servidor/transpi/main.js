@@ -10,6 +10,7 @@ const UsuRuta_1 = __importDefault(require("./Rutas/UsuRuta"));
 const TarjeRuta_1 = __importDefault(require("./Rutas/TarjeRuta"));
 const SuperMerRutas_1 = __importDefault(require("./Rutas/SuperMerRutas"));
 const express_session_1 = __importDefault(require("express-session"));
+const express_fileupload_1 = __importDefault(require("express-fileupload"));
 class main {
     constructor() {
         this.app = express_1.default();
@@ -28,6 +29,7 @@ class main {
             resave: true,
             saveUninitialized: true
         }));
+        this.app.use(express_fileupload_1.default());
         this.app.use(UsuRuta_1.default);
         this.app.use(TarjeRuta_1.default);
         this.app.use(SuperMerRutas_1.default);

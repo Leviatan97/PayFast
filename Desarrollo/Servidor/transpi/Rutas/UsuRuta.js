@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const UsuControlador_1 = __importDefault(require("../Controlador/UsuControlador"));
+const Autenticacion_1 = require("../middleware/Autenticacion");
 class usuRuta {
     constructor(routes = express_1.default()) {
         this.routes = routes;
@@ -15,6 +16,9 @@ class usuRuta {
         this.Ingresar();
         this.verUsuario();
         this.actualizar();
+        this.verificarContra();
+        this.actualizarFoto();
+        this.verFoto();
     }
     Registro() {
         this.routes.route('/Registro').post(UsuControlador_1.default.Registro);
@@ -29,13 +33,22 @@ class usuRuta {
         this.routes.route('/numeroDoc').post(UsuControlador_1.default.validarNumeroDoc);
     }
     verUsuario() {
-        this.routes.route('/usuario').post(UsuControlador_1.default.verUsuario);
+        this.routes.get('/usuario', Autenticacion_1.verificaToken, UsuControlador_1.default.verUsuario);
     }
     Ingresar() {
         this.routes.route('/login').post(UsuControlador_1.default.Ingresar);
     }
     actualizar() {
-        this.routes.route('/actualizar').put(UsuControlador_1.default.Actualizar);
+        this.routes.put('/actualizar', Autenticacion_1.verificaToken, UsuControlador_1.default.Actualizar);
+    }
+    actualizarFoto() {
+        this.routes.put('/fotoPerfil', Autenticacion_1.verificaToken, UsuControlador_1.default.ActualizarFoto);
+    }
+    verFoto() {
+        this.routes.get('/perfil/:userId/:img', UsuControlador_1.default.verFotoPerfil);
+    }
+    verificarContra() {
+        this.routes.route('/contra').post(UsuControlador_1.default.verficarContra);
     }
     getRoutes() {
         return this.routes;

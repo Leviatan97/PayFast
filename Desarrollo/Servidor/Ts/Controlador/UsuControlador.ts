@@ -1,6 +1,9 @@
 import usuModel from '../Modelo/UsuModelo';
 import {Request,Response,NextFunction} from 'express';
 import { Usuario } from '../Interfaz/usuInterfaz';
+import token from '../Token/Token';
+import { FileUpload } from '../Interfaz/imgInterfaz';
+import FileSystem from '../FileSystem/FileSystem';
 const passport = require('passport-facebook')
 const FacebookStrategy = require('passport-facebook')
 
@@ -82,10 +85,15 @@ class usuControlador {
                 datos.us_c, 
                 datos.us_ca
             )
-
+            const Token: token = token.getJwtToken({
+                us_i: resultado.respuesta.insertId,
+                us_n: datos.us_n,
+                us_c: datos.us_c
+            })
             res.status(200).json({
                 message : "Se ha egistrado exitosamente",
-                res : resultado 
+                res : resultado,
+                token: Token
             })
 
         } catch (error) {
@@ -112,12 +120,12 @@ class usuControlador {
     }    
         
 
-    public async Actualizar(req : Request, res : Response, fun : Function){
+    public async Actualizar (req : any, res : Response, fun : Function){
         let datos  : Usuario = req.body;
         let result : any;
         try {
             const usuarioModelo: usuModel = new usuModel()
-            result = await usuarioModelo.actualizar(datos)
+            result = await usuarioModelo.actualizar(datos, req.usuario.us_i)
             res.status(200).json({
                 respuesta: "OK",
                 resultado: result
@@ -130,6 +138,63 @@ class usuControlador {
         }
     }
 
+    public async ActualizarFoto (req : any, res : Response, fun : Function){
+
+        if(!req.files) {
+            res.status(400).json({
+                ok: false,
+                mensaje: "No se subio ninguna imagen"
+            })
+        }
+        const imagen: FileUpload = req.files.imagen
+
+        if(!imagen) {
+            res.status(400).json({
+                ok: false,
+                mensaje: "No se subio ninguna imagen"
+            })
+        }
+
+        if(!imagen.mimetype.includes('image')) {
+            res.status(400).json({
+                ok: false,
+                mensaje: "Lo que subio no es una imagen"
+            })
+        }
+
+        const fyleSystem : FileSystem = new FileSystem();
+
+        const usIm = await fyleSystem.guardarImagen(imagen, String(req.usuario.us_i))
+        console.log(usIm)
+        let datos  : any = {
+            us_im: usIm
+        }
+        let result : any;
+        try {
+            const usuarioModelo: usuModel = new usuModel()
+            result = await usuarioModelo.actualizar(datos, req.usuario.us_i)
+            res.status(200).json({
+                respuesta: "OK",
+                resultado: result
+            })
+        } catch (error) {
+            res.status(200).json({
+                error: "Error",
+                respuesta: error
+            })
+        }
+    }
+
+    public async verFotoPerfil(req : any, res : Response, fun : Function) {
+        const usId = req.params.userId
+        const usIm = req.params.img
+
+        const fyleSystem : FileSystem = new FileSystem();
+        const pathFoto = fyleSystem.getFotoUrl(usId, usIm)
+
+        res.sendFile(pathFoto)
+    }
+
     public async Ingresar(req : Request, res : Response, fun : Function){
         let datos : Usuario = req.body
         let result: any
@@ -137,10 +202,16 @@ class usuControlador {
         try {
             const usuarioModelo : usuModel = new usuModel()
             result = await usuarioModelo.ingresar(datos.us_c,datos.us_ca)
+
+            const toke = token.getJwtToken({
+                us_i: result[0].us_i,
+            })
+
             valor = result.length
             res.status(200).json({
                 val: valor,
-                resultado : result
+                resultado : result,
+                token_ : toke
             })
         } catch (error) {
             res.status(200).json(error)
@@ -148,15 +219,31 @@ class usuControlador {
         
     }
 
-    public async verUsuario(req : Request, res : Response, fun : Function) {
-        let datos = req.body
+    public async verUsuario(req : any, res : Response, fun : Function) {
+        let datos = req.usuario.us_i
         let result : any
         try {
             const usuarioModelo : usuModel = new usuModel()
-            result = await usuarioModelo.verUsuario(datos.us_i)
+            result = await usuarioModelo.verUsuario(datos)
             res.status(200).json({
                 respuesta: "OK",
                 resultado: result
+            })
+        } catch (error) {
+            res.status(200).json(error)
+        }
+    }
+
+    public async verficarContra(req : Request, res : Response, fun : Function) {
+        let datos = req.body
+        let result : any
+        let valor  : any
+        try {
+            const usuarioModelo : usuModel = new usuModel()
+            result = await usuarioModelo.verficarContra(datos.us_ca, datos.us_i)
+            valor = result.length
+            res.status(200).json({
+                val: valor,
             })
         } catch (error) {
             res.status(200).json(error)

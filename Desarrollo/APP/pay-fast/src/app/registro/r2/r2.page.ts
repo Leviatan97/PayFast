@@ -70,7 +70,8 @@ export class R2Page implements OnInit {
                   us_td : this.usuario.us_td,
                   us_nd : String(this.ndocumento),
                   us_c : this.email,
-                  us_ca : contraenc
+                  us_ca : contraenc,
+                  us_im: "default.svg"
                 }
 
                   this.router.navigate(['/registro/r3'])

@@ -5,7 +5,7 @@ class Coneccion{
     public BD = mysql.createPool({
         host     : 'localhost',
         user     : 'root',
-        password : 'password',
+        password : '',
         database : 'payfastv3'
     })
     constructor() {

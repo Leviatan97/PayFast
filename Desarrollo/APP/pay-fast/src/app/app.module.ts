@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { IonicStorageModule } from '@ionic/storage';
 import {HttpClientModule} from '@angular/common/http';
 import { ComponentesModule } from './componentes/componentes.module';
 import { PipesModule } from './pipes/pipes.module';
@@ -17,7 +17,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentesModule, PipesModule ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentesModule, PipesModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
