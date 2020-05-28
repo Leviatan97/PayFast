@@ -70,7 +70,7 @@ export class I1Page implements OnInit {
   private ofertaTrue(){
       this.ofertas = 1
       console.log(this.ofertas)
-      this.router.navigate(['inicio/ofertas'])
+      this.router.navigate(['inicio/i1/home-ofertas'])
   }
 
   private scanerTrue(){

@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ScannerPage
+  },  {
+    path: 'home-carrito',
+    loadChildren: () => import('./home-carrito/home-carrito.module').then( m => m.HomeCarritoPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,0 +1,72 @@
+.titulo{
+    color: #181763;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-right: 15%;
+}
+
+ion-row.Theader{
+    margin-top: 5%;
+    background-color: rgba($color: #181763, $alpha: 1);
+    color: white;
+    font-weight: bold;
+}
+
+ion-row.Trow{
+    border-top: 1px solid black;
+    border-color: rgba($color: #181763, $alpha: 0.7);
+}
+
+ion-row.Ttotal{
+    border-top: 1px solid #00000000;
+}
+
+@media (prefers-color-scheme: dark){
+    ion-row.Theader{
+        margin-top: 5%;
+        background-color: rgba($color: #a0a0a0, $alpha: 1);
+        color: white;
+        font-weight: bold;
+    }
+
+    ion-row.Trow{
+        border-top: 1px solid black;
+        border-color: rgba($color: #a0a0a0, $alpha: 0.7);
+    }
+
+    ion-row.Ttotal{
+        border-top: 1px solid white;
+    }
+
+    
+}
+
+.btn_1{
+    --background: #39379c;
+    height: 35%;
+    width: 65%;
+    border-radius: 0% 0% 0% 0%;
+}
+.btn_2{
+    --background: #a0d995;
+    height: 35%;
+    width: 65%;
+    border-radius: 0% 0% 0% 0%;
+}
+.btn_c{
+    margin-top: 7%;
+    
+}
+.center{
+    text-align: center;
+}
+.col{
+    padding-top:5%;
+}
+.col1{
+    margin-top: 12%;
+    width: 55%;
+    height: 70%;
+}

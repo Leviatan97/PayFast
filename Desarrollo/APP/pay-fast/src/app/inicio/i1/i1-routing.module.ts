@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'scanner',
     loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
+  {
+    path: 'home-ofertas',
+    loadChildren: () => import('./home-ofertas/home-ofertas.module').then( m => m.HomeOfertasPageModule)
   }
 
 ];
