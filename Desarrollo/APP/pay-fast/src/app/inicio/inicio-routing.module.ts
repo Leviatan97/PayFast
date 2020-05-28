@@ -38,6 +38,14 @@ const routes: Routes = [
   },  {
     path: 'acercade',
     loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
+  },
+  {
+    path: 'home-carrito',
+    loadChildren: () => import('./home-carrito/home-carrito.module').then( m => m.HomeCarritoPageModule)
+  },
+  {
+    path: 'home-metodo',
+    loadChildren: () => import('./home-metodo/home-metodo.module').then( m => m.HomeMetodoPageModule)
   }
 
 

@@ -14,10 +14,10 @@
     <ion-card-content>
         <h2>Ingresa tus datos de pago</h2>
         <ion-item class="log">
-          <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre"></ion-input>
+          <ion-input type="text" placeholder="NOMBRES" [(ngModel)]="this.tnombre" maxlength="50"></ion-input>
         </ion-item >
         <ion-item class="log">
-          <ion-input type="text" placeholder="APELLIDOS" [(ngModel)]="this.tapellido"></ion-input>
+          <ion-input type="text" placeholder="APELLIDOS" [(ngModel)]="this.tapellido" maxlength="50"></ion-input>
         </ion-item>
         <ion-item class="log">
           <ion-input type="number" placeholder="NÚMERO DE TARJETA" [(ngModel)]="this.tnumero"></ion-input>
@@ -27,7 +27,7 @@
           <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>
         </ion-item>
         <ion-item class="log">
-          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv" maxlengthnumber="3"></ion-input>
+          <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv" min="1" max="999"></ion-input>
         </ion-item>
 
         

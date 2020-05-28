@@ -1,6 +1,6 @@
 $text-input-placeholder-color: rgba(255, 255, 255);
 ion-content.background{
-    --background: url('../../../assets/background/login-background.png') 0 0/100% 100% no-repeat;
+    --background: #fff url('../../../assets/background/login-background.png') no-repeat bottom center / cover;
 }
 
 ion-card.fondo {
@@ -60,19 +60,60 @@ ion-item.log{
 
 ion-label.url{
     margin-top: 3%;
+    margin-left: 20%;
     --background: transparent;
     font-family: Arial;
     color: #ffff;
     width: 67%;
     height: 8.5%;
-    margin-left: 20%;
     font-weight: bold;
     font-size: small;
 }
 
+@media(min-width: 768px)
+{
+
+    ion-button.margen{
+        margin-top: 0px;
+    }
+
+    ion-label.url{
+        margin-left: 38%;     
+    }
+
+    ion-icon.icon{
+        margin-right: 1%;
+    }
+
+    
+}
+
+@media(min-width: 1024px)
+{
+
+    ion-button.margen{
+        margin-top: 0px;
+    }
+
+    ion-label.url{
+        margin-left: 40%;     
+    }
+}
 
 ion-button.margen {
     margin-top: 7%;
+    display: flex;
+    justify-content: center;
+}
+
+ion-icon.icon{
+    margin-right: 8%;
+    font-size: medium;
+}
+
+ion-icon.iconf{
+    margin-right: 3%;
+    font-size: 24px;
 }
 
 .btn-facebook
