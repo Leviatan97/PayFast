@@ -35,21 +35,9 @@ const routes: Routes = [
     loadChildren: () => import('./perfilcmodal/perfilcmodal.module').then( m => m.PerfilcmodalPageModule)
   },
   {
-    path: 'ofertas',
-    loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
-  },
-  {
     path: 'acercade',
     loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
   },
-  {
-    path: 'home-carrito',
-    loadChildren: () => import('./home-carrito/home-carrito.module').then( m => m.HomeCarritoPageModule)
-  },
-  {
-    path: 'home-metodo',
-    loadChildren: () => import('./home-metodo/home-metodo.module').then( m => m.HomeMetodoPageModule)
-  }
 
 
   
