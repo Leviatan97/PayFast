@@ -50,10 +50,37 @@ ion-slides{
     --bullet-background-active:#15146a;
     --padding:10% 0% 0% 0%;
 }
+@media (prefers-color-scheme: dark) {
+    ion-slides {
+    --bullet-background: #75736d;
+    --bullet-background-active:#acacad;
+    --padding:10% 0% 0% 0%;
+    }
+  }
+
+
 ion-label{
     color: #6a68f1;
     background-image: none;
     margin: 0% 38% 0% 43%;
+}
+
+img.imagenLight{
+    display: inline;
+}
+
+img.imagenDark{
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    img.imagenLight{
+        display: none;
+    }
+    
+    img.imagenDark{
+        display: inline;
+    }
 }
 
 
