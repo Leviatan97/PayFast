@@ -7,6 +7,7 @@ import { PerfilcmodalPage } from '../perfilcmodal/perfilcmodal.page';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { ActionSheetController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PerfilPage implements OnInit {
     private modalCtrl: ModalController, 
     private usuarioService: UsuarioService,
     private storage: Storage,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private camara: Camera
   ) {
     this.verUsuario();
   }
@@ -103,32 +105,19 @@ export class PerfilPage implements OnInit {
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Albums',
+      header: 'Editar Foto de Perfil',
       cssClass: 'my-custom-class',
       buttons: [{
-        text: 'Delete',
-        role: 'destructive',
-        icon: 'trash',
+        text: 'Tomar Foto',
+        icon: 'camera-sharp',
         handler: () => {
           console.log('Delete clicked');
         }
       }, {
-        text: 'Share',
-        icon: 'share',
+        text: 'Subir imagen',
+        icon: 'image-outline',
         handler: () => {
-          console.log('Share clicked');
-        }
-      }, {
-        text: 'Play (open modal)',
-        icon: 'caret-forward-circle',
-        handler: () => {
-          console.log('Play clicked');
-        }
-      }, {
-        text: 'Favorite',
-        icon: 'heart',
-        handler: () => {
-          console.log('Favorite clicked');
+          this.abrirCamara()
         }
       }, {
         text: 'Cancel',
@@ -140,6 +129,25 @@ export class PerfilPage implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+
+  private abrirCamara() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camara.DestinationType.FILE_URI,
+      encodingType: this.camara.EncodingType.JPEG,
+      mediaType: this.camara.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camara.PictureSourceType.CAMERA
+    }
+    
+    this.camara.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     let base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
+    });
   }
 
 }
