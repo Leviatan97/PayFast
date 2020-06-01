@@ -14,7 +14,7 @@ export class UsuarioService {
   constructor(private http: HttpClient, private storage: Storage, private navCtrl: NavController) { }
 
   public validarUsuario(datos: any){
-    return this.http.post('http://192.168.0.9:5000/validar', datos);
+    return this.http.post('http://localhost:5000/validar', datos);
   }
 
   public async guardarToken(token: string) {
@@ -71,27 +71,32 @@ export class UsuarioService {
   }
 
   public registrarUsuario(datos: any) {
-    return this.http.post('http://192.168.0.9:5000/Registro', datos);
+    return this.http.post('http://localhost:5000/Registro', datos);
   }
 
   public validarCorreo(datos: any) {
-    return this.http.post('http://192.168.0.9:5000/correo', datos);
+    return this.http.post('http://localhost:5000/correo', datos);
   }
 
   public validarNumeroDoc(datos: any) {
-    return this.http.post('http://192.168.0.9:5000/numeroDoc', datos);
+    return this.http.post('http://localhost:5000/numeroDoc', datos);
   }
   
   public verUsuario(datos: any) {
-    return this.http.post('http://192.168.0.9:5000/usuario', datos);
+    return this.http.post('http://localhost:5000/usuario', datos);
   }
 
-  public actualizarUsuario(datos: any) {
-    return this.http.put('http://192.168.0.9:5000/actualizar', datos);
+  public actualizarUsuario(datos: any, tok:string) {
+    const headers =  new HttpHeaders({
+      'x-token': tok
+    })
+    return this.http.put('http://localhost:5000/actualizar', datos,{headers});
   }
 
-  public verificarContra(datos: any) {
-    return this.http.post('http://192.168.0.9:5000/contra', datos);
-
+  public verificarContra(datos: any, tok: string) {
+    const headers =  new HttpHeaders({
+      'x-token': tok
+    })
+    return this.http.post('http://localhost:5000/contra', datos, {headers});
   }
 }
