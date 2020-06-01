@@ -18,7 +18,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class PerfilPage implements OnInit {
 
   private nombre: any;
-
+  private imagen: any;
   constructor(
     private modalCtrl: ModalController, 
     private usuarioService: UsuarioService,
@@ -109,15 +109,15 @@ export class PerfilPage implements OnInit {
       cssClass: 'my-custom-class',
       buttons: [{
         text: 'Tomar Foto',
-        icon: 'camera-sharp',
+        icon: 'camera',
         handler: () => {
-          console.log('Delete clicked');
+          this.abrirCamara();
         }
       }, {
         text: 'Subir imagen',
         icon: 'image-outline',
         handler: () => {
-          this.abrirCamara()
+          this.abrirCamara();
         }
       }, {
         text: 'Cancel',
