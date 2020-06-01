@@ -16,9 +16,9 @@
 
 
 <ion-content>
-  <ion-card *ngFor="let nom of this.nombre" no-lines>
-    <ion-item no-lines>
-    <ion-card-content (click)="presentActionSheet()">
+  <ion-card *ngFor="let nom of this.nombre" class="card">
+    <ion-item>
+    <ion-card-content (click)="presentActionSheet()" >
       <ion-avatar>
         <img [src]="(nom.us_im | perfil: nom.us_i)" size="large">
       </ion-avatar>
