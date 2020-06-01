@@ -10,7 +10,7 @@
     padding: 5% 0% 5% 0%;
 }
 .o1{
-    background: #d44b6499;
+    opacity: 70%;
     height: 20%;
 }
 .o2{
@@ -24,14 +24,16 @@
     
 }
 .o4{
-    background: #35ff9f7d;
+    --background: #35ff9f7d;
     height: 60%;
     margin: 0% 0% 0% 0%;
+    opacity: 70%;
 }
 .o5{
     background: #c7e28982;
     height: 60%;
     margin: 0% 0% 0% 0%;
+    opacity: 70%;
 }
 ion-grid{
     margin:-7% 0% 0% 0%;
