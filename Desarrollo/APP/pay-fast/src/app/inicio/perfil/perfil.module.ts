@@ -16,6 +16,7 @@ import { PerfilatmodalPageModule } from '../perfilatmodal/perfilatmodal.module';
 import { PerfiltmodalPage } from '../perfiltmodal/perfiltmodal.page';
 import { PerfilcmodalPage } from '../perfilcmodal/perfilcmodal.page';
 import { PerfilcmodalPageModule } from '../perfilcmodal/perfilcmodal.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   entryComponents:[
@@ -34,7 +35,8 @@ import { PerfilcmodalPageModule } from '../perfilcmodal/perfilcmodal.module';
     PerfilmodalPageModule,
     PerfiltmodalPageModule,
     PerfilatmodalPageModule,
-    PerfilcmodalPageModule
+    PerfilcmodalPageModule,
+    PipesModule
 
     
   ],

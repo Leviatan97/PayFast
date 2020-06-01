@@ -48,7 +48,7 @@ class usuRuta {
         this.routes.get('/perfil/:userId/:img', UsuControlador_1.default.verFotoPerfil);
     }
     verificarContra() {
-        this.routes.route('/contra').post(UsuControlador_1.default.verficarContra);
+        this.routes.post('/contra', Autenticacion_1.verificaToken, UsuControlador_1.default.verficarContra);
     }
     getRoutes() {
         return this.routes;

@@ -16,11 +16,13 @@
 
 
 <ion-content>
-  <div class="perfil">
+  <div class="perfil" *ngFor="let nom of this.nombre">
     <button slot="start">
-      <img src="../../../assets/icon/perfil.svg" size="large">
+      <ion-avatar>
+        <img [src]="(nom.us_im | perfil: nom.us_i)" size="large">
+      </ion-avatar>
     </button>
-  </div>
+  </div>  
 
   <div class="bienvenida" *ngFor="let nom of this.nombre">
     <h2>Hola {{this.nom.us_n}} !</h2>

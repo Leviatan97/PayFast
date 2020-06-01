@@ -44,6 +44,7 @@ export class UsuarioService {
       })
       this.http.get('http://localhost:5000/usuario',{headers}).subscribe( resp => {
         if(resp['respuesta'] == "OK") {
+          this.setusuario(resp['resultado'])
           resolve(true)
         }else {
           this.navCtrl.navigateRoot('/login/form-log')
@@ -81,19 +82,25 @@ export class UsuarioService {
     return this.http.post('http://localhost:5000/numeroDoc', datos);
   }
 
-  public verUsuario() {
+  public verUsuario(tok: string) {
     const headers =  new HttpHeaders({
-      'x-token': this.token
+      'x-token': tok
     })
     return this.http.get('http://localhost:5000/usuario',{headers});
   }
 
-  public actualizarUsuario(datos: any) {
-    return this.http.put('http://localhost:5000/actualizar', datos);
+  public actualizarUsuario(datos: any, tok:string) {
+    const headers =  new HttpHeaders({
+      'x-token': tok
+    })
+    return this.http.put('http://localhost:5000/actualizar', datos,{headers});
   }
 
-  public verificarContra(datos: any) {
-    return this.http.post('http://localhost:5000/contra', datos);
+  public verificarContra(datos: any, tok: string) {
+    const headers =  new HttpHeaders({
+      'x-token': tok
+    })
+    return this.http.post('http://localhost:5000/contra', datos, {headers});
   }
 
 }
