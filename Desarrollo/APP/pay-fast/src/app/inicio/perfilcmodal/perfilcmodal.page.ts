@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
+import { Storage } from '@ionic/storage';
 import md5 from 'md5';
 import { element } from 'protractor';
 
@@ -19,7 +20,8 @@ export class PerfilcmodalPage implements OnInit {
   constructor(
     private modalCrtl: ModalController,
     private usuarioService: UsuarioService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private storage: Storage
   ) {
     this.id = this.usuarioService.getusuarioEdit();
    }
@@ -31,9 +33,9 @@ export class PerfilcmodalPage implements OnInit {
     this.modalCrtl.dismiss();
   }
 
-  private PromesaContra(datos: any) {
+  private PromesaContra(datos: any, tok: string) {
     return new Promise((resolve, reject) => {
-      this.usuarioService.verificarContra(datos).subscribe((result: any) => {
+      this.usuarioService.verificarContra(datos, tok).subscribe((result: any) => {
         resolve({
           result,
           respuesta: 'OK'
@@ -46,9 +48,9 @@ export class PerfilcmodalPage implements OnInit {
     });
   }
 
-  private PromesaActualizar(datos: any) {
+  private PromesaActualizar(datos: any, token: string) {
     return new Promise((resolve, reject) => {
-      this.usuarioService.actualizarUsuario(datos).subscribe((result: any) => {
+      this.usuarioService.actualizarUsuario(datos, token).subscribe((result: any) => {
         resolve({
           result,
           respuesta: 'OK'
@@ -71,16 +73,16 @@ export class PerfilcmodalPage implements OnInit {
     let result: any = null;
     let result2: any = null;
     let valida: any = null;
+    let token: string = null
     try {
-
+      token = await this.storage.get('token') || null
       valida = this.validarCampos();
       if(valida == true) {
         const contraencrip: any = md5(this.contrasenaA);
         const contrasena = {
-          us_i:  this.id,
           us_ca: contraencrip
         };
-        result = await this.PromesaContra(contrasena);
+        result = await this.PromesaContra(contrasena, token);
         result = result.result;
         if(result.val === 1){
           if(this.contrasena === this.contrasenaO) {
@@ -89,7 +91,7 @@ export class PerfilcmodalPage implements OnInit {
               us_i:  this.id,
               us_ca: contra
             };
-            result2 = await this.PromesaActualizar(datos);
+            result2 = await this.PromesaActualizar(datos,token);
             this.actualizar();
             this.modalCrtl.dismiss();
           } else {

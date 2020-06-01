@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { InicioPage } from './inicio.page';
+import { UsuarioGuard } from '../guards/usuario.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'i1',
-    loadChildren: () => import('./i1/i1.module').then( m => m.I1PageModule)
+    loadChildren: () => import('./i1/i1.module').then( m => m.I1PageModule),
+    canLoad: [UsuarioGuard]
   },
   {
     path: 'historial',
@@ -33,20 +35,9 @@ const routes: Routes = [
     loadChildren: () => import('./perfilcmodal/perfilcmodal.module').then( m => m.PerfilcmodalPageModule)
   },
   {
-    path: 'ofertas',
-    loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
-  },  {
     path: 'acercade',
     loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
   },
-  {
-    path: 'home-carrito',
-    loadChildren: () => import('./home-carrito/home-carrito.module').then( m => m.HomeCarritoPageModule)
-  },
-  {
-    path: 'home-metodo',
-    loadChildren: () => import('./home-metodo/home-metodo.module').then( m => m.HomeMetodoPageModule)
-  }
 
 
   

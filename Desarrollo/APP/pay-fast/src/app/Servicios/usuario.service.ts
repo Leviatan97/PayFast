@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Componente } from '../interfaces/interfaces';
 import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UsuarioService {
   private usuario1: any;
   private usuario: any;
   private token: string = null;
-  constructor(private http: HttpClient, private storage: Storage) { }
+  constructor(private http: HttpClient, private storage: Storage, private navCtrl: NavController) { }
 
   public validarUsuario(datos: any){
     return this.http.post('http://192.168.0.9:5000/validar', datos);
@@ -27,10 +28,29 @@ export class UsuarioService {
     
   }
 
-  public validarToken() {
+  private async cargarToken() {
+    this.token = await this.storage.get('token') || null
+  }
 
+  public async validarToken(): Promise<boolean> {
+    await this.cargarToken()
+    if(!this.token) {
+      this.navCtrl.navigateRoot('/login/form-log')
+      return Promise.resolve(false)
+    }
     return new Promise((resolve, reject) => {
-      
+      const headers =  new HttpHeaders({
+        'x-token': this.token
+      })
+      this.http.get('http://localhost:5000/usuario',{headers}).subscribe( resp => {
+        if(resp['respuesta'] == "OK") {
+          this.setusuario(resp['resultado'])
+          resolve(true)
+        }else {
+          this.navCtrl.navigateRoot('/login/form-log')
+          resolve(false)
+        }
+      })
     })
 
   }
@@ -61,7 +81,7 @@ export class UsuarioService {
   public validarNumeroDoc(datos: any) {
     return this.http.post('http://192.168.0.9:5000/numeroDoc', datos);
   }
-
+  
   public verUsuario(datos: any) {
     return this.http.post('http://192.168.0.9:5000/usuario', datos);
   }
@@ -72,6 +92,6 @@ export class UsuarioService {
 
   public verificarContra(datos: any) {
     return this.http.post('http://192.168.0.9:5000/contra', datos);
-  }
 
+  }
 }

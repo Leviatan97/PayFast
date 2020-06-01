@@ -67,7 +67,7 @@ class usuRuta
 
     public verificarContra() 
     {
-        this.routes.route('/contra').post(UsuControlador.verficarContra)
+        this.routes.post('/contra',verificaToken,UsuControlador.verficarContra)
     }
 
     public getRoutes()
