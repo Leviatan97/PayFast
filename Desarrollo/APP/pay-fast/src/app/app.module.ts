@@ -14,6 +14,7 @@ import { ComponentesModule } from './componentes/componentes.module';
 import { PipesModule } from './pipes/pipes.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     SplashScreen,
     BarcodeScanner,
     Camera,
+    FileTransfer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
