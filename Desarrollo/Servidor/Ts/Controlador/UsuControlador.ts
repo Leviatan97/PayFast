@@ -234,13 +234,13 @@ class usuControlador {
         }
     }
 
-    public async verficarContra(req : Request, res : Response, fun : Function) {
+    public async verficarContra(req : any, res : Response, fun : Function) {
         let datos = req.body
         let result : any
         let valor  : any
         try {
             const usuarioModelo : usuModel = new usuModel()
-            result = await usuarioModelo.verficarContra(datos.us_ca, datos.us_i)
+            result = await usuarioModelo.verficarContra(datos.us_ca, req.usuario.us_i)
             valor = result.length
             res.status(200).json({
                 val: valor,

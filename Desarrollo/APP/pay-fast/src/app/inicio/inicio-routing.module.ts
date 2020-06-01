@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'i1',
     loadChildren: () => import('./i1/i1.module').then( m => m.I1PageModule),
-    // canLoad: [UsuarioGuard]
+    canLoad: [UsuarioGuard]
   },
   {
     path: 'historial',
