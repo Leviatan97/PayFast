@@ -8,7 +8,7 @@ const URL = environment.url
 export class PerfilPipe implements PipeTransform {
 
   transform(img: string, userId: string): any {
-    return `${URL}/${userId}/${img}`;
+    return `${URL}/perfil/${userId}/${img}`;
   }
 
 }
