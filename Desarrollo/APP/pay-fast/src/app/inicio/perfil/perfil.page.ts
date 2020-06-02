@@ -117,7 +117,7 @@ export class PerfilPage implements OnInit {
         text: 'Subir imagen',
         icon: 'image-outline',
         handler: () => {
-          this.abrirCamara();
+          this.abrirGaleria();
         }
       }, {
         text: 'Cancel',
@@ -141,6 +141,28 @@ export class PerfilPage implements OnInit {
       mediaType: this.camara.MediaType.PICTURE,
       correctOrientation: true,
       sourceType: this.camara.PictureSourceType.CAMERA
+    }
+    
+    this.camara.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     let base64Image = 'data:image/jpeg;base64,' + imageData;
+     this.usuarioService.subirFoto(imageData, token)
+    }, (err) => {
+     // Handle error
+    });
+  }
+
+  private async abrirGaleria() {
+    let token: string = null
+    token = await this.storage.get('token') || null
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camara.DestinationType.FILE_URI,
+      encodingType: this.camara.EncodingType.JPEG,
+      mediaType: this.camara.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camara.PictureSourceType.PHOTOLIBRARY
     }
     
     this.camara.getPicture(options).then((imageData) => {
