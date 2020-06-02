@@ -34,6 +34,7 @@ class main {
         this.app.use(TarjeRuta_1.default);
         this.app.use(SuperMerRutas_1.default);
         this.app.use(express_1.default.static('iconos-supermercados'));
+        this.app.use(express_1.default.static('transpi/Perfil'));
     }
     configuracionDePuertos() {
         this.app.set('port', 5000);

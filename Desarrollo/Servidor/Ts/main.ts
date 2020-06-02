@@ -37,6 +37,7 @@ class main{
         this.app.use(TarjeRuta_)
         this.app.use(SuperMerRutas_)
         this.app.use(express.static('iconos-supermercados'))
+        this.app.use(express.static('transpi/Perfil'))
     }
 
     public configuracionDePuertos(){
