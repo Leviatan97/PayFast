@@ -42,7 +42,7 @@ class usuRuta {
         this.routes.put('/actualizar', Autenticacion_1.verificaToken, UsuControlador_1.default.Actualizar);
     }
     actualizarFoto() {
-        this.routes.put('/fotoPerfil', Autenticacion_1.verificaToken, UsuControlador_1.default.ActualizarFoto);
+        this.routes.post('/fotoPerfil', Autenticacion_1.verificaToken, UsuControlador_1.default.ActualizarFoto);
     }
     verFoto() {
         this.routes.get('/perfil/:userId/:img', UsuControlador_1.default.verFotoPerfil);

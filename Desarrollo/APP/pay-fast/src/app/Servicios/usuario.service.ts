@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Componente } from '../interfaces/interfaces';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
+import { FileUploadOptions, FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,12 @@ export class UsuarioService {
   private usuario1: any;
   private usuario: any;
   private token: string = null;
-  constructor(private http: HttpClient, private storage: Storage, private navCtrl: NavController) { }
+  constructor(
+    private http: HttpClient, 
+    private storage: Storage, 
+    private navCtrl: NavController, 
+    private filetrnasfer: FileTransfer
+  ) { }
 
   public validarUsuario(datos: any){
     return this.http.post('http://localhost:5000/validar', datos);
@@ -101,5 +107,21 @@ export class UsuarioService {
       'x-token': tok
     })
     return this.http.post('http://localhost:5000/contra', datos, {headers});
+  }
+
+  public subirFoto (img: string, tok: string) {
+    const opciones: FileUploadOptions = {
+      fileKey: 'imagen',
+      headers: {
+        'x-token': tok
+      }
+    }
+
+    const fileTransfer: FileTransferObject = this.filetrnasfer.create()
+    fileTransfer.upload(img,'http://localhost:5000/fotoPerfil', opciones).then(data=>{
+      console.log(data)
+    }).catch(err=>{
+      console.log(err)
+    })
   }
 }

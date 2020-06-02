@@ -18,7 +18,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class PerfilPage implements OnInit {
 
   private nombre: any;
-
+  private imagen: any;
   constructor(
     private modalCtrl: ModalController, 
     private usuarioService: UsuarioService,
@@ -109,15 +109,15 @@ export class PerfilPage implements OnInit {
       cssClass: 'my-custom-class',
       buttons: [{
         text: 'Tomar Foto',
-        icon: 'camera-sharp',
+        icon: 'camera',
         handler: () => {
-          console.log('Delete clicked');
+          this.abrirCamara();
         }
       }, {
         text: 'Subir imagen',
         icon: 'image-outline',
         handler: () => {
-          this.abrirCamara()
+          this.abrirCamara();
         }
       }, {
         text: 'Cancel',
@@ -131,7 +131,9 @@ export class PerfilPage implements OnInit {
     await actionSheet.present();
   }
 
-  private abrirCamara() {
+  private async abrirCamara() {
+    let token: string = null
+    token = await this.storage.get('token') || null
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camara.DestinationType.FILE_URI,
@@ -145,6 +147,7 @@ export class PerfilPage implements OnInit {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
      let base64Image = 'data:image/jpeg;base64,' + imageData;
+     this.usuarioService.subirFoto(imageData, token)
     }, (err) => {
      // Handle error
     });

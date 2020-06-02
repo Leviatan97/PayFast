@@ -57,7 +57,7 @@ class usuRuta
 
     public actualizarFoto() 
     {
-        this.routes.put('/fotoPerfil',verificaToken,UsuControlador.ActualizarFoto)
+        this.routes.post('/fotoPerfil',verificaToken,UsuControlador.ActualizarFoto)
     }
 
     public verFoto() 
