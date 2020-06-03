@@ -1,9 +1,5 @@
 [
-    {
-        "icon": "wallet",
-        "name": "Metodos de Pago",
-        "redirectTo": ""
-    },
+    
     {
         "icon": "help-circle",
         "name": "Ayuda al Usuario",
@@ -19,5 +15,10 @@
         "icon": "chatbox",
         "name": "Acerca de la Aplicacion",
         "redirectTo": "inicio/acercade"
+    },
+    {
+        "icon": "log-out-outline",
+        "name": "Cerrar sesión",
+        "redirectTo": ""
     }
 ]

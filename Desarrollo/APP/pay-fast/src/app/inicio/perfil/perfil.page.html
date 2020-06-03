@@ -17,17 +17,12 @@
 
 <ion-content>
   <ion-item *ngFor="let nom of this.nombre" (click)="presentActionSheet()" class="card">
-    
     <ion-avatar class="imagen">
       <img [src]="(nom.us_im | perfil: nom.us_i)" size="large" >
     </ion-avatar>
-      
-    
-  
   </ion-item>
-  <!-- <ion-card *ngFor="let nom of this.nombre" >
-    
-  </ion-card> -->
+
+  
 
   <div class="bienvenida" *ngFor="let nom of this.nombre">
     <h2>Hola {{this.nom.us_n}} !</h2>
