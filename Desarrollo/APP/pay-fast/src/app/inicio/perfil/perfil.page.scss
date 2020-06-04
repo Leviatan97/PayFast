@@ -11,13 +11,9 @@ button{
     color: #181763;
     
 }
-// ion-avatar{
-//     width: 150%;
-//     height: 150%;
-// }
 .imagen{
-    width: 100%;
-    height: 60%;
+    width: 118px;
+    height: 114px;
 }
 .bienvenida{
     text-align: center;
@@ -25,45 +21,9 @@ button{
 }
 .card{
     border-radius: 50%;
-    width: 50%;
-    height: 30%;
+    width: 170px;
+    height: 121px;
     display: block;
     margin: 10% auto;    
     --background: transparent;
-}
-@media (max-width:360px){
-    .card{
-        border-radius: 50%;
-        width: 35%;
-        height: 22%;
-        display: block;
-        margin: 10% auto;
-    }
-}
-@media (max-width:414px) and (max-height:736px){
-    .card{
-        border-radius: 50%;
-        width: 35%;
-        height: 22%;
-        display: block;
-        margin: 10% auto;
-    }
-}
-@media (min-width:375px){
-    .card{
-        border-radius: 50%;
-        width: 35%;
-        height: 18%;
-        display: block;
-        margin: 10% auto;
-    }
-}
-@media (min-width:768px){
-    .card{
-        border-radius: 50%;
-        width: 30%;
-        height: 27%;
-        display: block;
-        margin: 10% auto;
-    }
 }
