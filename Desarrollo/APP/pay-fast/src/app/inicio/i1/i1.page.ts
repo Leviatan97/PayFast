@@ -77,7 +77,7 @@ export class I1Page implements OnInit {
     
       console.log('OK')
       console.log(this.ofertas)
-      this.router.navigate(['inicio/i1/scanner'])     
+      this.router.navigate(['inicio/i1/scanner/home-carrito'])     
       
   }
   
