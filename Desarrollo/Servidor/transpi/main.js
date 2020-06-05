@@ -20,7 +20,7 @@ class main {
     }
     configuracionInicial() {
         this.app.use(morgan_1.default('dev'));
-        this.app.use(cors_1.default());
+        this.app.use(cors_1.default({ origin: true, credentials: true }));
         this.app.use(express_1.default.json());
     }
     Rutas() {
