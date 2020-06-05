@@ -27,8 +27,21 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+     // this.statusBar.overlaysWebView(true);
+      this.darkMode();
+      timer(3000).subscribe(() => this.showSplash = false);
 
-      timer(3000).subscribe(() => this.showSplash = false)
+      // if (this.platform.is('android')) {
+      //   this.statusBar.backgroundColorByHexString("#33000000");
+      // }
+
     });
+  }
+
+  darkMode(){
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if( prefersDark.matches ) {
+      document.body.classList.toggle( 'dark' );
+    }
   }
 }

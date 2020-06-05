@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border"> 
   <div class="header" >
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
   </div>
 </ion-header>
@@ -24,7 +24,7 @@
         </ion-item>
         <ion-item class="log">
           <ion-label>FECHA DE VENCIMIENTO</ion-label>
-          <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" [(ngModel)]="this.tfvencimiento"></ion-datetime>
+          <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" cancelText="Cancelar" doneText="Ok" [(ngModel)]="this.tfvencimiento"></ion-datetime>
         </ion-item>
         <ion-item class="log">
           <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv" min="1" max="999"></ion-input>
