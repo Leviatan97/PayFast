@@ -52,7 +52,7 @@ export class FormLogPage implements OnInit {
     try{
       if(this.correo != undefined && this.contrasena != undefined && this.correo != "")
       {
-        if(this.correo != null && this.contrasena)
+        if(this.correo != null && this.contrasena != null )
         {
           const conencrip = md5(this.contrasena)
           
