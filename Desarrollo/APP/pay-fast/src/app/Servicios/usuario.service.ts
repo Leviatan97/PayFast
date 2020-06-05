@@ -4,6 +4,9 @@ import { Componente } from '../interfaces/interfaces';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { FileUploadOptions, FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { environment } from '../../environments/environment';
+
+const URL = environment.url
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,7 @@ export class UsuarioService {
   ) { }
 
   public validarUsuario(datos: any){
-    return this.http.post('http://localhost:5000/validar', datos);
+    return this.http.post(`${URL}/validar`, datos);
   }
 
   public async guardarToken(token: string) {
@@ -48,9 +51,8 @@ export class UsuarioService {
       const headers =  new HttpHeaders({
         'x-token': this.token
       })
-      this.http.get('http://localhost:5000/usuario',{headers}).subscribe( resp => {
+      this.http.get(`${URL}/usuario`,{headers}).subscribe( resp => {
         if(resp['respuesta'] == "OK") {
-          this.setusuario(resp['resultado'])
           resolve(true)
         }else {
           this.navCtrl.navigateRoot('/login/form-log')
@@ -77,36 +79,36 @@ export class UsuarioService {
   }
 
   public registrarUsuario(datos: any) {
-    return this.http.post('http://localhost:5000/Registro', datos);
+    return this.http.post(`${URL}/Registro`, datos);
   }
 
   public validarCorreo(datos: any) {
-    return this.http.post('http://localhost:5000/correo', datos);
+    return this.http.post(`${URL}/correo`, datos);
   }
 
   public validarNumeroDoc(datos: any) {
-    return this.http.post('http://localhost:5000/numeroDoc', datos);
+    return this.http.post(`${URL}/numeroDoc`, datos);
   }
   
   public verUsuario(tok: string) {
     const headers =  new HttpHeaders({
       'x-token': tok
     })
-    return this.http.get('http://localhost:5000/usuario', {headers});
+    return this.http.get(`${URL}/usuario`, {headers});
   }
 
   public actualizarUsuario(datos: any, tok:string) {
     const headers =  new HttpHeaders({
       'x-token': tok
     })
-    return this.http.put('http://localhost:5000/actualizar', datos,{headers});
+    return this.http.put(`${URL}`, datos,{headers});
   }
 
   public verificarContra(datos: any, tok: string) {
     const headers =  new HttpHeaders({
       'x-token': tok
     })
-    return this.http.post('http://localhost:5000/contra', datos, {headers});
+    return this.http.post(`${URL}/contra`, datos, {headers});
   }
 
   public subirFoto (img: string, tok: string) {
@@ -118,7 +120,7 @@ export class UsuarioService {
     }
 
     const fileTransfer: FileTransferObject = this.filetrnasfer.create()
-    fileTransfer.upload(img,'http://localhost:5000/fotoPerfil', opciones).then(data=>{
+    fileTransfer.upload(img,`${URL}/fotoPerfil`, opciones).then(data=>{
       console.log(data)
     }).catch(err=>{
       console.log(err)
