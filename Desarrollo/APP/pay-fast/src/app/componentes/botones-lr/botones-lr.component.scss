@@ -25,3 +25,36 @@ ion-button.btn-registrar
     margin-right: 3.9%;
     margin-top: 0%;
 }
+@media(min-height: 800px)
+{
+    ion-button.btn-ingresar
+{
+    --border-radius: 17px 0px 0px 17px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 40%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-left: 6.9%;
+    margin-top: 0%;
+}
+
+ion-button.btn-registrar
+{
+    --border-radius: 0px 17px 17px 0px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 40%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 3.9%;
+    margin-top: 0%;
+}
+
+
+    
+}

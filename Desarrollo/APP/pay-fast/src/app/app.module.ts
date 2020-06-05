@@ -20,7 +20,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({_forceStatusbarPadding: true}), AppRoutingModule, HttpClientModule, ComponentesModule, PipesModule, IonicStorageModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot({_forceStatusbarPadding:true}), AppRoutingModule, HttpClientModule, ComponentesModule, PipesModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
