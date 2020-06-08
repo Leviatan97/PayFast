@@ -10,7 +10,7 @@ import { ToastController} from '@ionic/angular';
 })
 export class HomeCarritoPage implements OnInit {
 
-  private scanneo: string = "scanneo canselado"
+  private scanneo: string = "scanneo cancelado"
   private formato: string 
 
 

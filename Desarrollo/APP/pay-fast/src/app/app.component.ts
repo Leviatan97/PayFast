@@ -31,9 +31,9 @@ export class AppComponent {
       this.darkMode();
       timer(3000).subscribe(() => this.showSplash = false);
 
-      // if (this.platform.is('android')) {
-      //   this.statusBar.backgroundColorByHexString("#33000000");
-      // }
+      if (this.platform.is('android')) {
+        this.statusBar.backgroundColorByHexString("#33000000");
+      }
 
     });
   }

@@ -21,7 +21,14 @@
           <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
         </ion-item>
         <ion-item class="log">
-          <ion-datetime placeholder="FECHA DE NACIMIENTO" cancelText="Cancelar" doneText="Ok" displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" [(ngModel)]="this.fnacimiento"></ion-datetime>
+          <ion-datetime placeholder="FECHA DE NACIMIENTO" 
+            cancelText="Cancelar" doneText="Ok" 
+            [dayShortNames]="customDayShortNames"
+            displayFormat="DD MMM YYYY"
+            monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"  
+            min="1950-01-01" max="2001-30-12"  
+            [(ngModel)]="this.fnacimiento">
+          </ion-datetime>
         </ion-item>
 
         <ion-item class="log">
