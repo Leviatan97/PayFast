@@ -15,6 +15,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
     BarcodeScanner,
     Camera,
     FileTransfer,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
