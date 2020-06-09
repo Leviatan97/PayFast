@@ -32,7 +32,8 @@ export class UsuarioService {
       this.storage.clear()
     }else {
       this.token = token
-      await this.storage.set('token',this.token)  
+      await this.storage.set('token',this.token)
+      await this.validarToken()  
     }
     
   }
@@ -101,7 +102,7 @@ export class UsuarioService {
     const headers =  new HttpHeaders({
       'x-token': tok
     })
-    return this.http.put(`${URL}`, datos,{headers});
+    return this.http.put(`${URL}/actualizar`, datos,{headers});
   }
 
   public verificarContra(datos: any, tok: string) {
@@ -125,5 +126,11 @@ export class UsuarioService {
     }).catch(err=>{
       console.log(err)
     })
+  }
+
+  public logout() {
+    this.token = null;
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/login/form-log', {animated: true})
   }
 }

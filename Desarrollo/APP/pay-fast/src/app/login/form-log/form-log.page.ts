@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../Servicios/usuario.service'
 import md5 from 'md5'
-import { ToastController, MenuController } from '@ionic/angular';
+import { ToastController, MenuController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class FormLogPage implements OnInit {
     private router: Router,
     private usuarioservice: UsuarioService,
     public toastController: ToastController,
+    private navCtrl: NavController,
     private menu: MenuController
   )
   {
@@ -45,8 +46,6 @@ export class FormLogPage implements OnInit {
 
   
   private async ValidarUsu(){
-     
-    console.log(this.correo);
     let result: any = null;
 
     try{

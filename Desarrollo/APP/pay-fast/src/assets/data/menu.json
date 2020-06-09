@@ -3,22 +3,20 @@
     {
         "icon": "help-circle",
         "name": "Ayuda al Usuario",
-        "redirectTo": ""
+        "redirectTo": "",
+        "Method": ""
     },
     {
         "icon": "share-social",
         "name": "Compartir",
-        "redirectTo": ""
+        "redirectTo": "",
+        "Method": ""
     }
     ,
     {
         "icon": "chatbox",
         "name": "Acerca de la Aplicacion",
-        "redirectTo": "inicio/acercade"
-    },
-    {
-        "icon": "log-out-outline",
-        "name": "Cerrar sesión",
-        "redirectTo": ""
+        "redirectTo": "inicio/acercade",
+        "Method": ""
     }
 ]
