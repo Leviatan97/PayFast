@@ -120,7 +120,7 @@ export class PerfilPage implements OnInit {
           this.abrirGaleria();
         }
       }, {
-        text: 'Cancel',
+        text: 'Cancelar',
         icon: 'close',
         role: 'cancel',
         handler: () => {

@@ -12,6 +12,12 @@
           <label>{{co.name}}</label>
         </ion-item>
       </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline" slot="end" size="large" color="light"></ion-icon>
+          <label>Cerrar sesión</label>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>

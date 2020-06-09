@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Componente } from 'src/app/interfaces/interfaces';
 import { MenuService } from 'src/app/Servicios/menu.service';
+import { UsuarioService } from '../../Servicios/usuario.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   public componentes = null
 
-  constructor( private menuservice: MenuService ) { 
+  constructor( private menuservice: MenuService, private usuarioService: UsuarioService ) { 
     this.menu()
   }
 
@@ -51,6 +52,10 @@ export class MenuComponent implements OnInit {
     this.componentes = await this.motrarMenu()
     this.componentes = this.componentes.result
     return this.componentes
+  }
+
+  public logout() {
+    this.usuarioService.logout()
   }
 
 }

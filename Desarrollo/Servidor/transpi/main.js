@@ -11,6 +11,7 @@ const TarjeRuta_1 = __importDefault(require("./Rutas/TarjeRuta"));
 const SuperMerRutas_1 = __importDefault(require("./Rutas/SuperMerRutas"));
 const express_session_1 = __importDefault(require("express-session"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
+const TiendaRuta_1 = __importDefault(require("./Rutas/TiendaRuta"));
 class main {
     constructor() {
         this.app = express_1.default();
@@ -33,6 +34,7 @@ class main {
         this.app.use(UsuRuta_1.default);
         this.app.use(TarjeRuta_1.default);
         this.app.use(SuperMerRutas_1.default);
+        this.app.use(TiendaRuta_1.default);
         this.app.use(express_1.default.static('iconos-supermercados'));
         this.app.use(express_1.default.static('transpi/Perfil'));
     }
