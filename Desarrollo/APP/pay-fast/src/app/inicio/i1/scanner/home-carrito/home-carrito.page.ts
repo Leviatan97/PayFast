@@ -14,7 +14,8 @@ export class HomeCarritoPage implements OnInit {
   private scanneo: string = "scanneo cancelado"
   private formato: string 
   private coords: string
-  private validar: string = "4.6825472,-74.170368"
+  private validar: string = "4.355657,-74045130"
+  
 
 
   constructor
@@ -28,6 +29,8 @@ export class HomeCarritoPage implements OnInit {
   ngOnInit() {
     this.scanner()
     this.geoloc()
+    this.Compra()
+    
   }
 
   scanner(){
@@ -57,17 +60,17 @@ export class HomeCarritoPage implements OnInit {
       this.coords = coordenadas
     });
     
-    if(this.coords == this.validar)
-    {
-      console.log("");
-    }
-    else
-    {
-      if(this.coords != undefined)
-      {
-        this.presentToast()
-      }  
-    }
+    // if(this.coords == this.validar)
+    // {
+    //   console.log("");
+    // }
+    // else
+    // {
+    //   if(this.coords != undefined)
+    //   {
+    //     this.presentToast()
+    //   }  
+    // }
   }
 
   async presentToast() {
@@ -78,4 +81,72 @@ export class HomeCarritoPage implements OnInit {
     toast.present();
   }
 
+  private productos:any=[];
+
+  private Compra(){
+    this.productos=[
+      {
+        n_producto:112,
+        nombre:'Papas Golpe',
+        cantidad: 2,
+        precio: 4500
+      },
+      {
+        n_producto:113,
+        nombre:'Papas Pepito',
+        cantidad: 1,
+        precio: 4500
+      }
+    ]
+  }
+
+
+  private Eliminar(codigo:number) {
+    const prod = this.productos
+    this.productos.forEach(function(element){
+      if(codigo == element.n_producto){
+          let pos = prod.indexOf(element);
+          const productod = prod.splice(pos, 1);
+          console.log(productod);
+      }
+      // console.log(element)
+    });
+  }
+
+  private valorProduct() {
+    let numero: number = 0
+    this.productos.forEach(function(element){
+      numero = (element.cantidad * element.precio) + numero
+    });
+    return numero
+  }
+
+  private valorTotal() {
+    let numero: number = 0
+    let porcentaje: number = 0.022
+    this.productos.forEach(function(element){
+      numero = (element.cantidad * element.precio) + numero
+    });
+
+    return (numero*porcentaje)+numero
+  }
+
+  private mProducto(ev:any){
+    for(let i = 0; i < this.productos.lenght; i++){
+      if(this.scanneo == this.productos.n_producto){
+        this.productos.cantidad ++
+      }
+      if(ev <= 0) {
+        console.log("La cantidad del producto no puede ser inferior a uno")
+      }
+    }
+  }
+
+  private subTotal(){
+
+  }
+  
+  private Total(){
+    
+  }
 }

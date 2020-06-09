@@ -28,27 +28,23 @@
           <ion-col>Accion</ion-col>
         </ion-row>
 
-        <ion-row class="Trow">
-          <ion-col class="col">Producto</ion-col>
-          <ion-col><input class="col1" type="number" min="1" max="99"></ion-col>
-          <!-- <ion-col >
-            <ion-button class="btn_2"><ion-icon name="add-outline" font-size="large"></ion-icon></ion-button>
-            <ion-button class="btn_1"><ion-icon name="remove-outline" font-size="large"></ion-icon></ion-button>
-          </ion-col> -->
-          <ion-col class="col">$0.00</ion-col>
+        <ion-row class="Trow" *ngFor="let producto of productos">
+          <ion-col class="col">{{producto.nombre}}</ion-col>
+          <ion-col><input class="col1" type="number" min="1" max="99" [(ngModel)]="producto.cantidad"></ion-col>
+          <ion-col class="col">${{producto.cantidad*producto.precio}}</ion-col>
           <ion-col>
-            <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+            <ion-button color="danger" (click)="Eliminar(producto.n_producto)"><ion-icon name="trash-outline"></ion-icon></ion-button>
           </ion-col>
         </ion-row>
 
         <ion-row class="Ttotal">
           <ion-col>Sub Total</ion-col>
-          <ion-col>$0.0</ion-col>
+          <ion-col>${{this.valorProduct()}}</ion-col>
         </ion-row>
 
         <ion-row class="Ttotal">
           <ion-col>Total</ion-col>
-          <ion-col>$0.00</ion-col>
+          <ion-col>${{this.valorTotal()}}</ion-col>
         </ion-row>
 
       </ion-grid>

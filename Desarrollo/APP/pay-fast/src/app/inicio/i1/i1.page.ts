@@ -19,7 +19,7 @@ export class I1Page implements OnInit {
   private ofertas: number = 0;
   buscador: string = '';
   private coords: string
-  private validar: string = "4.6825472,-74.170368"
+  private validar: string = "4.355657,-74045130"
 
 
   constructor(
@@ -84,17 +84,17 @@ export class I1Page implements OnInit {
     
       console.log('OK')
       console.log(this.ofertas)
-      if(this.coords == this.validar)
-      {
-        this.router.navigate(['inicio/i1/scanner/home-carrito'])
-      }
-      else
-      {
-        if(this.coords != undefined)
-        {
-          this.validarCoords()
-        }  
-      }    
+      // if(this.coords == this.validar)
+      // {
+      //   this.router.navigate(['inicio/i1/scanner/home-carrito'])
+      // }
+      // else
+      // {
+      //   if(this.coords != undefined)
+      //   {
+      //     this.validarCoords()
+      //   }  
+      // }    
   }
   
   private buscar(event){
@@ -107,6 +107,7 @@ export class I1Page implements OnInit {
     watch.subscribe((data) => {
       const coordenadas = `${ data.coords.latitude },${ data.coords.longitude }`
       this.coords = coordenadas
+      console.log(this.coords)
     });
   }
 
