@@ -29,7 +29,19 @@ class tiendaModelo {
     }
     consultarProducto(id) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            (yield Coneccion_1.default).query(`SELECT * FROM ra WHERE ta_i = ${id}`, (error, result) => {
+            (yield Coneccion_1.default).query(`SELECT * FROM ra WHERE ta_i = ${id} AND ra_tp = 'consulta'`, (error, result) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    resolve(result);
+                }
+            });
+        }));
+    }
+    comprarProductos(id) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            (yield Coneccion_1.default).query(`SELECT * FROM ra WHERE ta_i = ${id} AND ra_tp = 'compra'`, (error, result) => {
                 if (error) {
                     reject(error);
                 }
@@ -40,3 +52,5 @@ class tiendaModelo {
         }));
     }
 }
+const TiendaModelo = new tiendaModelo();
+exports.default = TiendaModelo;

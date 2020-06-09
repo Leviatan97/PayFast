@@ -3,10 +3,11 @@ import {Request,Response,NextFunction,Application} from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import UsuRuta_ from './Rutas/UsuRuta';
-import TarjeRuta_ from './Rutas/TarjeRuta'
+import TarjeRuta_ from './Rutas/TarjeRuta';
 import SuperMerRutas_ from './Rutas/SuperMerRutas';
 import session from "express-session";
 import fileUpload from "express-fileupload";
+import TiendaRuta_ from './Rutas/TiendaRuta';
 
 
 
@@ -36,6 +37,7 @@ class main{
         this.app.use(UsuRuta_)
         this.app.use(TarjeRuta_)
         this.app.use(SuperMerRutas_)
+        this.app.use(TiendaRuta_)
         this.app.use(express.static('iconos-supermercados'))
         this.app.use(express.static('transpi/Perfil'))
     }
