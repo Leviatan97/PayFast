@@ -14,17 +14,11 @@
 </ion-header>
 
 <ion-content class="background">
-  <ion-card>
+  <ion-card *ngFor="let met of this.metodoPago">
+    <ion-card-header><ion-text color="light">{{met.tipo}}</ion-text></ion-card-header>
     <ion-card-content>
-      <ion-text color="light">Tarjeta 1</ion-text>
-      <ion-icon name="card-outline" size="large" color="light" slot="end"></ion-icon>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-content>
-      <ion-text color="light">Billetera 1</ion-text>
-      <ion-icon name="wallet-outline" size="large" color="light" slot="end"></ion-icon>
+      <ion-text>{{" Titular: "+met.nombre}}</ion-text>
+      <ion-icon [name]="met.icon" size="large" color="light" slot="end"></ion-icon>
     </ion-card-content>
   </ion-card>
 </ion-content>

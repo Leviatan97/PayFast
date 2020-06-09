@@ -7,33 +7,31 @@ import { isContext } from 'vm';
   styleUrls: ['./home-metodo.page.scss'],
 })
 export class HomeMetodoPage implements OnInit {
+  private metodoPago:any=[];
 
   constructor() { }
 
   ngOnInit() {
+    this.mPago()
   }
 
-  private metodoPago:any=[];
+  
 
   private mPago(){
     this.metodoPago=[
       {
         nombre: 'Alejandro',
         apellido: 'Gomez',
-        tipo:'tarjetac',
-        ntarjeta: '4444555533332222',
+        tipo:'Mastercad',
         vencimiento: 11/27,
         cvv: '346',
-        icon: ''
+        icon: 'card-outline'
       },
       {
         nombre: 'Juan',
         apellido: 'Perez',
-        tipo:'billeterav',
-        ntarjeta: '',
-        vencimiento:'',
-        cvv: '',
-        icon: '' 
+        tipo:'Nequi',
+        icon: 'wallet-outline'
       }
     ]
   }
