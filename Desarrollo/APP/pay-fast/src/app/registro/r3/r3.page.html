@@ -24,8 +24,16 @@
         </ion-item>
         <ion-item class="log">
           <ion-label>FECHA DE VENCIMIENTO</ion-label>
-          <ion-datetime displayFormat="MM/YY" min="2015" max="2030" value="20-01" placeholder="MM / AA" cancelText="Cancelar" doneText="Ok" [(ngModel)]="this.tfvencimiento"></ion-datetime>
+          <ion-datetime placeholder="MM / AA"
+            cancelText="Cancelar" doneText="Ok"
+            [dayShortNames]="customDayShortNames"
+            displayFormat="MMM, YYYY"
+            monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"
+            min="2015" max="2030"  
+            [(ngModel)]="this.tfvencimiento">
+          </ion-datetime>
         </ion-item>
+
         <ion-item class="log">
           <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" [(ngModel)]="this.tcvv" min="1" max="999"></ion-input>
         </ion-item>
