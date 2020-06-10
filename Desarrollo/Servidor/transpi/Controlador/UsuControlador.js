@@ -17,6 +17,8 @@ const Token_1 = __importDefault(require("../Token/Token"));
 const FileSystem_1 = __importDefault(require("../FileSystem/FileSystem"));
 const passport = require('passport-facebook');
 const FacebookStrategy = require('passport-facebook');
+const uniqid_1 = __importDefault(require("uniqid"));
+const nodemailer_1 = __importDefault(require("nodemailer"));
 class usuControlador {
     constructor() { }
     validarNumeroDoc(req, res, fun) {
@@ -224,6 +226,37 @@ class usuControlador {
             catch (error) {
                 res.status(200).json(error);
             }
+        });
+    }
+    recuperarContra(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = req.body;
+            const contra = uniqid_1.default();
+            const contenido = `
+            <h1>Recuperación de contraseña</h1>
+            <ul>
+                <li>Correo: ${datos.us_c}</li>
+                <li>Contraseña: ${contra}</li>
+            </ul>
+        `;
+            const transportador = nodemailer_1.default.createTransport({
+                host: '',
+                port: 25,
+                secure: false,
+                auth: {
+                    user: 'userpayfast@payfast.com',
+                    pass: ''
+                },
+                tls: {
+                    rejectUnauthorized: false
+                }
+            });
+            const info = yield transportador.sendMail({
+                from: "",
+                to: datos.us_c,
+                subject: 'Recuperación de Contraseña',
+                text: contenido
+            });
         });
     }
 }

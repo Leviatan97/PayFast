@@ -6,6 +6,8 @@ import { FileUpload } from '../Interfaz/imgInterfaz';
 import FileSystem from '../FileSystem/FileSystem';
 const passport = require('passport-facebook')
 const FacebookStrategy = require('passport-facebook')
+import uniqid from 'uniqid'
+import nodemailer from 'nodemailer'
 
 
 class usuControlador {
@@ -248,6 +250,38 @@ class usuControlador {
         } catch (error) {
             res.status(200).json(error)
         }
+    }
+
+    public async recuperarContra(req : Request, res : Response, fun : Function) {
+        let datos: Usuario = req.body
+        const contra = uniqid()
+        const contenido = `
+            <h1>Recuperación de contraseña</h1>
+            <ul>
+                <li>Correo: ${datos.us_c}</li>
+                <li>Contraseña: ${contra}</li>
+            </ul>
+        `;
+
+        const transportador = nodemailer.createTransport({
+            host: '',
+            port: 25,
+            secure: false,
+            auth: {
+                user: 'userpayfast@payfast.com',
+                pass: ''
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        })
+
+        const info = await transportador.sendMail({
+            from: "",
+            to: datos.us_c,
+            subject: 'Recuperación de Contraseña',
+            text: contenido
+        })
     }
 }
 
