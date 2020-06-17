@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -127,6 +129,6 @@
   },
   "defaultProject": "Panel-PayFast",
   "cli": {
-    "analytics": "53b58950-6a90-4df7-a74f-94225636d121"
+    "analytics": "9db9868b-7465-477f-9016-e60a7838bc42"
   }
 }
