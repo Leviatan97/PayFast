@@ -7,7 +7,7 @@ class tiendaConstructor {
     public async verificarCoordenada(req : any, res : Response, fun : Function) {
         let resultado: any = null;
         try {
-            resultado = await TiendaModelo.verificarCoordenada(req.ta_co)
+            resultado = await TiendaModelo.verificarCoordenada(req.body.ta_co, req.body.smo_i)
             res.status(200).json({
                 respuesta: true,
                 result: resultado
@@ -23,7 +23,7 @@ class tiendaConstructor {
     public async consultaProducto(req : any, res : Response, fun : Function) {
         let resultado: any = null;
         try {
-            resultado = await TiendaModelo.consultarProducto(req.ta_i)
+            resultado = await TiendaModelo.consultarProducto(req.body.ta_i)
             res.status(200).json({
                 respuesta: true,
                 result: resultado

@@ -5,6 +5,7 @@ import { SupermercadoService } from '../../Servicios/supermercado.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { resolve } from 'url';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class I1Page implements OnInit {
   private ofertas: number = 0;
   buscador: string = '';
   private coords: string
-  private validar: string = "4.355657,-74045130"
+  private isup: number
 
 
   constructor(
@@ -62,6 +63,21 @@ export class I1Page implements OnInit {
       });
     });
   }
+  private promesaTiendageo(coor: any) {
+    return new Promise((resolve, reject)=> {
+      this.superService.verificarCoorTienda(coor).subscribe((result: any)=>{
+        resolve({
+          result,
+          resultado: 'OK'
+        })
+      }, (error: object)=> {
+        reject({
+          error,
+          resultado: 'Error'
+        })
+      })
+    })
+  }
 
   private async verSupermercado(){
     try {
@@ -80,21 +96,31 @@ export class I1Page implements OnInit {
       this.router.navigate(['inicio/i1/home-ofertas'])
   }
 
-  private scanerTrue(){
-    
-      console.log('OK')
-      console.log(this.ofertas)
-      // if(this.coords == this.validar)
-      // {
-      //   this.router.navigate(['inicio/i1/scanner/home-carrito'])
-      // }
-      // else
-      // {
-      //   if(this.coords != undefined)
-      //   {
-      //     this.validarCoords()
-      //   }  
-      // }    
+  private async scanerTrue(id: number){
+    let datos = {
+      ta_co: this.coords,
+      smo_i: id
+    }
+    let result: any = null
+      try {
+        result = await this.promesaTiendageo(datos)
+        result =  result.result
+        result =  result.result
+        if(result.length == 1)
+        {
+          this.superService.guardarCoordenada(this.coords)
+          // this.router.navigate(['inicio/i1/scanner/home-carrito'])
+        }
+        else
+        {
+          if(this.coords != undefined)
+          {
+            this.validarCoords()
+          }  
+        }
+      } catch (error) {
+        console.log(error)
+      }          
   }
   
   private buscar(event){
