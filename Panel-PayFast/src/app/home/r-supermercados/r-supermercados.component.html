@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div class="card">
+            <mat-card>
+                <mat-card-title>Registro de Supermercado</mat-card-title>
+                <form class="example-form">
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Nombre" [(ngModel)]="this.nombre" name="nombre" autocomplete="off" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Supermercado" [(ngModel)]="this.supermercado" name="supermercado" autocomplete="off" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input type="email" matInput placeholder="Correo electronico" [(ngModel)]="this.correo" name="correo" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <ngx-mat-file-input  required placeholder="Subir Imagen" ></ngx-mat-file-input>
+                        <mat-icon matSuffix>add_photo_alternate</mat-icon>
+                      </mat-form-field>
+                    <br>
+                               
+                    <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [(ngModel)]="this.contrasena" name="contrasena" [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+
+                      <mat-form-field>
+                        <mat-label>Confirmar contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+
+                    <div class="div-boton">
+                        <button mat-raised-button class="btn" color="primary" [routerLink]="['rtienda']" (click)="rSupemercado()">Confirmar</button>
+                    </div>
+                </form>
+            </mat-card> 
+        </div>
+    </body>
+</html>
+
+

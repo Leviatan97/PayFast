@@ -10,14 +10,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { LoginRComponent } from './login/login-r/login-r.component';
+import { RSupermercadosComponent } from './home/r-supermercados/r-supermercados.component';
+import { RTiendaComponent } from './home/r-supermercados/r-tienda/r-tienda.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    LoginRComponent
+    LoginRComponent,
+    RSupermercadosComponent,
+    RTiendaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -26,7 +36,10 @@ import { LoginRComponent } from './login/login-r/login-r.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MaterialFileInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
