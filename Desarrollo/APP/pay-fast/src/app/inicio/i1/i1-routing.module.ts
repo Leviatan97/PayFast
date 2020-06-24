@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'scanner',
     loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule),
-    canActivate: [SupermercadoGuard]
+    // canActivate: [SupermercadoGuard]
   },
   {
     path: 'home-ofertas',

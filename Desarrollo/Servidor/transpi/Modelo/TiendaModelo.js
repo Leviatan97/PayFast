@@ -17,7 +17,7 @@ class tiendaModelo {
     constructor() { }
     verificarCoordenada(co, smo) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            (yield Coneccion_1.default).query(`SELECT * FROM ta WHERE ta_co = '${co}' AND smo_i = ${smo}`, (error, result) => {
+            (yield Coneccion_1.default).query(`SELECT ta_co, ta_i, ta_ro FROM ta WHERE smo_i = ${smo}`, (error, result) => {
                 if (error) {
                     reject(error);
                 }

@@ -5,7 +5,7 @@ import { SupermercadoService } from '../../Servicios/supermercado.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { resolve } from 'url';
+
 
 
 @Component({
@@ -34,7 +34,6 @@ export class I1Page implements OnInit {
   ) {
     this.menu.enable(true);
     this.verSupermercado();
-
   }
 
   openFirst() {
@@ -98,29 +97,52 @@ export class I1Page implements OnInit {
 
   private async scanerTrue(id: number){
     let datos = {
-      ta_co: this.coords,
       smo_i: id
     }
     let result: any = null
+    let coordenadasbd: any = null
+    let coordenadasbd2 = this.coords.split(",")
+    let resultado: any = null
+    let respuesta: boolean = false
+
       try {
         result = await this.promesaTiendageo(datos)
         result =  result.result
         result =  result.result
-        if(result.length == 1)
+        result.forEach(element => {
+          coordenadasbd = element.ta_co.split(",")
+          resultado = this.calculateDistance(Number(coordenadasbd2[1]), Number(coordenadasbd[1]),Number(coordenadasbd2[0]),Number(coordenadasbd[0]))
+          if(element.ta_ro >= resultado && respuesta == false) {
+            respuesta = true
+          }
+        });
+ 
+        if(respuesta)
         {
           this.superService.guardarCoordenada(this.coords)
-          // this.router.navigate(['inicio/i1/scanner/home-carrito'])
+          this.superService.guardarTienda(datos)
+          this.router.navigate(['/inicio/i1/scanner/home-carrito'])
         }
         else
         {
           if(this.coords != undefined)
           {
+            this.superService.guardarCoordenada(null)
+            this.superService.guardarTienda(null)
             this.validarCoords()
           }  
         }
       } catch (error) {
         console.log(error)
       }          
+  }
+
+  private calculateDistance(lon1, lon2, lat1, lat2){
+      let p = 0.017453292519943295;
+      let c = Math.cos;
+      let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((lon1- lon2) * p))) / 2;
+      let dis = (12742 * Math.asin(Math.sqrt(a)));
+      return Math.trunc(dis)*1000;
   }
   
   private buscar(event){
