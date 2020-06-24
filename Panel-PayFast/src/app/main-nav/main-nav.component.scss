@@ -26,6 +26,7 @@
   color: #181763;
   background-color: white;
   padding: 0px;
+  position: fixed;
 }
 
 .menu
@@ -38,7 +39,7 @@
 {
   display: flex;
   justify-content: flex-end;
-  width: 80%;
+  width: 73%;
 }
 
 .usuario
@@ -61,20 +62,6 @@ mat-nav-list :hover
 {
   font-size: 40px;
   margin: 0px;
-}
-
-mat-card
-{
-  margin-top: 2%;
-  margin-left: 1%;
-  float: left;
-}
-
-h1{
-  margin-top: 2%;
-  text-align: center;
-  color:#181763;
-  font-weight: bold;
 }
 
 mat-grid-tile {
@@ -133,7 +120,20 @@ mat-grid-tile {
 
 @media (min-width:500px) and (max-width:1023px)
 {
+  .content
+  {
+    width: 45%;
+  }
+
   h1{
     margin-top: 4%;
+  }
+}
+
+@media (min-width:769px) and (max-width:1543px)
+{
+  .content
+  {
+    width: 59%;
   }
 }
