@@ -14,6 +14,7 @@ export class SupermercadoService {
 
   private coordenadas: any
   private tienda: any
+  private super: any
 
   constructor(private http : HttpClient, private navCtrl: NavController, private storage: Storage) { }
 
@@ -24,15 +25,16 @@ export class SupermercadoService {
   /**
    * consultarProducto
    */
-  public consultarProducto(url:string, codigo:number) {
+  public consultarProducto(url:string, codigo:string) {
       return this.http.get(`${url}/${codigo}`)
   }
 
   /**
    * consultarRutaProducto
    */
-  public consultarRutaProducto(datos: any) {
-      return this.http.post(`${URL}/consulPro`,datos)
+  public consultarRutaProducto() {
+    const datos: any = this.cargarTienda()
+    return this.http.post(`${URL}/consulPro`,datos)
   }
 
   public guardarCoordenada(coordenada:any) {
@@ -51,6 +53,14 @@ export class SupermercadoService {
     return this.tienda
   }
 
+  public guardarSuper(supermercado: any) {
+    this.super = supermercado
+  }
+
+  private cargarSuper() {
+    return this.super
+  }
+
   /**
    * verificarCoor
    */
@@ -63,7 +73,7 @@ export class SupermercadoService {
         return Promise.resolve(false)
       }
 
-      if(!this.tienda) {
+      if(!this.super) {
         this.navCtrl.navigateRoot('/inicio/i1')
         return Promise.resolve(false)
       }
@@ -72,13 +82,12 @@ export class SupermercadoService {
       let coord: any = null
       let coord2: any = await this.cargarCoordenada()
       coord2 = coord2.split(",")
-      const datos: any =  await this.cargarTienda()
+      const datos: any =  await this.cargarSuper()
       let distancia: number
       let respuesta: boolean = false
 
       return new Promise((resolve, reject)=>{
           this.http.post(`${URL}/coor`,datos).subscribe( resp => {
-            console.log(resp)
             resp['result'].forEach(element => {
                 coord = element.ta_co.split(",")
                 distancia = this.calcularDist(Number(coord2[1]),Number(coord[1]),Number(coord2[0]),Number(coord[0]))

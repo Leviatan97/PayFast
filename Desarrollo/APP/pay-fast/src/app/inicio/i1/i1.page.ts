@@ -5,6 +5,7 @@ import { SupermercadoService } from '../../Servicios/supermercado.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { element } from 'protractor';
 
 
 
@@ -104,23 +105,29 @@ export class I1Page implements OnInit {
     let coordenadasbd2 = this.coords.split(",")
     let resultado: any = null
     let respuesta: boolean = false
+    let tienda: any
 
       try {
         result = await this.promesaTiendageo(datos)
         result =  result.result
         result =  result.result
+        
         result.forEach(element => {
           coordenadasbd = element.ta_co.split(",")
           resultado = this.calculateDistance(Number(coordenadasbd2[1]), Number(coordenadasbd[1]),Number(coordenadasbd2[0]),Number(coordenadasbd[0]))
           if(element.ta_ro >= resultado && respuesta == false) {
             respuesta = true
+            tienda = {
+              ta_i: element.ta_i
+            }
           }
         });
  
         if(respuesta)
         {
           this.superService.guardarCoordenada(this.coords)
-          this.superService.guardarTienda(datos)
+          this.superService.guardarSuper(datos)
+          this.superService.guardarTienda(tienda)
           this.router.navigate(['/inicio/i1/scanner/home-carrito'])
         }
         else

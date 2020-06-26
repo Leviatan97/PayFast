@@ -3,6 +3,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { DataScannerService } from 'src/app/Servicios/data-scanner.service';
 import { ToastController} from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { SupermercadoService } from '../../../../Servicios/supermercado.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-home-carrito',
@@ -15,6 +17,8 @@ export class HomeCarritoPage implements OnInit {
   private formato: string 
   private coords: string
   private validar: string = "4.355657,-74045130"
+  private tienda: any
+  private productos:any=[];
   
 
 
@@ -23,14 +27,47 @@ export class HomeCarritoPage implements OnInit {
     private barcodeScanner: BarcodeScanner,
     private dataLocal: DataScannerService,
     public toastController: ToastController,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
+    private superService: SupermercadoService
   ) { }
 
   ngOnInit() {
     this.scanner()
     this.geoloc()
-    this.Compra()
-    
+  }
+
+  private promesaTienda() {
+    return new Promise((resolve, reject)=> {
+      this.superService.consultarRutaProducto().subscribe((result: any)=>{
+        resolve({
+          result,
+          resultado: 'OK'
+        })
+      }, (error: object)=> {
+        reject({
+          error,
+          resultado: 'Error'
+        })
+      }
+      )
+    })
+  }
+
+  private promesaRuta(url:string, codigo:string) {
+    return new Promise((resolve, reject)=> {
+      this.superService.consultarProducto(url,codigo).subscribe((result: any)=>{
+        resolve({
+          result,
+          resultado: 'OK'
+        })
+      }, (error: object)=> {
+        reject({
+          error,
+          resultado: 'Error'
+        })
+      }
+      )
+    })
   }
 
   scanner(){
@@ -39,10 +76,11 @@ export class HomeCarritoPage implements OnInit {
       console.log('Barcode data', barcodeData);
       this.scanneo = barcodeData.text
       this.formato = barcodeData.format
-
+      
       if( !barcodeData.cancelled)
       {
         this.dataLocal.guardarRegistro( barcodeData.format, barcodeData.text)
+        this.Tienda()
       }
 
      }).catch(err => {
@@ -50,6 +88,28 @@ export class HomeCarritoPage implements OnInit {
          this.dataLocal.guardarRegistro( 'Qrcode', 'https://www.facebook.com/')
      });
      this.geoloc()
+  }
+
+  private async Tienda() {
+    let producto: any = null
+    let resultado: any = null
+    try {
+      this.tienda = await this.promesaTienda()
+      this.tienda = this.tienda.result
+      this.tienda = this.tienda.result
+      producto = await this.promesaRuta(this.tienda[0].ra_rt, this.scanneo)
+      producto = producto.result
+      if(producto.length >= 1) {
+        resultado = await this.Compra(producto)
+        console.log(resultado)
+      }else {
+        this.productoToast()
+      }
+      
+      console.log(producto)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   private geoloc(){
@@ -81,23 +141,48 @@ export class HomeCarritoPage implements OnInit {
     toast.present();
   }
 
-  private productos:any=[];
+  async productoToast() {
+    const toast = await this.toastController.create({
+      message: 'El producto no existe en la tienda.',
+      duration: 2000
+    });
+    toast.present();
+  }
 
-  private Compra(){
-    this.productos=[
-      {
-        n_producto:112,
-        nombre:'Papas Golpe',
-        cantidad: 2,
-        precio: 4500
-      },
-      {
-        n_producto:113,
-        nombre:'Papas Pepito',
+  
+
+  private Compra(datos: any){
+    return new Promise((resolve, reject)=>{
+      const prod = this.productos
+      let producto = {
+        n_producto: datos[0].producto_id,
+        nombre: datos[0].Producto_nombre,
         cantidad: 1,
-        precio: 4500
+        precio: datos[0].producto_valor
       }
-    ]
+  
+      let arraylenght = this.productos.length;
+      if(arraylenght == 0) {
+        this.productos.push(producto)
+      }else {
+        this.productos.forEach(element => {
+          if(element.nombre == producto.nombre) {
+            console.log("entro al if")
+            element.cantidad += 1
+          }else {
+            console.log("entro al else")
+            this.productos.push(producto)
+          }
+        });
+      }
+      
+      
+      if (arraylenght == this.productos.length) {
+        reject(false);
+      }else{
+        resolve(this.productos);
+      }
+    })
   }
 
 
