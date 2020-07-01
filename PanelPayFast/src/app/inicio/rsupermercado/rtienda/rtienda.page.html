@@ -1,9 +1,62 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Rtienda</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
+  <ion-card class="fondo">
+    <ion-card-header>
+        
+      <ion-text color="primary">
+        <ion-title>Registro de Tienda</ion-title>
+      </ion-text>
+      
+    </ion-card-header>
+    <ion-card-content>
+      <div class="form">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary">Supermercado</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.supermercado" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Direccion</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.direccion" required></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary">Email</ion-label>
+                  <ion-input type="mail" [(ngModel)]="this.correo" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary">Responsable</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.responsable" required></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary">No. Contacto</ion-label>
+                  <ion-input type="number" [(ngModel)]="this.ncontacto" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary">Coordenada</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.coordenada" required></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+          <ion-button color="primary" expand="block" class="margen" (click)="rTienda()">Confirmar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

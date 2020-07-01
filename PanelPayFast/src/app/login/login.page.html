@@ -1,9 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="background">
 
-<ion-content>
-
+    <ion-card class="fondo">
+      <ion-card-header>
+        
+        <ion-text color="primary">
+          <ion-title>Panel Pay Fast</ion-title>
+          <h5>Inicie Sesión para continuar</h5>
+        </ion-text>
+        
+      </ion-card-header>
+      <ion-card-content>
+        <div class="form">
+          <ion-item>
+            <ion-label position="floating" color="primary">Email</ion-label>
+            <ion-input type="mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="primary">Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+            <ion-button color="primary" expand="block" class="margen">Iniciar Sesión</ion-button>
+        </div>
+          <ion-item lines="none">
+            <ion-label class="url" color="primary">¿Has olvidado la contraseña?</ion-label>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+    
 </ion-content>
