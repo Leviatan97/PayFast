@@ -2,9 +2,9 @@ import coneccion from '../Coneccion/Coneccion';
 class tiendaModelo {
     constructor() {}
 
-    public verificarCoordenada(co: string, smo: number) {
+    public verificarCoordenada(co: string) {
         return new Promise(async (resolve, reject)=>{
-            (await coneccion).query(`SELECT ta_co, ta_i, ta_ro FROM ta WHERE smo_i = ${smo}`,(error: any,result :any)=>{
+            (await coneccion).query(`SELECT * FROM ta WHERE ta_co = '${co}'`,(error: any,result :any)=>{
                 if(error){
                     reject(error)
                 }else{

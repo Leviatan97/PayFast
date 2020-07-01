@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Coneccion_1 = __importDefault(require("../Coneccion/Coneccion"));
 class tiendaModelo {
     constructor() { }
-    verificarCoordenada(co, smo) {
+    verificarCoordenada(co) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            (yield Coneccion_1.default).query(`SELECT ta_co, ta_i, ta_ro FROM ta WHERE smo_i = ${smo}`, (error, result) => {
+            (yield Coneccion_1.default).query(`SELECT * FROM ta WHERE ta_co = '${co}'`, (error, result) => {
                 if (error) {
                     reject(error);
                 }

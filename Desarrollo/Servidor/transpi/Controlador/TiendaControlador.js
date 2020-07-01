@@ -19,7 +19,7 @@ class tiendaConstructor {
         return __awaiter(this, void 0, void 0, function* () {
             let resultado = null;
             try {
-                resultado = yield TiendaModelo_1.default.verificarCoordenada(req.body.ta_co, req.body.smo_i);
+                resultado = yield TiendaModelo_1.default.verificarCoordenada(req.ta_co);
                 res.status(200).json({
                     respuesta: true,
                     result: resultado
@@ -37,7 +37,7 @@ class tiendaConstructor {
         return __awaiter(this, void 0, void 0, function* () {
             let resultado = null;
             try {
-                resultado = yield TiendaModelo_1.default.consultarProducto(req.body.ta_i);
+                resultado = yield TiendaModelo_1.default.consultarProducto(req.ta_i);
                 res.status(200).json({
                     respuesta: true,
                     result: resultado

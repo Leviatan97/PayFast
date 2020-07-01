@@ -1,0 +1,70 @@
+<ion-content>
+
+  <ion-card class="fondo">
+    <ion-card-header>
+        
+      <ion-text color="primary">
+        <ion-title>Registro de Supermercado</ion-title>
+      </ion-text>
+      
+    </ion-card-header>
+    <ion-card-content>
+      <div class="form">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Nombre</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.nombre" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Responsable</ion-label>
+                  <ion-input type="text" [(ngModel)]="this.responsable" required></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Email</ion-label>
+                  <ion-input type="mail" [(ngModel)]="this.correo" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col class="file-col">
+                
+                  <!-- <ion-input type="file"></ion-input>
+                  <ion-label for="file" position="floating" color="primary" class="lfile">
+                    Subir
+                    <ion-icon name="image"></ion-icon>
+                  </ion-label> -->
+                  <ion-button class="file">
+                    Subir Imagen
+                    <ion-icon name="image"></ion-icon>
+                    
+                  </ion-button>
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Contraseña</ion-label>
+                  <ion-input type="password" [(ngModel)]="this.contrasena" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating" color="primary" >Confirmar Contraseña</ion-label>
+                  <ion-input type="password" [(ngModel)]="this.contrasena2" required></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+          <ion-button color="primary" expand="block" class="margen" (click)="Rsupermercado()">Confirmar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
