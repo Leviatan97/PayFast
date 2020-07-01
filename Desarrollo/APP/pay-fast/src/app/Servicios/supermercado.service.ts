@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { element } from 'protractor';
+import {delay} from 'rxjs/operators'
 
 const URL = environment.url
 
@@ -19,7 +20,7 @@ export class SupermercadoService {
   constructor(private http : HttpClient, private navCtrl: NavController, private storage: Storage) { }
 
   public verSuperMercado(){
-    return this.http.get(`${URL}/supermercado`)
+    return this.http.get(`${URL}/supermercado`).pipe(delay(1500))
   }
 
   /**

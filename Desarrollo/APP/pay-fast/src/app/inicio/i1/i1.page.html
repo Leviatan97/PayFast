@@ -17,6 +17,16 @@
         
       </ion-item>
     </ion-card>
+    <ion-card>
+      <ion-item *ngIf="!this.supermercado">
+        <ion-card-content class="supermercado">
+            <ion-avatar class="logo-sup">
+              <ion-skeleton-text animated style="padding: 50%;"></ion-skeleton-text>
+            </ion-avatar>
+        </ion-card-content>
+        
+      </ion-item>
+    </ion-card>
 </ion-content>
 <app-tabs></app-tabs>
 
