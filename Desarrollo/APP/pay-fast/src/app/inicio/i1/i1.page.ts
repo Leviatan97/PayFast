@@ -106,6 +106,8 @@ export class I1Page implements OnInit {
     let coordenadasbd2 = this.coords.split(",")
     let resultado: any = null
     let respuesta: boolean = false
+    let tienda: any
+
     try {
       result = await this.promesaTiendageo(datos)
       result =  result.result
@@ -115,15 +117,20 @@ export class I1Page implements OnInit {
         resultado = this.calculateDistance(Number(coordenadasbd2[1]), Number(coordenadasbd[1]),Number(coordenadasbd2[0]),Number(coordenadasbd[0]))
           if(element.ta_ro >= resultado && respuesta == false) {
             respuesta = true
+            tienda = {
+              ta_i: element.ta_i
+            }
           }
       });
       if(respuesta) {
         this.superService.guardarCoordenada(this.coords)
-        this.superService.guardarTienda(datos)
+        this.superService.guardarSuper(datos)
+        this.superService.guardarTienda(tienda)
         this.router.navigate(['/inicio/i1/scanner/home-carrito'])
       } else {
         if(this.coords != undefined) {
           this.superService.guardarCoordenada(null)
+          this.superService.guardarSuper(null)
           this.superService.guardarTienda(null)
           this.validarCoords()
         }
