@@ -4,6 +4,7 @@ import { DataScannerService } from 'src/app/Servicios/data-scanner.service';
 import { ToastController} from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { SupermercadoService } from '../../../../Servicios/supermercado.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-carrito',
@@ -27,7 +28,8 @@ export class HomeCarritoPage implements OnInit {
     private dataLocal: DataScannerService,
     public toastController: ToastController,
     private geolocation: Geolocation,
-    private superService: SupermercadoService
+    private superService: SupermercadoService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -225,8 +227,8 @@ export class HomeCarritoPage implements OnInit {
     toast.present();
   }
 
-  private subTotal(){
-
+  private Metodo(){
+    this.router.navigate(['inicio/i1/scanner/home-carrito/home-metodo'])
   }
   
   private Total(){

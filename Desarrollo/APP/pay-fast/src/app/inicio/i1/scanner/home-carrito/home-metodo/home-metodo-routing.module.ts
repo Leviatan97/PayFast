@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomeMetodoPage
+  },  {
+    path: 'compra-qr',
+    loadChildren: () => import('./compra-qr/compra-qr.module').then( m => m.CompraQrPageModule)
   }
+
 ];
 
 @NgModule({

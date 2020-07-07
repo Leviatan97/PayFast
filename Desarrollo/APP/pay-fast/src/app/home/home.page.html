@@ -1,22 +1,197 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-content class="background">
+  <ion-button class="btn-ingresar">
+    Ingresar
+  </ion-button>
+  <ion-button class="btn-registrar" color="secondary" (click)="registrarse()">
+    Registrarse
+  </ion-button>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-card class="fondo">
+      <ion-card-content>
+        <ion-item class="log">
+          <ion-input type="text" placeholder="EMAIL" ></ion-input>
+        </ion-item>
+        <ion-item class="log">
+          <ion-input type="password" placeholder="CONTRASEÑA"></ion-input>
+        </ion-item>
+          <ion-button color="primary" expand="block" class="margen" >Iniciar Sesión</ion-button>
+          <ion-button color="danger" expand="block" class="margen">
+            <ion-icon src="../../../assets/icon/google-icon.svg" class="icon"></ion-icon>
+            Ingresar con Google
+          </ion-button>
+          <ion-button color="success" expand="block" class="margen">
+            <ion-icon src="../../../assets/icon/fc-icon.svg" class="iconf"></ion-icon>
+            Ingresar con Facebook
+          </ion-button>
 
-  <div id="container">
-    <strong>Hola Mundo jajaja</strong>
-    <p>Start with Ionic cualquier cosa aa<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <button ion-button color="tertiary" (click)="Registro()">Registro</button>
-    <button ion-button color="tertiary" (click)="Login()">Login</button>
-  </div>
+          <ion-label class="url">¿Has olvidado la contraseña?</ion-label>
+      </ion-card-content>
+    </ion-card>
+</ion-content> -->
+
+
+
+<ion-content>
+
+
+  <ion-slides class="mainSlide">
+    
+    <ion-slide>
+
+      <form>
+        <ion-grid fixed>
+
+          <ion-row>
+            <ion-col>
+              <img src="/assets/avatars/av-1.png">
+            </ion-col>
+          </ion-row>
+        
+          <ion-row>
+            <ion-col>
+              
+                <ion-list>
+                  
+                  <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input name="email"
+                                type="email"
+                                required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input name="password"
+                                type="password"
+                                required></ion-input>
+                  </ion-item>
+
+                </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit"
+                          color="tertiary"
+                          shape="round">
+                Login
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </form>
+    
+
+
+    </ion-slide>
+
+    <ion-slide>
+
+      
+      <ion-grid fixed>
+
+            <ion-row>
+            <ion-col>
+                <h3>Seleccione Avatar</h3>
+            </ion-col>
+            </ion-row>
+
+            <ion-row>
+            <ion-col>
+                <ion-slides>
+                <ion-slide *ngFor="let avatar of [1,1,1,1,1,1,1]">
+                    <ion-img class="pick-avatar" 
+                            src="/assets/avatars/av-1.png"></ion-img>
+                </ion-slide>
+                </ion-slides>
+            </ion-col>
+            </ion-row>
+        
+            <form>
+                <ion-row>
+                    <ion-col>
+                        
+                        <ion-list>
+                            
+                            <ion-item>
+                            <ion-label>Email</ion-label>
+                            <ion-input name="email" 
+                                        type="email"
+                                        required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                            <ion-label>Nombre</ion-label>
+                            <ion-input name="nombre"
+                                        type="text"
+                                        required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                            <ion-label>Password</ion-label>
+                            <ion-input name="password"
+                                        type="password"
+                                        required></ion-input>
+                            </ion-item>
+
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                
+                <ion-row>
+                <ion-col>
+                    <ion-button type="submit"
+                                color="tertiary"
+                                shape="round">
+                        Crear usuario
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            
+            </form>
+        </ion-grid>
+  
+  
+      </ion-slide>
+
+
+  </ion-slides>
+
+
+
 </ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    
+    <ion-row>
+
+      <ion-col>
+          <ion-button shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="tertiary">
+            Ingresar
+          </ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button shape="round"
+                    expand="full"
+                    size="small"
+                    fill="outline"
+                    color="tertiary">
+          Registrarme
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+
+
+  </ion-toolbar>
+</ion-footer>

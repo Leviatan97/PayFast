@@ -10,22 +10,74 @@
 
   <app-botones-lr></app-botones-lr>
 
+  <form [formGroup]="contactForm" (ngSubmit)="Registro()">
   <ion-card class="fondo">
     <ion-card-content>
         <h2>Ingresa tus datos personales</h2>
         <ion-item class="log">
-          <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" [(ngModel)]="this.ndocumento"></ion-input>
-        </ion-item>
-        <ion-item class="log">
-          <ion-input type="email" placeholder="CORREO ELECTRONICO" [(ngModel)]="this.email" maxlength="50"></ion-input>
-        </ion-item>
-        <ion-item class="log">
-          <ion-input type="password" placeholder="CONTRASEÑA" [(ngModel)]="this.contrasena" maxlength="16"></ion-input>
-        </ion-item>
-        <ion-item class="log">
-          <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasena2" maxlength="16"></ion-input>
+          <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento" [(ngModel)]="this.ndocumento"></ion-input>
         </ion-item>
 
+        <!-- <div class="alert-danger" *ngIf="ndocumento.invalid && (ndocumento.dirty || ndocumento.touched)">
+          <div class="container-error-message" *ngIf="ndocumento.errors.required">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+          </div>
+          <div class="container-error-message" *ngIf="ndocumento.errors.minlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
+          </div>
+          <div class="container-error-message" *ngIf="ndocumento.errors.maxlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
+          </div>
+        </div> -->
+
+        <ion-item class="log">
+          <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="email" [(ngModel)]="this.email" maxlength="50"></ion-input>
+        </ion-item>
+
+        <!-- <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div class="container-error-message" *ngIf="email.errors.required">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> La dirección de correo es requerido
+          </div>
+          <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon>Verifique que sea un email
+          </div>
+        </div> -->
+
+        <ion-item class="log">
+          <ion-input type="password" placeholder="CONTRASEÑA" formControlName="contrasena" [(ngModel)]="this.contrasena" maxlength="16"></ion-input>
+        </ion-item>
+
+        <!-- <div class="alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+          <div class="container-error-message" *ngIf="contrasena.errors.required">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+          </div>
+          <div class="container-error-message" *ngIf="contrasena.errors.minlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
+          </div>
+          <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
+          </div>
+        </div> -->
+
+        <ion-item class="log">
+          <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" formControlName="contrasena2" [(ngModel)]="this.contrasena2" maxlength="16"></ion-input>
+        </ion-item>
+
+        <!-- <div class="alert-danger" *ngIf="contrasena2.invalid && (contrasena2.dirty || contrasena2.touched)">
+          <div class="container-error-message" *ngIf="contrasena2.errors.required">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+          </div>
+          <div class="container-error-message" *ngIf="contrasena2.errors.minlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
+          </div>
+          <div class="container-error-message" *ngIf="contrasena2.errors.maxlength">
+            <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
+          </div>
+        </div> -->
+        
+        <!-- <ion-button type="submit" color="primary" expand="block" class="margen">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button> -->
 
         <ion-button color="primary" expand="block" class="margen" (click)="Registro()">
           <ion-icon name="arrow-forward"></ion-icon>
@@ -33,4 +85,5 @@
 
       </ion-card-content>
     </ion-card>
+  </form>
 </ion-content>

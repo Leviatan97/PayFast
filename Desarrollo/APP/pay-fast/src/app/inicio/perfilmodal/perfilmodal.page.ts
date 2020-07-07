@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Storage } from '@ionic/storage';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-perfilmodal',
@@ -10,8 +11,10 @@ import { Storage } from '@ionic/storage';
 })
 export class PerfilmodalPage implements OnInit {
 
+  contactForm: FormGroup;
   private datos: any;
   private id: any;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(
     private modalCtrl: ModalController,
@@ -20,8 +23,27 @@ export class PerfilmodalPage implements OnInit {
     private storage: Storage
   ) {
     this.verUsuario();
+    this.contactForm = this.createFormGroup();
   }
 
+  createFormGroup(){
+    return new FormGroup({
+      nombre: new FormControl('',[Validators.required, Validators.minLength(50)]),
+      apellido: new FormControl('',[Validators.required, Validators.minLength(50)]),
+      fnacimiento: new FormControl('',[Validators.required]),
+      tdocumento: new FormControl('',[Validators.required]),
+      ndocumento: new FormControl('',[Validators.required, Validators.minLength(10)]),
+      email: new FormControl('',[Validators.required, Validators.minLength(8), Validators.pattern(this.emailPattern)]),
+    })
+  }
+
+  get nombre() { return this.contactForm.get('usuario.us_n'); }
+  get apellido() { return this.contactForm.get('usuario.us_a'); }
+  get fnacimiento() { return this.contactForm.get('usuario.us_fn'); }
+  get tdocumento() { return this.contactForm.get('usuario.us_td'); }
+  get ndocumento() { return this.contactForm.get('usuario.us_nd'); }
+  get email() { return this.contactForm.get('usuario.us_c'); }
+  
   ngOnInit() {
   }
   private Salir() {
