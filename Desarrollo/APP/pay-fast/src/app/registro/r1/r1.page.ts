@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController, ToastController, MenuController, IonSlides } from '@ionic/angular';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
+import { CustomValidators } from '../../Validaciones/CustomValidators';
+import { validarQueSeanIguales } from '../../Validaciones/validarQueSeanIguales'
 
 @Component({
   selector: 'app-r1',
@@ -24,6 +26,7 @@ export class R1Page implements OnInit {
   // private tdocumento:String;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+  
   constructor(
     private router : Router, 
     private ususerv : UsuarioService, 
@@ -39,6 +42,7 @@ export class R1Page implements OnInit {
 
   ngOnInit() {
     this.slides.lockSwipes(true)
+    this.createFormGroup2()
   }
   
   createFormGroup(){
@@ -46,26 +50,30 @@ export class R1Page implements OnInit {
       nombre: new FormControl('',[Validators.required, Validators.maxLength(50),]),
       apellido: new FormControl('',[Validators.required, Validators.maxLength(50)]),
       fnacimiento: new FormControl('',[Validators.required,]),
-      tdocumento: new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+      tdocumento: new FormControl('',[Validators.required]),
     })
   }
 
-  createFormGroup2(){
+  createFormGroup2() {
     return new FormGroup({
-      ndocumento: new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10),]),
+      ndocumento: new FormControl('',[Validators.required, Validators.min(9999999), Validators.max(9999999999)]),
       email: new FormControl('',[Validators.required, Validators.maxLength(50), Validators.pattern(this.emailPattern)]),
-      contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16),]),
-      contrasena2: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16),]),
-    })
+      contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16), CustomValidators.patternValidator(/\d/, { hasNumber: true }), CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), ]),
+      contrasena2: new FormControl('',[Validators.required, ]),
+     },
+     {
+      validators: validarQueSeanIguales
+     });
   }
 
   createFormGroup3(){
     return new FormGroup({
       tnombre: new FormControl('',[Validators.required, Validators.maxLength(50),]),
       tapellido: new FormControl('',[Validators.required, Validators.maxLength(50),]),
-      tnumero: new FormControl('',[Validators.required, Validators.minLength(16), Validators.maxLength(16),]),
+      tnumero: new FormControl('',[Validators.required, Validators.min(999999999999999), Validators.max(9999999999999999)]),
       tfvencimiento: new FormControl('',[Validators.required]),
-      tcvv: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(3),]),
+      tcvv: new FormControl('',[Validators.required, Validators.min(99), Validators.max(999),]),
+      check: new FormControl('',[Validators.requiredTrue]),
     })
   }
 
@@ -84,6 +92,7 @@ export class R1Page implements OnInit {
   get tnumero() { return this.contactForm3.get('tnumero'); }
   get tfvencimiento() { return this.contactForm3.get('tfvencimiento'); }
   get tcvv() { return this.contactForm3.get('tcvv'); }
+  get check() { return this.contactForm3.get('check'); }
 
 
   private Registro(){
@@ -96,7 +105,7 @@ export class R1Page implements OnInit {
       us_nd:this.contactForm2.value['ndocumento'],
       us_c:this.contactForm2.value['email'],
       us_ca:this.contactForm2.value['contrasena'],
-      us_im:this.contactForm2.value['contrasena2'],
+      us_im:this.contactForm2.value[''],
     }
     console.log(usuario)
   }
@@ -104,18 +113,37 @@ export class R1Page implements OnInit {
 
   private Next1(){
     this.slides.lockSwipes(false);
-    this.slides.slideTo(1)
+    this.slides.slideTo(1);
+    //this.slides.lockSwipes(true);
   } 
   private Next2(){
     this.slides.lockSwipes(false);
-    this.slides.slideTo(2)
+    this.slides.slideTo(2);
+    //this.slides.lockSwipes(true);
   }
   private Login(){
     this.router.navigate(['login/form-log'])
   }
-  
+  private Registrarse(){
+    this.router.navigate(['registro/r1'])
+  }
+  checarSiSonIguales(): boolean {
+    return this.contactForm2.hasError('noSonIguales') &&
+      this.contactForm2.get('contrasena').dirty &&
+      this.contactForm2.get('contrasena2').dirty;
+  }
 
+  Mayuscula(){
+   return this.contactForm2.controls['contrasena'].hasError('hasCapitalCase') ?  true : false
+  }
 
+  private tyc(){
+    this.router.navigate(['tyc/home-tyc'])
+  }
+
+  private async Inicio(){
+    this.router.navigate(['/tutorial/home-tut'])
+  }
   async presentToast() 
   {
     const toast = await this.toastController.create({
@@ -124,6 +152,4 @@ export class R1Page implements OnInit {
     });
     toast.present();
   }
-
-
 }

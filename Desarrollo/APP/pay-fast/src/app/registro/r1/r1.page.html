@@ -1,8 +1,8 @@
 <ion-content class="background">
-  <ion-button class="btn-ingresar" color="secondary">
+  <ion-button class="btn-ingresar" color="secondary" (click)="Login()">
     Ingresar
   </ion-button>
-  <ion-button class="btn-registrar" color="primary" (click)="registrarse()">
+  <ion-button class="btn-registrar" color="primary" (click)="Registrarse()">
     Registrarse
   </ion-button>
   
@@ -15,7 +15,7 @@
               <h2>Ingresa tus datos personales</h2>
             
             <ion-item class="log">
-              <ion-input type="text" placeholder="NOMBRE" formControlName="nombre"></ion-input>
+              <ion-input type="text" placeholder="NOMBRE" formControlName="nombre" maxlength="50"></ion-input>
             </ion-item>
             
             <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -29,7 +29,7 @@
             
     
             <ion-item class="log">
-              <ion-input type="text" placeholder="APELLIDO" formControlName="apellido"></ion-input>
+              <ion-input type="text" placeholder="APELLIDO" formControlName="apellido" maxlength="50"></ion-input>
             </ion-item>
     
             <div class="alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
@@ -81,24 +81,24 @@
     </ion-slide>
 
 
-    <!-- <ion-slide>
+    <ion-slide>
       <form [formGroup]="contactForm2" (ngSubmit)="Registro()" class="form">
         <ion-card class="fondo">
           <ion-card-content>
               <h2>Ingresa tus datos personales</h2>
               <ion-item class="log">
-                <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento"></ion-input>
+                <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento" ></ion-input>
               </ion-item>
       
               <div class="alert-danger" *ngIf="ndocumento.invalid && (ndocumento.dirty || ndocumento.touched)">
                 <div class="container-error-message" *ngIf="ndocumento.errors.required">
                     <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
                 </div>
-                <div class="container-error-message" *ngIf="ndocumento.errors.minlength">
-                  <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
+                <div class="container-error-message" *ngIf="ndocumento.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 digitos
                 </div>
-                <div class="container-error-message" *ngIf="ndocumento.errors.maxlength">
-                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
+                <div class="container-error-message" *ngIf="ndocumento.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 digitos
                 </div>
               </div>
       
@@ -127,27 +127,31 @@
                   <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
                 </div>
                 <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
-                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 16 caracteres
+                </div>
+                <div class="container-error-message" *ngIf="contactForm2.controls['contrasena'].hasError('hasNumber')">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon>Debe contener almenos un numero
+                </div>
+                <div class="container-error-message" *ngIf="Mayuscula()">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon>Debe contener almenos una mayuscula
                 </div>
               </div>
       
               <ion-item class="log">
                 <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" formControlName="contrasena2"  maxlength="16"></ion-input>
               </ion-item>
-      
+              <div class="alert-danger">
+                <div class="container-error-message" *ngIf="checarSiSonIguales()">
+                  <ion-icon name="alert-circle-outline"></ion-icon>Las contraseñas no coinciden
+                </div>
+              </div>
               <div class="alert-danger" *ngIf="contrasena2.invalid && (contrasena2.dirty || contrasena2.touched)">
                 <div class="container-error-message" *ngIf="contrasena2.errors.required">
                     <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
-                </div>
-                <div class="container-error-message" *ngIf="contrasena2.errors.minlength">
-                  <ion-icon name="alert-circle-outline"></ion-icon> minimo 8 caracteres
-                </div>
-                <div class="container-error-message" *ngIf="contrasena2.errors.maxlength">
-                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 10 caracteres
-                </div>
+                </div>  
               </div>
               
-              <ion-button type="submit" color="primary" expand="block" [disabled]="!contactForm.valid" (click)="Next2()">
+              <ion-button type="submit" color="primary" expand="block" [disabled]="!contactForm2.valid" (click)="Next2()">
                 <ion-icon name="arrow-forward"></ion-icon>
               </ion-button>
       
@@ -164,14 +168,47 @@
           <ion-card-content>
               <h2>Ingresa tus datos de pago</h2>
               <ion-item class="log">
-                <ion-input type="text" placeholder="NOMBRE DEL TITULAR" formControlName="tnombre" maxlength="50"></ion-input>
+                <ion-input type="text" placeholder="NOMBRE DEL TITULAR" formControlName="tnombre" maxlength="50" [disabled]="!contactForm2.valid"></ion-input>
               </ion-item >
+
+              <div class="alert-danger" *ngIf="tnombre.invalid && (tnombre.dirty || tnombre.touched)">
+                <div class="container-error-message" *ngIf="tnombre.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                </div>
+                <div class="container-error-message" *ngIf="tnombre.errors.maxlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 50 caracteres
+                </div>
+              </div>
+
               <ion-item class="log">
-                <ion-input type="text" placeholder="APELLIDO DEL TITULAR" formControlName="tapellido" maxlength="50"></ion-input>
+                <ion-input type="text" placeholder="APELLIDO DEL TITULAR" formControlName="tapellido" maxlength="50" [disabled]="!contactForm2.valid"></ion-input>
               </ion-item>
+
+              <div class="alert-danger" *ngIf="tapellido.invalid && (tapellido.dirty || tapellido.touched)">
+                <div class="container-error-message" *ngIf="tapellido.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                </div>
+                <div class="container-error-message" *ngIf="tapellido.errors.maxlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 50 caracteres
+                </div>
+              </div>
+
               <ion-item class="log">
-                <ion-input type="number" placeholder="NÚMERO DE TARJETA" formControlName="tnumero"></ion-input>
+                <ion-input type="number" placeholder="NÚMERO DE TARJETA" formControlName="tnumero" [disabled]="!contactForm2.valid"></ion-input>
               </ion-item>
+
+              <div class="alert-danger" *ngIf="tnumero.invalid && (tnumero.dirty || tnumero.touched)">
+                <div class="container-error-message" *ngIf="tnumero.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                </div>
+                <div class="container-error-message" *ngIf="tnumero.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 16 digitos
+                </div>
+                <div class="container-error-message" *ngIf="tnumero.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon> minimo 16 digitos
+                </div>
+              </div>
+
               <ion-item class="log">
                 <ion-label>FECHA DE VENCIMIENTO</ion-label>
                 <ion-datetime placeholder="MM / AA"
@@ -181,29 +218,53 @@
                   monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"
                   min="2015" max="2030"
                   formControlName="tfvencimiento"  
+                  [disabled]="!contactForm2.valid"
                   >
                 </ion-datetime>
               </ion-item>
+
+              <div class="alert-danger" *ngIf="tfvencimiento.invalid && (tfvencimiento.dirty || tfvencimiento.touched)">
+                <div class="container-error-message" *ngIf="tfvencimiento.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                </div>
+              </div>
       
               <ion-item class="log">
-                <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" formControlName="tcvv"></ion-input>
+                <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" formControlName="tcvv" [disabled]="!contactForm2.valid"></ion-input>
               </ion-item>
-      
               
-                <ion-checkbox color="light" ></ion-checkbox>
+              <div class="alert-danger" *ngIf="tcvv.invalid && (tcvv.dirty || tcvv.touched)">
+                <div class="container-error-message" *ngIf="tcvv.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                </div>
+                <div class="container-error-message" *ngIf="tcvv.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon> maximo 3 digitos
+                </div>
+                <div class="container-error-message" *ngIf="tcvv.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon> minimo 3 digitos
+                </div>
+              </div>
+              
+              <div class="checkbox">
+                <ion-checkbox color="light" formControlName="check" checked="false" [disabled]="!contactForm2.valid"></ion-checkbox>
                 <ion-text color="primary">
                   <label (click)="tyc()">TERMINOS Y CONDICIONES</label>
                 </ion-text>
-                
-              
+              </div>
+
+                <div class="alert-danger" *ngIf="check.invalid && (check.dirty || check.touched)">
+                  <div class="container-error-message" *ngIf="check.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> Este campo requerido
+                  </div>
+                </div>
       
-                <ion-button type="submit" color="primary" expand="block" class="margen">
+                <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm3.valid" (click)="Inicio()">
                   <ion-icon name="arrow-forward"></ion-icon>
                 </ion-button>
       
           </ion-card-content>
           </ion-card>
     </form>
-    </ion-slide> -->
+    </ion-slide>
   </ion-slides>
 </ion-content>
