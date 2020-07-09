@@ -1,27 +1,207 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+$text-input-placeholder-color: rgba(255, 255, 255);
+ion-content.background{
+    --background: #fff url('../../assets/background/login-background.png') no-repeat bottom center / cover;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-card.fondo {
+    background-color: rgba(0, 0, 0, .27) ;
+    border-radius: 17px;
+    margin-left: 6.9%;
+    margin-right: 6.9%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-button.btn-ingresar
+{
+    --border-radius: 17px 0px 0px 17px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 20%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-left: 6.9%;
+    margin-top: 12%;
 }
 
-#container a {
-  text-decoration: none;
+ion-button.btn-registrar
+{
+    --border-radius: 0px 17px 17px 0px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 20%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 3.9%;
+    margin-top: 12%;
+}
+
+.inputs{
+    padding-top: 2%;
+}
+
+ion-input{
+    --placeholder-color: white;
+    --placeholder-opacity: 1;
+    font-size: medium;
+}
+
+ion-item.log{
+    width: 95%;
+    margin-left: 2.5%;
+    --highlight-height: 0;
+    --background: transparent;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid #eeee;
+    font-size: small;
+}
+
+ion-label.url{
+    margin-top: 3%;
+    margin-left: 20%;
+    --background: transparent;
+    font-family: Arial;
+    color: #ffff;
+    width: 67%;
+    height: 8.5%;
+    font-weight: bold;
+    font-size: small;
+}
+
+@media(min-width: 768px)
+{
+
+    ion-button.margen{
+        margin-top: 0px;
+    }
+
+    ion-label.url{
+        margin-left: 38%;     
+    }
+
+    ion-icon.icon{
+        margin-right: 1%;
+    }
+
+    
+}
+
+@media(min-width: 1024px)
+{
+
+    ion-button.margen{
+        margin-top: 0px;
+    }
+
+    ion-label.url{
+        margin-left: 40%;     
+    }
+}
+
+ion-button.margen {
+    margin-top: 7%;
+    display: flex;
+    justify-content: center;
+}
+
+ion-icon.icon{
+    margin-right: 8%;
+    font-size: medium;
+}
+
+ion-icon.iconf{
+    margin-right: 3%;
+    font-size: 24px;
+}
+
+.btn-facebook
+{
+    border-radius: 17px;
+    width: 86%;
+    height: 9%;
+    background-color: #3c5a9a;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    margin-left: 7%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.image{
+    height: 5%;
+    margin-top: -1.5%;
+    margin-left: 1%;
+    position: fixed;
+    font-size: 22px;
+}
+
+.texto{
+    height: 10%;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+ion-img{
+    width: 10%;
+    height: 80%;
+}
+
+.imag{
+    width: 10%;
+    height: 57%;
+}
+
+.imageg{
+    height: 5%;
+    margin-top: -0.4%;
+    margin-left: 2%;
+    position: fixed;
+    font-size: large;
+}
+
+.btn-rec
+{
+    margin-top: 3%;
+    background-color: transparent;
+    font-family: Arial;
+    color: #ffff;
+    width: 67%;
+    height: 8.5%;
+    margin-left: 16%;
+    font-weight: bold;
+}
+
+@media(min-height: 800px)
+{
+    ion-button.btn-ingresar
+{
+    --border-radius: 17px 0px 0px 17px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 40%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-left: 6.9%;
+    margin-top: 24%;
+}
+
+ion-button.btn-registrar
+{
+    --border-radius: 0px 17px 17px 0px;
+    width: 42%;
+    height: 6.3%;
+    margin-bottom: 40%;
+    font-family: Arial;
+    color: #ffff;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 3.9%;
+    margin-top: 24%;
+}
+    
 }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavParams } from '@ionic/angular/directives/navigation/nav-params';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { NavController, ToastController, MenuController } from '@ionic/angular';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import md5 from 'md5';
 
 @Component({
@@ -12,6 +13,12 @@ import md5 from 'md5';
 })
 export class R2Page implements OnInit {
   
+  //
+  contactForm: FormGroup;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //
+
+
   private usuario :any;
 
   private ndocumento:String;
@@ -28,9 +35,28 @@ export class R2Page implements OnInit {
   ) 
   {
     this.usuario = ususer.getusuario()
-    this.menu.enable(false)    
+    this.menu.enable(false)
+    //
+    this.contactForm = this.createFormGroup();
+    //
   }
 
+  //
+  createFormGroup(){
+    return new FormGroup({
+      ndocumento: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
+      email: new FormControl('',[Validators.required, Validators.minLength(8), Validators.pattern(this.emailPattern)]),
+      contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
+      contrasena2: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16)])
+    })
+  }
+
+  // get ndocumento() { return this.contactForm.get('ndocumento'); }
+  // get email() { return this.contactForm.get('email'); }
+  // get contrasena() { return this.contactForm.get('contrasena'); }
+  // get contrasena2() { return this.contactForm.get('contrasena2'); }
+
+  //
   ngOnInit() {
   }
   private async Registro(){  

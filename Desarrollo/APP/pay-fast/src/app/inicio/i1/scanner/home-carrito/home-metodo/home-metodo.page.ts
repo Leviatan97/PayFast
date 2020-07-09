@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { isContext } from 'vm';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-metodo',
@@ -9,7 +10,7 @@ import { isContext } from 'vm';
 export class HomeMetodoPage implements OnInit {
   private metodoPago:any=[];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     this.mPago()
@@ -34,6 +35,10 @@ export class HomeMetodoPage implements OnInit {
         icon: 'wallet-outline'
       }
     ]
+  }
+
+  private Qr(){
+    this.router.navigate(['inicio/i1/scanner/home-carrito/home-metodo/compra-qr'])
   }
 
 }

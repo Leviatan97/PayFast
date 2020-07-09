@@ -13,17 +13,31 @@ import {HttpClientModule} from '@angular/common/http';
 import { ComponentesModule } from './componentes/componentes.module';
 import { PipesModule } from './pipes/pipes.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+// import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Platform } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({_forceStatusbarPadding:true}), AppRoutingModule, HttpClientModule, ComponentesModule, PipesModule, IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot({_forceStatusbarPadding:true}), 
+    AppRoutingModule, 
+    HttpClientModule, 
+    ComponentesModule,  
+    PipesModule,
+    IonicStorageModule.forRoot(),
+    ReactiveFormsModule
+    
+  ],
   providers: [
     StatusBar,
     SplashScreen,

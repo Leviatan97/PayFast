@@ -1,48 +1,271 @@
-
 <ion-content class="background">
-    
   <ion-button class="btn-ingresar" color="secondary" (click)="Login()">
     Ingresar
   </ion-button>
-  <ion-button class="btn-registrar" color="primary" (click)="registrarse()">
+  <ion-button class="btn-registrar" color="primary" (click)="Registrarse()">
     Registrarse
   </ion-button>
+  
+  <ion-slides class="mainSlide" #slide>
+    <ion-slide>
+      <form [formGroup]="contactForm" (ngSubmit)="Next1()" class="form">
+        <ion-card class="fondo">
+          <ion-card-content>
+            
+              <h2>Ingresa tus datos personales</h2>
+            
+            <ion-item class="log">
+              <ion-input type="text" placeholder="NOMBRE" formControlName="nombre" maxlength="50"></ion-input>
+            </ion-item>
+            
+            <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div class="container-error-message" *ngIf="nombre.errors.required">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+              </div>
+              <div class="container-error-message" *ngIf="nombre.errors.maxlength">
+                <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+              </div>
+            </div>
+            
     
+            <ion-item class="log">
+              <ion-input type="text" placeholder="APELLIDO" formControlName="apellido" maxlength="50"></ion-input>
+            </ion-item>
+    
+            <div class="alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+              <div class="container-error-message" *ngIf="apellido.errors.required">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+              </div>
+              <div class="container-error-message" *ngIf="apellido.errors.maxlength">
+                <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+              </div>
+            </div>
+    
+            <ion-item class="log">
+              <ion-datetime placeholder="FECHA DE NACIMIENTO" 
+                cancelText="Cancelar" doneText="Ok" 
+                [dayShortNames]="customDayShortNames"
+                displayFormat="DD MMM YYYY"
+                monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"  
+                min="1950-01-01" max="2001-30-12"  
+                formControlName="fnacimiento">
+              </ion-datetime>
+            </ion-item>
+    
+            <div class="alert-danger" *ngIf="fnacimiento.invalid && (fnacimiento.dirty || fnacimiento.touched)">
+              <div class="container-error-message" *ngIf="fnacimiento.errors.required">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+              </div>
+            </div>
+    
+            <ion-item class="log">
+              <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
+              <ion-select ok-text="Aceptar" cancel-text="Cancelar" formControlName="tdocumento">
+                <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
+                <ion-select-option value="CE">Cedula extranjera</ion-select-option>
+              </ion-select>
+            </ion-item>
+            
+            <div class="alert-danger" *ngIf="tdocumento.invalid && (tdocumento.dirty || tdocumento.touched)">
+              <div class="container-error-message" *ngIf="tdocumento.errors.required">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+              </div>
+            </div>
+            
+            <ion-button type="submit" color="primary" class="margen" color="light" expand="block" [disabled]="!contactForm.valid">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </form>
+    </ion-slide>
 
-    <ion-card class="fondo">
-      <ion-card-content>
-        
-          <h2>Ingresa tus datos personales</h2>
-        
-        <ion-item class="log">
-          <ion-input type="text" placeholder="NOMBRE" [(ngModel)]="this.nombre"></ion-input>
-        </ion-item>
-        <ion-item class="log">
-          <ion-input type="text" placeholder="APELLIDO" [(ngModel)]="this.apellido"></ion-input>
-        </ion-item>
-        <ion-item class="log">
-          <ion-datetime placeholder="FECHA DE NACIMIENTO" 
-            cancelText="Cancelar" doneText="Ok" 
-            [dayShortNames]="customDayShortNames"
-            displayFormat="DD MMM YYYY"
-            monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"  
-            min="1950-01-01" max="2001-30-12"  
-            [(ngModel)]="this.fnacimiento">
-          </ion-datetime>
-        </ion-item>
 
-        <ion-item class="log">
-          <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
-          <ion-select ok-text="Aceptar" cancel-text="Cancelar" [(ngModel)]="this.tdocumento">
-            <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
-            <ion-select-option value="CE">Cedula extranjera</ion-select-option>
-          </ion-select>
-        </ion-item>
+    <ion-slide>
+      <form [formGroup]="contactForm2" (ngSubmit)="Next2()" class="form">
+        <ion-card class="fondo">
+          <ion-card-content>
+              <h2>Ingresa tus datos personales</h2>
+              <ion-item class="log">
+                <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento" ></ion-input>
+              </ion-item>
+      
+              <div class="alert-danger" *ngIf="ndocumento.invalid && (ndocumento.dirty || ndocumento.touched)">
+                <div class="container-error-message" *ngIf="ndocumento.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="ndocumento.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdiez}}
+                </div>
+                <div class="container-error-message" *ngIf="ndocumento.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
+                </div>
+              </div>
+              
+      
+              <ion-item class="log">
+                <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="email"  maxlength="50"></ion-input>
+              </ion-item>
+      
+              <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div class="container-error-message" *ngIf="email.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.memail}}
+                </div>
+              </div>
+      
+              <ion-item class="log">
+                <ion-input type="password" placeholder="CONTRASEÑA" formControlName="contrasena"  maxlength="16"></ion-input>
+              </ion-item>
+      
+              <div class="alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                <div class="container-error-message" *ngIf="contrasena.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="contrasena.errors.minlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
+                </div>
+                <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdieciseis}}
+                </div>
+                <div class="container-error-message" *ngIf="contactForm2.controls['contrasena'].hasError('hasNumber')">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenan}}
+                </div>
+                <div class="container-error-message" *ngIf="Mayuscula()">
+                  <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenam}}
+                </div>
+              </div>
+      
+              <ion-item class="log">
+                <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" formControlName="contrasena2"  maxlength="16"></ion-input>
+              </ion-item>
+              <div class="alert-danger">
+                <div class="container-error-message" *ngIf="checarSiSonIguales()">
+                  <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mvcontrasena}}
+                </div>
+              </div>
+              <div class="alert-danger" *ngIf="contrasena2.invalid && (contrasena2.dirty || contrasena2.touched)">
+                <div class="container-error-message" *ngIf="contrasena2.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>  
+              </div>
+              
+              <ion-button type="submit" color="primary" expand="block" [disabled]="!contactForm2.valid">
+                <ion-icon name="arrow-forward"></ion-icon>
+              </ion-button>
+      
+            </ion-card-content>
+          </ion-card>
+    </form>
+    </ion-slide>
 
-        <ion-button color="primary" expand="block" class="margen" (click)="Registro()">
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-button>
 
-      </ion-card-content>
-    </ion-card>
+    
+    <ion-slide>
+      <form [formGroup]="contactForm3" (ngSubmit)="Inicio()" class="form">
+        <ion-card class="fondo">
+          <ion-card-content>
+              <h2>Ingresa tus datos de pago</h2>
+              <ion-item class="log">
+                <ion-input type="text" placeholder="NOMBRE DEL TITULAR" formControlName="tnombre" maxlength="50" [disabled]="!contactForm2.valid"></ion-input>
+              </ion-item >
+
+              <div class="alert-danger" *ngIf="tnombre.invalid && (tnombre.dirty || tnombre.touched)">
+                <div class="container-error-message" *ngIf="tnombre.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="tnombre.errors.maxlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                </div>
+              </div>
+
+              <ion-item class="log">
+                <ion-input type="text" placeholder="APELLIDO DEL TITULAR" formControlName="tapellido" maxlength="50" [disabled]="!contactForm2.valid"></ion-input>
+              </ion-item>
+
+              <div class="alert-danger" *ngIf="tapellido.invalid && (tapellido.dirty || tapellido.touched)">
+                <div class="container-error-message" *ngIf="tapellido.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="tapellido.errors.maxlength">
+                  <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                </div>
+              </div>
+
+              <ion-item class="log">
+                <ion-input type="number" placeholder="NÚMERO DE TARJETA" formControlName="tnumero" [disabled]="!contactForm2.valid"></ion-input>
+              </ion-item>
+
+              <div class="alert-danger" *ngIf="tnumero.invalid && (tnumero.dirty || tnumero.touched)">
+                <div class="container-error-message" *ngIf="tnumero.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="tnumero.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmaxdieciseis}}
+                </div>
+                <div class="container-error-message" *ngIf="tnumero.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmindieciseis}}
+                </div>
+              </div>
+
+              <ion-item class="log">
+                <ion-label>FECHA DE VENCIMIENTO</ion-label>
+                <ion-datetime placeholder="MM / AA"
+                  cancelText="Cancelar" doneText="Ok"
+                  [dayShortNames]="customDayShortNames"
+                  displayFormat="MMM, YYYY"
+                  monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"
+                  min="2015" max="2030"
+                  formControlName="tfvencimiento"  
+                  [disabled]="!contactForm2.valid"
+                  >
+                </ion-datetime>
+              </ion-item>
+
+              <div class="alert-danger" *ngIf="tfvencimiento.invalid && (tfvencimiento.dirty || tfvencimiento.touched)">
+                <div class="container-error-message" *ngIf="tfvencimiento.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+              </div>
+      
+              <ion-item class="log">
+                <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" formControlName="tcvv" [disabled]="!contactForm2.valid"></ion-input>
+              </ion-item>
+              
+              <div class="alert-danger" *ngIf="tcvv.invalid && (tcvv.dirty || tcvv.touched)">
+                <div class="container-error-message" *ngIf="tcvv.errors.required">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                </div>
+                <div class="container-error-message" *ngIf="tcvv.errors.max">
+                  <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmaxtres}}
+                </div>
+                <div class="container-error-message" *ngIf="tcvv.errors.min">
+                  <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmintres}}
+                </div>
+              </div>
+              
+              <div class="checkbox">
+                <ion-checkbox color="light" formControlName="check" checked="false" [disabled]="!contactForm2.valid"></ion-checkbox>
+                <ion-text color="primary">
+                  <label (click)="tyc()">TERMINOS Y CONDICIONES</label>
+                </ion-text>
+              </div>
+
+                <div class="alert-danger" *ngIf="check.invalid && (check.dirty || check.touched)">
+                  <div class="container-error-message" *ngIf="check.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>
+                </div>
+      
+                <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm3.valid">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </ion-button>
+      
+          </ion-card-content>
+          </ion-card>
+    </form>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

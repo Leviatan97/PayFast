@@ -1,2 +1,30 @@
 <app-header></app-header>
-
+<ion-content>
+    <form [formGroup]="form">
+        <ion-item>
+            <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Contraseña"
+          />
+        </ion-item>
+      
+        <br />
+      
+        <ion-item>
+            <input
+            matInput
+            type="password"
+            formControlName="confirmarPassword"
+            placeholder="Confirmar Contraseña"
+          />
+        </ion-item>
+        <div *ngIf="checarSiSonIguales()">
+            <i>Invalido</i>
+        </div>>
+        
+        <ion-button [disabled]="!form.valid">Enviar</ion-button>
+        
+      </form>
+</ion-content>
