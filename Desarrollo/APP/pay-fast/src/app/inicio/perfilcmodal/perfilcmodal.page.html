@@ -21,7 +21,7 @@
 </ion-header>
 
 <ion-content>
-
+  
   <ion-card-content>
     <ion-item>
       <ion-input type="password" placeholder="CONTRASEÑA ACTUAL" [(ngModel)]="this.contrasenaA"></ion-input>
@@ -29,9 +29,65 @@
     <ion-item>
       <ion-input type="password" placeholder="NUEVA CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasenaO"></ion-input>
     </ion-item>
+
   </ion-card-content>
 
 </ion-content>
+
+<!-- <ion-content>
+  <form [formGroup]="contactForm" (ngSubmit)="" class="form">
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="password" placeholder="CONTRASEÑA ACTUAL" formControlName="contrasenaA"></ion-input>
+      </ion-item>
+
+      <div class="alert-danger" *ngIf="contrasenaA.invalid && (contrasenaA.dirty || contrasenaA.touched)">
+        <div class="container-error-message" *ngIf="contrasenaA.errors.required">
+            <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+        </div>  
+      </div>
+
+      <ion-item>
+        <ion-input type="password" placeholder="NUEVA CONTRASEÑA" formControlName="contrasena"></ion-input>
+      </ion-item>
+  
+      <div class="alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+        <div class="container-error-message" *ngIf="contrasena.errors.required">
+            <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+        </div>
+        <div class="container-error-message" *ngIf="contrasena.errors.minlength">
+          <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
+        </div>
+        <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
+          <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdieciseis}}
+        </div>
+        <div class="container-error-message" *ngIf="contactForm2.controls['contrasena'].hasError('hasNumber')">
+          <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenan}}
+        </div>
+        <div class="container-error-message" *ngIf="Mayuscula()">
+          <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenam}}
+        </div>
+      </div>
+  
+      <ion-item>
+        <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" formControlName="contrasena2"></ion-input>
+      </ion-item>
+  
+      <div class="alert-danger">
+        <div class="container-error-message" *ngIf="checarSiSonIguales()">
+          <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mvcontrasena}}
+        </div>
+      </div>
+      <div class="alert-danger" *ngIf="contrasena2.invalid && (contrasena2.dirty || contrasena2.touched)">
+        <div class="container-error-message" *ngIf="contrasena2.errors.required">
+            <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+        </div>  
+      </div>
+  
+    </ion-card-content>
+  </form>
+</ion-content> -->

@@ -7,7 +7,6 @@ export class CustomValidators implements OnInit {
     ngOnInit(): void {
     }
     constructor(){
-
     }
 
     static patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
@@ -34,5 +33,24 @@ export class CustomValidators implements OnInit {
           control.get('contrasena2').setErrors({ NoPassswordMatch: true });
         }
       }
+      
 
+      public mensajesFormulario(){
+        const Mensajes: any = {
+          mrequerido: 'Este campo es requerido',
+          mmaxcicuenta: 'Máximo 50 caracteres',
+          mminocho: 'Mínimo 8 dígitos',
+          mmaxdiez: 'Máximo 10 digitos',
+          memail: 'Verifique que sea un correo electronico valido',
+          mcontrasenan: 'Debe contener al menos un numero',
+          mcontrasenam: 'Debe contener al menos una mayuscula',
+          mvcontrasena: 'Las contraseñas no coinciden',
+          mmindieciseis: 'Mínimo 16 dígitos',
+          mmaxdieciseis: 'Máximo 16 dígitos',
+          mmintres: 'Mínimo 3 dígitos',
+          mmaxtres: 'Máximo 3 dígitos'
+        }
+        return Mensajes 
+      }
+      
 }
