@@ -122,21 +122,21 @@ export class I1Page implements OnInit {
             }
           }
       });
-      console.log(respuesta)
-      // if(respuesta) {
-      //   // this.superService.guardarCoordenada(this.coords)
-      //   // this.superService.guardarSuper(datos)
-      //   // this.superService.guardarTienda(tienda)
-      //   // this.router.navigate(['/inicio/i1/scanner/home-carrito'])
-      // } else {
-      //   if(this.coords != undefined) {
-      //     // this.superService.guardarCoordenada(null)
-      //     // this.superService.guardarSuper(null)
-      //     // this.superService.guardarTienda(null)
-      //     // this.validarCoords()
-      //   }
-      //   this.validarCoords()
-      // }
+
+      if(respuesta) {
+        this.superService.guardarCoordenada(this.coords)
+        this.superService.guardarSuper(datos)
+        this.superService.guardarTienda(tienda)
+        this.router.navigate(['/inicio/i1/scanner/home-carrito'])
+      } else {
+        if(this.coords != undefined) {
+          this.superService.guardarCoordenada(null)
+          this.superService.guardarSuper(null)
+          this.superService.guardarTienda(null)
+          this.validarCoords()
+        }
+        this.validarCoords()
+      }
     } catch (error) {
       console.log(error)
     }    
