@@ -82,7 +82,6 @@ export class R3Page implements OnInit {
           console.log(this.check)
         }
         else{
-
         result = await this.PromesaUsuRegistrar(this.usu1)
         result2 = await this.PromesaTarjeRegistrar(tarjeta)
         result = result.result
