@@ -8,7 +8,7 @@
   
   <ion-slides class="mainSlide" #slide>
     <ion-slide>
-      <form [formGroup]="contactForm" (ngSubmit)="Registro()" class="form">
+      <form [formGroup]="contactForm" (ngSubmit)="Next1()" class="form">
         <ion-card class="fondo">
           <ion-card-content>
             
@@ -72,7 +72,7 @@
               </div>
             </div>
             
-            <ion-button type="submit" color="primary" class="margen" color="light" expand="block" [disabled]="!contactForm.valid" (click)="Next1()">
+            <ion-button type="submit" color="primary" class="margen" color="light" expand="block" [disabled]="!contactForm.valid">
               <ion-icon name="arrow-forward"></ion-icon>
             </ion-button>
           </ion-card-content>
@@ -82,7 +82,7 @@
 
 
     <ion-slide>
-      <form [formGroup]="contactForm2" (ngSubmit)="Registro()" class="form">
+      <form [formGroup]="contactForm2" (ngSubmit)="Next2()" class="form">
         <ion-card class="fondo">
           <ion-card-content>
               <h2>Ingresa tus datos personales</h2>
@@ -101,6 +101,7 @@
                   <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
                 </div>
               </div>
+              
       
               <ion-item class="log">
                 <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="email"  maxlength="50"></ion-input>
@@ -151,7 +152,7 @@
                 </div>  
               </div>
               
-              <ion-button type="submit" color="primary" expand="block" [disabled]="!contactForm2.valid" (click)="Next2()">
+              <ion-button type="submit" color="primary" expand="block" [disabled]="!contactForm2.valid">
                 <ion-icon name="arrow-forward"></ion-icon>
               </ion-button>
       
@@ -163,7 +164,7 @@
 
     
     <ion-slide>
-      <form [formGroup]="contactForm3" (ngSubmit)="Registro()" class="form">
+      <form [formGroup]="contactForm3" (ngSubmit)="Inicio()" class="form">
         <ion-card class="fondo">
           <ion-card-content>
               <h2>Ingresa tus datos de pago</h2>
@@ -258,7 +259,7 @@
                   </div>
                 </div>
       
-                <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm3.valid" (click)="Inicio()">
+                <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm3.valid">
                   <ion-icon name="arrow-forward"></ion-icon>
                 </ion-button>
       
