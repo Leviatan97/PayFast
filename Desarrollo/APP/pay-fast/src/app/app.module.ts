@@ -18,7 +18,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Platform } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -42,6 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Camera,
     FileTransfer,
     Geolocation,
+    SocialSharing,
+    Platform,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

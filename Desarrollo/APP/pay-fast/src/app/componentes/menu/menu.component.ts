@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Componente } from 'src/app/interfaces/interfaces';
 import { MenuService } from 'src/app/Servicios/menu.service';
 import { UsuarioService } from '../../Servicios/usuario.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -12,8 +14,14 @@ import { UsuarioService } from '../../Servicios/usuario.service';
 export class MenuComponent implements OnInit {
 
   public componentes = null
+  private plataforma: boolean
 
-  constructor( private menuservice: MenuService, private usuarioService: UsuarioService ) { 
+  constructor( 
+    private menuservice: MenuService, 
+    private usuarioService: UsuarioService, 
+    private socialSharing: SocialSharing,
+    private platform: Platform
+    ) { 
     this.menu()
   }
 
@@ -57,5 +65,20 @@ export class MenuComponent implements OnInit {
   public logout() {
     this.usuarioService.logout()
   }
+
+  public compartir()
+  {
+
+    if(this.platform.is("ios") == true)
+    {
+      this.socialSharing.share('','','','https://www.youtube.com/watch?v=Q0xpEXqSyUU')
+    }
+    if(this.platform.is("android")==true)
+    {
+      this.socialSharing.share('','','','https://www.youtube.com/watch?v=cXAEm_5CQTg')
+    }
+  }
+
+  
 
 }

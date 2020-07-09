@@ -1,18 +1,17 @@
 [
-    
     {
-        "icon": "help-circle",
+        "icon": "save",
+        "name": "Ultima Compra",
+        "redirectTo": "/ultimacompra",
+        "Method": ""
+    },  
+    {
+        "icon": "help",
         "name": "Ayuda al Usuario",
         "redirectTo": "",
         "Method": ""
     },
-    {
-        "icon": "share-social",
-        "name": "Compartir",
-        "redirectTo": "",
-        "Method": ""
-    }
-    ,
+   
     {
         "icon": "chatbox",
         "name": "Acerca de la Aplicacion",
