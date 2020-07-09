@@ -11,7 +11,15 @@ const routes: Routes = [
   {
     path: 'rsupermercado',
     loadChildren: () => import('../Inicio/rsupermercado/rsupermercado.module').then( m => m.RsupermercadoPageModule)
+  },  {
+    path: 'inicio-s',
+    loadChildren: () => import('./inicio-s/inicio-s.module').then( m => m.InicioSPageModule)
+  },
+  {
+    path: 'inicio-t',
+    loadChildren: () => import('./inicio-t/inicio-t.module').then( m => m.InicioTPageModule)
   }
+
 ];
 
 @NgModule({

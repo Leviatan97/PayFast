@@ -42,7 +42,15 @@ const routes: Routes = [
   {
     path: 'tyc',
     loadChildren: () => import('./tyc/tyc.module').then( m => m.TycPageModule)
+  },  {
+    path: 'ultimacompra',
+    loadChildren: () => import('./ultimacompra/ultimacompra.module').then( m => m.UltimacompraPageModule)
+  },
+  {
+    path: 'compartir',
+    loadChildren: () => import('./compartir/compartir.module').then( m => m.CompartirPageModule)
   }
+
 ];
 
 @NgModule({

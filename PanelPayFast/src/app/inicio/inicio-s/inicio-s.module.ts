@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RsupermercadoPageRoutingModule } from './rsupermercado-routing.module';
+import { InicioSPageRoutingModule } from './inicio-s-routing.module';
 
-import { RsupermercadoPage } from './rsupermercado.page';
+import { InicioSPage } from './inicio-s.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
 
 @NgModule({
@@ -14,10 +14,9 @@ import { ComponentesModule } from 'src/app/componentes/componentes.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    RsupermercadoPageRoutingModule,
+    InicioSPageRoutingModule,
     ComponentesModule
-  
   ],
-  declarations: [RsupermercadoPage]
+  declarations: [InicioSPage]
 })
-export class RsupermercadoPageModule {}
+export class InicioSPageModule {}
