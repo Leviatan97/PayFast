@@ -12,12 +12,6 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    
-    <ion-buttons slot="end">
-      <ion-button (click)="editarDatos()">
-        <ion-icon color="light" name="checkmark-sharp" size="large"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -25,7 +19,7 @@
   <form [formGroup]="contactForm" (ngSubmit)="editarDatos()">
   <ion-card-content *ngFor="let usuario of this.datos">
     <ion-item>
-      <ion-input type="text" placeholder="NOMBRE" formControlName="usuario.us_n" [(ngModel)]="usuario.us_n"></ion-input>
+      <ion-input type="text" placeholder="NOMBRE" formControlName="nombre" value="{{nombre.value}}"></ion-input>
     </ion-item>
 
     <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -38,7 +32,7 @@
     </div>
 
     <ion-item>
-      <ion-input type="text" placeholder="APELLIDO" formControlName="usuario.us_a" [(ngModel)]="usuario.us_a"></ion-input>
+      <ion-input type="text" placeholder="APELLIDO" formControlName="apellido" value="{{apellido.value}}"></ion-input>
     </ion-item>
 
     <div class="alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
@@ -51,7 +45,7 @@
     </div>
 
     <ion-item>
-      <ion-datetime placeholder="FECHA DE NACIMIENTO" formControlName="usuario.us_fn" displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" [(ngModel)]="usuario.us_fn"></ion-datetime>
+      <ion-datetime placeholder="FECHA DE NACIMIENTO" formControlName="fnacimiento" displayFormat="MM/DD/YYYY" min="1950-01-01" max="2001-30-12" value="{{fnacimiento.value}}"></ion-datetime>
     </ion-item>
 
     <div class="alert-danger" *ngIf="fnacimiento.invalid && (fnacimiento.dirty || fnacimiento.touched)">
@@ -65,7 +59,7 @@
 
     <ion-item>
       <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
-      <ion-select ok-text="Aceptar" cancel-text="Cancelar" formControlName="usuario.us_td" [(ngModel)]="usuario.us_td">
+      <ion-select ok-text="Aceptar" cancel-text="Cancelar" formControlName="tdocumento" value="{{tdocumento.value}}">
         <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
         <ion-select-option value="CE">Cedula extranjera</ion-select-option>
       </ion-select>
@@ -81,7 +75,7 @@
     </div>
 
     <ion-item>
-      <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="usuario.us_nd" [(ngModel)]="usuario.us_nd"></ion-input>
+      <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento" value="{{ndocumento.value}}"></ion-input>
     </ion-item>
 
     <div class="alert-danger" *ngIf="ndocumento.invalid && (ndocumento.dirty || ndocumento.touched)">
@@ -94,7 +88,7 @@
     </div>
 
     <ion-item>
-      <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="usuario.us_c" [(ngModel)]="usuario.us_c"></ion-input>
+      <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="email" value="{{email.value}}"></ion-input>
     </ion-item>
 
     <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -105,7 +99,9 @@
         <ion-icon name="alert-circle-outline"></ion-icon> maximo 50 caracteres
       </div>
     </div>
-
+    <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm.valid">
+      Guardar
+    </ion-button>
   </ion-card-content>
 </form>
 </ion-content>
