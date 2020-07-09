@@ -144,6 +144,23 @@ export class R1Page implements OnInit {
   private async Inicio(){
     this.router.navigate(['/tutorial/home-tut'])
   }
+
+  public Mensajes = {
+    mrequerido: 'Este campo es requerido',
+    mmaxcicuenta: 'Máximo 50 caracteres',
+    mminocho: 'Mínimo 8 dígitos',
+    mmaxdiez: 'Máximo 10 digitos',
+    memail: 'Verifique que sea un correo electronico valido',
+    mcontrasenan: 'Debe contener al menos un numero',
+    mcontrasenam: 'Debe contener al menos una mayuscula',
+    mvcontrasena: 'Las contraseñas no coinciden',
+    mmindieciseis: 'Mínimo 16 dígitos',
+    mmaxdieciseis: 'Máximo 16 dígitos',
+    mmintres: 'Mínimo 3 dígitos',
+    mmaxtres: 'Máximo 3 dígitos'
+  }
+
+
   async presentToast() 
   {
     const toast = await this.toastController.create({

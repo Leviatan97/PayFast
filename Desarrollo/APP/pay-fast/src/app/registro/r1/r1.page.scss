@@ -177,7 +177,10 @@ h2{
 .checkbox{
     margin: 3% 0% 0% -23%;
 }
-
+.scroll-content{
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+}
 @media(min-height: 800px)
 {
     ion-button.btn-ingresar
