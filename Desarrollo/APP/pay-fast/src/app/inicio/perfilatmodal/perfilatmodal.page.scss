@@ -5,3 +5,25 @@
     width: 80%;
     margin-right: 15%;
 }
+
+ion-card{
+    width: 95%;
+}
+
+ion-item{
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 7%;
+
+    --highlight-height: 0;
+    --background: transparent;
+    border-bottom: 1px solid #eeee;
+    font-size: small;
+    font-weight: bold; 
+}
+ion-input,  ion-datetime{
+    --placeholder-color: black;
+    --placeholder-opacity: 1;
+    padding: 0%;
+    
+}

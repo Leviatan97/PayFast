@@ -21,7 +21,8 @@ export class R1Page implements OnInit {
   contactForm3: FormGroup;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  
+  private Mensajes: any 
+  private message: any = new CustomValidators()
   constructor(
     private router : Router, 
     private ususerv : UsuarioService, 
@@ -33,12 +34,15 @@ export class R1Page implements OnInit {
     this.contactForm = this.createFormGroup();
     this.contactForm2 = this.createFormGroup2();
     this.contactForm3 = this.createFormGroup3();
+    this.Mensajes = this.message.mensajesFormulario()
   }
 
   ngOnInit() {
     this.slides.lockSwipes(true)
     this.createFormGroup2()
   }
+
+  
 
   private PromesaUsuRegistrar(datos : any){
     return new Promise((resolve,reject)=>{
@@ -245,20 +249,7 @@ export class R1Page implements OnInit {
     }
     
   }
-  public Mensajes = {
-    mrequerido: 'Este campo es requerido',
-    mmaxcicuenta: 'Máximo 50 caracteres',
-    mminocho: 'Mínimo 8 dígitos',
-    mmaxdiez: 'Máximo 10 digitos',
-    memail: 'Verifique que sea un correo electronico valido',
-    mcontrasenan: 'Debe contener al menos un numero',
-    mcontrasenam: 'Debe contener al menos una mayuscula',
-    mvcontrasena: 'Las contraseñas no coinciden',
-    mmindieciseis: 'Mínimo 16 dígitos',
-    mmaxdieciseis: 'Máximo 16 dígitos',
-    mmintres: 'Mínimo 3 dígitos',
-    mmaxtres: 'Máximo 3 dígitos'
-  }
+  
   async documentoToast() 
   {
     const toast = await this.toastController.create({

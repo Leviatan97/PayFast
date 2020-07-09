@@ -4,6 +4,9 @@ import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Storage } from '@ionic/storage';
 import md5 from 'md5';
 import { element } from 'protractor';
+import { FormGroup,  FormControl, Validators, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
+import { CustomValidators } from '../../Validaciones/CustomValidators';
+import { validarQueSeanIguales } from '../../Validaciones/validarQueSeanIguales'
 
 @Component({
   selector: 'app-perfilcmodal',
@@ -17,6 +20,10 @@ export class PerfilcmodalPage implements OnInit {
   private contrasenaO: any;
   private id: any;
 
+  contactForm: FormGroup;
+  private Mensajes: any 
+  private message: any = new CustomValidators()
+
   constructor(
     private modalCrtl: ModalController,
     private usuarioService: UsuarioService,
@@ -24,9 +31,12 @@ export class PerfilcmodalPage implements OnInit {
     private storage: Storage
   ) {
     this.id = this.usuarioService.getusuarioEdit();
+    // this.contactForm = this.createFormGroup();
+    this.Mensajes = this.message.mensajesFormulario()
    }
 
   ngOnInit() {
+    //this.createFormGroup()
   }
 
   private Salir(){
@@ -140,6 +150,28 @@ export class PerfilcmodalPage implements OnInit {
     toast.present();
   }
 
+  // createFormGroup() {
+  //   return new FormGroup({
+  //     contrasenaA: new FormControl('',[Validators.required]),
+  //     contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16), CustomValidators.patternValidator(/\d/, { hasNumber: true }), CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), ]),
+  //     contrasena2: new FormControl('',[Validators.required, ]),
+  //    },
+  //    {
+  //     validators: validarQueSeanIguales
+  //    });
+  // }
+  // get contrasenaA() { return this.contactForm.get('contrasenaA') }
+  // get contrasena() { return this.contactForm.get('contrasena'); }
+  // get contrasena2() { return this.contactForm.get('contrasena2'); }
 
+  // checarSiSonIguales(): boolean {
+  //   return this.contactForm.hasError('noSonIguales') &&
+  //     this.contactForm.get('contrasena').dirty &&
+  //     this.contactForm.get('contrasena2').dirty;
+  // }
+
+  // Mayuscula(){
+  //  return this.contactForm.controls['contrasena'].hasError('hasCapitalCase') ?  true : false
+  // }
 
 }

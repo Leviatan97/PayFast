@@ -8,7 +8,7 @@
     <ion-grid class="titulo">
       <ion-row>
         <ion-col>
-          <ion-label color="light">Pago</ion-label>
+          <ion-label color="light">Metodo de Pago</ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -16,13 +16,90 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-card-content>
-        <ion-text color="light">
-        Tarjeta 1
-      </ion-text>
-      </ion-card-content>
-    </ion-item>
-  </ion-card>
+    <form [formGroup]="contactForm" (ngSubmit)="Registro()" class="form">
+      <ion-card>
+        <ion-card-content>
+          <ion-item class="log">
+            <ion-input type="text" placeholder="NOMBRE DEL TITULAR" formControlName="tnombre" maxlength="50"></ion-input>
+          </ion-item >
+
+          <div class="alert-danger" *ngIf="tnombre.invalid && (tnombre.dirty || tnombre.touched)">
+            <div class="container-error-message" *ngIf="tnombre.errors.required">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+            </div>
+            <div class="container-error-message" *ngIf="tnombre.errors.maxlength">
+              <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+            </div>
+          </div>
+
+          <ion-item class="log">
+            <ion-input type="text" placeholder="APELLIDO DEL TITULAR" formControlName="tapellido" maxlength="50"></ion-input>
+          </ion-item>
+
+          <div class="alert-danger" *ngIf="tapellido.invalid && (tapellido.dirty || tapellido.touched)">
+            <div class="container-error-message" *ngIf="tapellido.errors.required">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+            </div>
+            <div class="container-error-message" *ngIf="tapellido.errors.maxlength">
+              <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+            </div>
+          </div>
+
+          <ion-item class="log">
+            <ion-input type="number" placeholder="NÚMERO DE TARJETA" formControlName="tnumero"></ion-input>
+          </ion-item>
+
+          <div class="alert-danger" *ngIf="tnumero.invalid && (tnumero.dirty || tnumero.touched)">
+            <div class="container-error-message" *ngIf="tnumero.errors.required">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+            </div>
+            <div class="container-error-message" *ngIf="tnumero.errors.max">
+              <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmaxdieciseis}}
+            </div>
+            <div class="container-error-message" *ngIf="tnumero.errors.min">
+              <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmindieciseis}}
+            </div>
+          </div>
+
+          <ion-item class="log">
+            <ion-label>FECHA DE VENCIMIENTO</ion-label>
+            <ion-datetime placeholder="MM / AA"
+              cancelText="Cancelar" doneText="Ok"
+              [dayShortNames]= "customDayShortNames"
+              displayFormat="MMM, YYYY"
+              monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"
+              min="2015" max="2030"
+              formControlName="tfvencimiento"  
+              
+              >
+            </ion-datetime>
+          </ion-item>
+
+          <div class="alert-danger" *ngIf="tfvencimiento.invalid && (tfvencimiento.dirty || tfvencimiento.touched)">
+            <div class="container-error-message" *ngIf="tfvencimiento.errors.required">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+            </div>
+          </div>
+  
+          <ion-item class="log">
+            <ion-input type="number" placeholder="CÓDIGO DE SEGURIDAD (CVV)" formControlName="tcvv"></ion-input>
+          </ion-item>
+          
+          <div class="alert-danger" *ngIf="tcvv.invalid && (tcvv.dirty || tcvv.touched)">
+            <div class="container-error-message" *ngIf="tcvv.errors.required">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+            </div>
+            <div class="container-error-message" *ngIf="tcvv.errors.max">
+              <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmaxtres}}
+            </div>
+            <div class="container-error-message" *ngIf="tcvv.errors.min">
+              <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mmintres}}
+            </div>
+          </div>
+            <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm.valid">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-card-content>
+      </ion-card>  
+      </form>
 </ion-content>
