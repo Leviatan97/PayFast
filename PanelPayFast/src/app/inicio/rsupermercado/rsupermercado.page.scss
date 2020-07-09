@@ -2,6 +2,8 @@ ion-card{
     width: 60%;
     height: auto;
     color: #181763;
+    margin-left: 20%;
+    margin-top: 2%;
 }
 
 ion-text{
@@ -56,16 +58,22 @@ ion-input[type=file]{
     ion-card{
         width: 95%;
         height: auto;
-        margin: 35% 2.5% 0% 2.5%;
+        margin: 5% 2.5% 0% 2.5%;
         color: #181763;
-        padding-top: 5%;
+        padding-top: 1%;
     }
     ion-item{
         width: 95%;
         margin-bottom: 2.5%;
         --highlight-height: 0;
     }
-    
+    ion-title{
+        font-size: large;
+        padding-bottom: 0%;
+    }
+    .form{
+        padding: 0% 0% 5% 0%;
+    } 
 }
 
 @media (min-width:768px) and (max-width:1024px) and (min-height:1024px) and (max-height: 1366px){

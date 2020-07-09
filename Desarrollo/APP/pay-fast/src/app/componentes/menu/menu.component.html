@@ -13,6 +13,12 @@
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
+        <ion-item (click)="compartir()">
+          <ion-icon name="share-social" slot="end" size="large" color="light"></ion-icon>
+          <label>Compartir</label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
         <ion-item (click)="logout()">
           <ion-icon name="log-out-outline" slot="end" size="large" color="light"></ion-icon>
           <label>Cerrar sesión</label>

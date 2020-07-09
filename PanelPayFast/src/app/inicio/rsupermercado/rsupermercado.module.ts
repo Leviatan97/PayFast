@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { RsupermercadoPageRoutingModule } from './rsupermercado-routing.module';
 
 import { RsupermercadoPage } from './rsupermercado.page';
+import { ComponentesModule } from 'src/app/componentes/componentes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RsupermercadoPageRoutingModule
+    RsupermercadoPageRoutingModule,
+    ComponentesModule
+  
   ],
   declarations: [RsupermercadoPage]
 })

@@ -1,0 +1,29 @@
+ion-title
+{
+  font-size: 25px;
+}
+
+@media (min-width:360px) and (max-width:424px) and (min-height:560px) and (max-height: 850px){
+    ion-title
+    {
+      font-size: 18px;
+    } 
+  
+    .usuario
+    {
+      display: none;
+    }
+}
+
+@media(max-width:359px)
+{
+    ion-title
+    {
+      font-size: 13px;
+    } 
+
+    .usuario
+    {
+      display: none;
+    }
+}

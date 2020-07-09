@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController, NavController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  visible = false;
+
+  constructor(public menuCtrl: MenuController) { }
 
   ngOnInit() {
+    
   }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+   }
 
 }
