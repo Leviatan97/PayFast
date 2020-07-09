@@ -14,7 +14,7 @@
    
     {
         "icon": "chatbox",
-        "name": "Acerca de la Aplicacion",
+        "name": "Acerca de la Aplicación",
         "redirectTo": "inicio/acercade",
         "Method": ""
     }

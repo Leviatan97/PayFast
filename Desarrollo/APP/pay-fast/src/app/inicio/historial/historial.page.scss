@@ -4,16 +4,26 @@
     justify-content: center;
     width: 80%;
     margin-right: 15%;
+    font-family: Lato;
 }
 
 .fecha{
-    font-size:13.5px;
+    font-size: 15px;
     margin-left: 5%;
     opacity: 0.7;
+    font-family: Lato;
+}
+
+.valor
+{
+    font-family: Lato;
+    font-size: 15px;
 }
 
 ion-row.supermercado{
     opacity: 0.7;
+    font-size: 15px;
+    font-family: Lato;
 }
 
 ion-card{
