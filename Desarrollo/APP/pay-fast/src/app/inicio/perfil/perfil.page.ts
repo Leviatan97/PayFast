@@ -105,21 +105,24 @@ export class PerfilPage implements OnInit {
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Editar Foto de Perfil',
+      header: 'Editar foto de perfil',
       cssClass: 'my-custom-class',
       buttons: [{
+        cssClass: 'my-custom-class',
         text: 'Tomar Foto',
         icon: 'camera',
         handler: () => {
           this.abrirCamara();
         }
       }, {
+        cssClass: 'my-custom-class',
         text: 'Subir imagen',
         icon: 'image-outline',
         handler: () => {
           this.abrirGaleria();
         }
       }, {
+        cssClass: 'my-custom-class',
         text: 'Cancelar',
         icon: 'close',
         role: 'cancel',

@@ -3,13 +3,16 @@
     display: flex;
     justify-content: center;
     margin-right: 20%;
+    font-family: Lato;
 }
 
 ion-card{
     width: 100%;
 }
 
-
+ion-button{
+    font-family: Lato;
+}
 
 ion-item{
     width: 95%;
@@ -26,10 +29,15 @@ ion-input,  ion-datetime{
     --placeholder-color: black;
     --placeholder-opacity: 1;
     padding: 0%;
-    
+    font-family: Lato;
 }
 
 .alert-danger {
+    font-family: Lato;
     color: #74000b;
     margin-left: 8px;
-  }
+}
+
+ion-select, ion-select-option{
+    font-family: Lato;
+}
