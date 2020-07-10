@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { CustomValidators } from '../Validaciones/CustomValidators';
-import { validarQueSeanIguales } from '../Validaciones/validarQueSeanIguales'
+import { CustomValidators, validarQueSeanIguales } from '../Validaciones/CustomValidators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-rsupermercado',
@@ -30,7 +30,8 @@ export class RsupermercadoPage implements OnInit {
 
   createFormGroup() {
     return new FormGroup({
-      ndocumento: new FormControl('',[Validators.required, Validators.min(9999999), Validators.max(9999999999)]),
+      nombre: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+      responsable: new FormControl('',[Validators.required, Validators.maxLength(50)]),
       email: new FormControl('',[Validators.required, Validators.maxLength(50), Validators.pattern(this.emailPattern)]),
       contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16), CustomValidators.patternValidator(/\d/, { hasNumber: true }), CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), ]),
       contrasena2: new FormControl('',[Validators.required, ]),
@@ -40,7 +41,8 @@ export class RsupermercadoPage implements OnInit {
      });
   }
 
-  get ndocumento() { return this.contactForm.get('ndocumento'); }
+  get nombre() { return this.contactForm.get('nombre'); }
+  get responsable() { return this.contactForm.get('responsable'); }
   get email() { return this.contactForm.get('email'); }
   get contrasena() { return this.contactForm.get('contrasena'); }
   get contrasena2() { return this.contactForm.get('contrasena2'); }
@@ -48,10 +50,11 @@ export class RsupermercadoPage implements OnInit {
   private async Rsupermercado(){
 
           const rsupermercado={
-            nombre:this.,
-            responsable:this.,
-            correo:this.,
-            contrasena:this.
+            nombre:this.contactForm.value['nombre'],
+            responsable:this.contactForm.value['responsable'],
+            email:this.contactForm.value['email'],
+            correo:this.contactForm.value['contrasena'],
+            contrasena:this.contactForm.value['contrasena2']
           }
           console.log(rsupermercado)
   }
@@ -74,5 +77,14 @@ async presentToast()
     });
     toast.present();
   }
+  checarSiSonIguales(): boolean {
+    return this.contactForm.hasError('noSonIguales') &&
+      this.contactForm.get('contrasena').dirty &&
+      this.contactForm.get('contrasena2').dirty;
+  }
+
+  Mayuscula(){
+    return this.contactForm.controls['contrasena'].hasError('hasCapitalCase') ?  true : false
+   }
 
 }

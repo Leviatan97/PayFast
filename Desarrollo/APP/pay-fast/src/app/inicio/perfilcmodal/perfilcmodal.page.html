@@ -12,34 +12,11 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <ion-buttons slot="end">
-      <ion-button (click)="verficarContra()">
-        <ion-icon color="light" name="checkmark-sharp" size="large"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <ion-card-content>
-    <ion-item>
-      <ion-input type="password" placeholder="CONTRASEÑA ACTUAL" [(ngModel)]="this.contrasenaA"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" placeholder="NUEVA CONTRASEÑA" [(ngModel)]="this.contrasena"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input type="password" placeholder="CONFIRMAR CONTRASEÑA" [(ngModel)]="this.contrasenaO"></ion-input>
-    </ion-item>
-
-  </ion-card-content>
-
-</ion-content>
-
-<!-- <ion-content>
-  <form [formGroup]="contactForm" (ngSubmit)="" class="form">
+  <form [formGroup]="contactForm" class="form" (ngSubmit)="verficarContra()">
     <ion-card-content>
       <ion-item>
         <ion-input type="password" placeholder="CONTRASEÑA ACTUAL" formControlName="contrasenaA"></ion-input>
@@ -65,7 +42,7 @@
         <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
           <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdieciseis}}
         </div>
-        <div class="container-error-message" *ngIf="contactForm2.controls['contrasena'].hasError('hasNumber')">
+        <div class="container-error-message" *ngIf="contactForm.controls['contrasena'].hasError('hasNumber')">
           <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenan}}
         </div>
         <div class="container-error-message" *ngIf="Mayuscula()">
@@ -87,7 +64,9 @@
             <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
         </div>  
       </div>
-  
+      <ion-button type="submit" color="primary" expand="block" class="margen" [disabled]="!contactForm.valid">
+        Guardar
+      </ion-button>
     </ion-card-content>
   </form>
-</ion-content> -->
+</ion-content>

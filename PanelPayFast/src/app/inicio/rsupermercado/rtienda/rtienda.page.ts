@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-
+import { CustomValidators, validarQueSeanIguales } from '../../Validaciones/CustomValidators';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,18 +11,15 @@ import { ToastController } from '@ionic/angular';
 })
 export class RtiendaPage implements OnInit {
   
-
-
-  private supermercado:string;
-  private direccion:string;
-  private correo:string;
-  private responsable:string;
-  private ncontacto:string;
-  private coordenada:string;
+  contactForm: FormGroup;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   
+  private Mensajes: any 
+  private message: any = new CustomValidators()
 
   constructor(private toastController:ToastController) {
-    
+    this.contactForm = this.createFormGroup();
+    this.Mensajes = this.message.mensajesFormulario()
   }
 
   ngOnInit() {
@@ -31,27 +29,36 @@ export class RtiendaPage implements OnInit {
 
   }
 
-  private rTienda(){
-    try {
-      if(this.supermercado != undefined && this.supermercado != "" && this.direccion != undefined && this.direccion != "" && this.correo != undefined && this.correo != "" && this.responsable != undefined && this.responsable != "" && this.ncontacto != undefined && this.ncontacto != "" && this.coordenada != undefined && this.coordenada != ""){
-        const rtienda={
-          supermercado:this.supermercado,
-          direccion:this.direccion,
-          correo:this.correo,
-          responsable:this.responsable,
-          ncontacto:this.ncontacto,
-          coordenada:this.coordenada
-        }
-        console.log(rtienda)
-      }
-      else{
-        this.presentToast()
-      }
-    } catch (error) {
-      
-    }  
+  createFormGroup() {
+    return new FormGroup({
+      supermercado: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+      direccion: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+      email: new FormControl('',[Validators.required, Validators.maxLength(50), Validators.pattern(this.emailPattern)]),
+      responsable: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+      ncontacto: new FormControl('',[Validators.required, Validators.min(9999999), Validators.max(9999999)]),
+      coordenada: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+     });
   }
 
+  get supermercado() { return this.contactForm.get('supermercado'); }
+  get direccion() { return this.contactForm.get('direccion'); }
+  get email() { return this.contactForm.get('email'); }
+  get responsable() { return this.contactForm.get('responsable'); }
+  get ncontacto() { return this.contactForm.get('ncontacto'); }
+  get coordenada() { return this.contactForm.get('coordenada'); }
+
+  private rTienda(){
+    
+        const rtienda={
+          supermercado:this.contactForm['supermercado'],
+          direccion:this.contactForm['direccion'],
+          correo:this.contactForm['email'],
+          responsable:this.contactForm['responsable'],
+          ncontacto:this.contactForm['ncontacto'],
+          coordenada:this.contactForm['coordenada']
+        
+  }
+  }
   async presentToast() 
   {
     const toast = await this.toastController.create({

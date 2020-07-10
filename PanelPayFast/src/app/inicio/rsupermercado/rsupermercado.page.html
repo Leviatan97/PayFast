@@ -1,6 +1,5 @@
 <app-header></app-header>
-<ion-content>
-
+<ion-content>  
   <form [formGroup]="contactForm" (ngSubmit)="Rsupermercado()" class="form">
   <ion-card class="fondo">
     <ion-card-header>
@@ -19,6 +18,15 @@
                   <ion-input type="text" formControlName="nombre" required></ion-input>
                 </ion-item>
 
+                <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                  <div class="container-error-message" *ngIf="nombre.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>
+                  <div class="container-error-message" *ngIf="nombre.errors.maxlength">
+                    <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                  </div>
+                </div>
+
               </ion-col>
               <ion-col>
 
@@ -26,6 +34,15 @@
                   <ion-label position="floating" color="primary" >Responsable</ion-label>
                   <ion-input type="text" formControlName="responsable" required></ion-input>
                 </ion-item>
+
+                <div class="alert-danger" *ngIf="responsable.invalid && (responsable.dirty || responsable.touched)">
+                  <div class="container-error-message" *ngIf="responsable.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>
+                  <div class="container-error-message" *ngIf="responsable.errors.maxlength">
+                    <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                  </div>
+                </div>
 
               </ion-col>
             </ion-row>
@@ -37,9 +54,18 @@
                   <ion-input type="mail" formControlName="email" required></ion-input>
                 </ion-item>
 
+                <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <div class="container-error-message" *ngIf="email.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>
+                  <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.memail}}
+                  </div>
+                </div>
+
               </ion-col>
               <ion-col class="file-col">
-                  <ion-button class="file" formControlName="imagen">
+                  <ion-button class="file">
                     Subir Imagen
                     <ion-icon name="image"></ion-icon>
                   </ion-button>
@@ -52,12 +78,43 @@
                   <ion-label position="floating" color="primary" >Contraseña</ion-label>
                   <ion-input type="password" formControlName="contrasena" required></ion-input>
                 </ion-item>
+
+                <div class="alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                  <div class="container-error-message" *ngIf="contrasena.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>
+                  <div class="container-error-message" *ngIf="contrasena.errors.minlength">
+                    <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
+                  </div>
+                  <div class="container-error-message" *ngIf="contrasena.errors.maxlength">
+                    <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdieciseis}}
+                  </div>
+                  <div class="container-error-message" *ngIf="contactForm.controls['contrasena'].hasError('hasNumber')">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenan}}
+                  </div>
+                  <div class="container-error-message" *ngIf="Mayuscula()">
+                    <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.mcontrasenam}}
+                  </div>
+                </div>
+
               </ion-col>
               <ion-col>
                 <ion-item>
                   <ion-label position="floating" color="primary" >Confirmar Contraseña</ion-label>
                   <ion-input type="password" formControlName="contrasena2"  required></ion-input>
                 </ion-item>
+
+                <div class="alert-danger">
+                  <div class="container-error-message" *ngIf="checarSiSonIguales()">
+                    <ion-icon name="alert-circle-outline"></ion-icon>{{this.Mensajes.mvcontrasena}}
+                  </div>
+                </div>
+                <div class="alert-danger" *ngIf="contrasena2.invalid && (contrasena2.dirty || contrasena2.touched)">
+                  <div class="container-error-message" *ngIf="contrasena2.errors.required">
+                      <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                  </div>  
+                </div>
+
               </ion-col>
             </ion-row>
         </ion-grid>

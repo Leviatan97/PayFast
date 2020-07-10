@@ -1,63 +1,126 @@
 <app-header></app-header>
 <ion-content>
-
-  <ion-card class="fondo">
-    <ion-card-header>
+  <form [formGroup]="contactForm" (ngSubmit)="rTienda()" class="form">
+    <ion-card class="fondo">
+      <ion-card-header>
+          
+        <ion-text color="primary">
+          <ion-title>Registro de Tienda</ion-title>
+        </ion-text>
         
-      <ion-text color="primary">
-        <ion-title>Registro de Tienda</ion-title>
-      </ion-text>
-      
-    </ion-card-header>
-    <ion-card-content>
-      <div class="form">
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary">Supermercado</ion-label>
-                  <ion-input type="text" [(ngModel)]="this.supermercado" required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary" >Direccion</ion-label>
-                  <ion-input type="text" [(ngModel)]="this.direccion" required></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary">Email</ion-label>
-                  <ion-input type="mail" [(ngModel)]="this.correo" required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary">Responsable</ion-label>
-                  <ion-input type="text" [(ngModel)]="this.responsable" required></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary">No. Contacto</ion-label>
-                  <ion-input type="number" [(ngModel)]="this.ncontacto" required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating" color="primary">Coordenada</ion-label>
-                  <ion-input type="text" [(ngModel)]="this.coordenada" required></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-        </ion-grid>
-          <ion-button color="primary" expand="block" class="margen" (click)="rTienda()">Confirmar</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  
+      </ion-card-header>
+      <ion-card-content>
+        <div class="form">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary">Supermercado</ion-label>
+                    <ion-input type="text" formControlName="supermercado" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="supermercado.invalid && (supermercado.dirty || supermercado.touched)">
+                    <div class="container-error-message" *ngIf="supermercado.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="supermercado.errors.maxlength">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                    </div>
+                  </div>
+
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary" >Direccion</ion-label>
+                    <ion-input type="text" formControlName="direccion" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                    <div class="container-error-message" *ngIf="direccion.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="direccion.errors.maxlength">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                    </div>
+                  </div>
+
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary">Email</ion-label>
+                    <ion-input type="mail" formControlName="email" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div class="container-error-message" *ngIf="email.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon>{{this.Mensajes.memail}}
+                    </div>
+                  </div>
+
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary">Responsable</ion-label>
+                    <ion-input type="text" formControlName="responsable" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="responsable.invalid && (responsable.dirty || responsable.touched)">
+                    <div class="container-error-message" *ngIf="responsable.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="responsable.errors.maxlength">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                    </div>
+                  </div>
+
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary">No. Contacto</ion-label>
+                    <ion-input type="number" formControlName="ncontacto" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="ncontacto.invalid && (ncontacto.dirty || ncontacto.touched)">
+                    <div class="container-error-message" *ngIf="ncontacto.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="ncontacto.errors.max">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxdiez}}
+                    </div>
+                    <div class="container-error-message" *ngIf="ncontacto.errors.min">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mminocho}}
+                    </div>
+                  </div>
+
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating" color="primary">Coordenada</ion-label>
+                    <ion-input type="text" formControlName="coordenada" required></ion-input>
+                  </ion-item>
+
+                  <div class="alert-danger" *ngIf="coordenada.invalid && (coordenada.dirty || coordenada.touched)">
+                    <div class="container-error-message" *ngIf="coordenada.errors.required">
+                        <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
+                    </div>
+                    <div class="container-error-message" *ngIf="coordenada.errors.maxlength">
+                      <ion-icon name="alert-circle-outline"></ion-icon> {{this.Mensajes.mmaxcicuenta}}
+                    </div>
+                  </div>
+
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+            <ion-button color="primary" expand="block" class="margen">Confirmar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card> 
+  </form>
 </ion-content>
