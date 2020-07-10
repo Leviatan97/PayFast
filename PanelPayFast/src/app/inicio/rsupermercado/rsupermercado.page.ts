@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { CustomValidators } from '../Validaciones/CustomValidators';
+import { validarQueSeanIguales } from '../Validaciones/validarQueSeanIguales'
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-rsupermercado',
@@ -8,41 +11,51 @@ import { ToastController } from '@ionic/angular';
 })
 export class RsupermercadoPage implements OnInit {
 
-  private nombre: string;
-  private responsable: string;
-  private correo: string;
-  private contrasena: string;
-  private contrasena2: string;
+  contactForm: FormGroup;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+  private Mensajes: any 
+  private message: any = new CustomValidators()
 
-  constructor(private toastController:ToastController) { }
+  constructor(private toastController:ToastController) { 
+
+    this.contactForm = this.createFormGroup();
+    this.Mensajes = this.message.mensajesFormulario()
+
+   }
 
   ngOnInit() {
+    this.createFormGroup()
   }
 
+  createFormGroup() {
+    return new FormGroup({
+      ndocumento: new FormControl('',[Validators.required, Validators.min(9999999), Validators.max(9999999999)]),
+      email: new FormControl('',[Validators.required, Validators.maxLength(50), Validators.pattern(this.emailPattern)]),
+      contrasena: new FormControl('',[Validators.required, Validators.minLength(8), Validators.maxLength(16), CustomValidators.patternValidator(/\d/, { hasNumber: true }), CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), ]),
+      contrasena2: new FormControl('',[Validators.required, ]),
+     },
+     {
+      validators: validarQueSeanIguales
+     });
+  }
+
+  get ndocumento() { return this.contactForm.get('ndocumento'); }
+  get email() { return this.contactForm.get('email'); }
+  get contrasena() { return this.contactForm.get('contrasena'); }
+  get contrasena2() { return this.contactForm.get('contrasena2'); }
+
   private async Rsupermercado(){
-    try {
-      if(this.nombre != undefined && this.nombre != "" && this.responsable != undefined && this.responsable != "" && this.correo != undefined && this.correo != "" && this.contrasena != undefined && this.contrasena != "" && this.contrasena2 != undefined && this.contrasena2 != ""){
-        if(this.contrasena == this.contrasena2){
+
           const rsupermercado={
-            nombre:this.nombre,
-            responsable:this.responsable,
-            correo:this.correo,
-            contrasena:this.contrasena
+            nombre:this.,
+            responsable:this.,
+            correo:this.,
+            contrasena:this.
           }
           console.log(rsupermercado)
-        }
-        else{
-          this.presentToastC();
-        }
-      }else{
-        this.presentToast();
-      }
-      
-    } catch (error) {
-      
   }
-}
+
 
 async presentToast() 
   {
