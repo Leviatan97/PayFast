@@ -4,6 +4,7 @@
     justify-content: center;
     width: 80%;
     margin-right: 15%;
+    font-family: Lato;
 }
 
 ion-card{
@@ -21,9 +22,17 @@ ion-item{
     font-size: small;
     font-weight: bold; 
 }
-ion-input,  ion-datetime{
-    --placeholder-color: black;
+
+ion-input{
+    font-family: Lato;
+    --placeholder-color: rgba(0,0,0, 0.5) ;
     --placeholder-opacity: 1;
     padding: 0%;
-    
+}
+
+@media (prefers-color-scheme: dark){
+
+    ion-input{
+        --placeholder-color: rgba(255,255,255,0.5);
+    }
 }

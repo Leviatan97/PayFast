@@ -19,15 +19,13 @@
     <ion-card-content>
 
       <ion-grid>
-
-        
         <ion-row>
           <ion-col>Producto</ion-col>
           <ion-col>Cantidad</ion-col>
           <ion-col>Precio</ion-col>
-          <ion-col>Accion</ion-col>
+          <ion-col>Acción</ion-col>
         </ion-row>
-
+        
         <ion-row class="Trow" *ngFor="let producto of productos">
           <ion-col class="col">{{producto.nombre}}</ion-col>
           <ion-col><input class="col1" type="number" min="1" max="99" [(ngModel)]="producto.cantidad"></ion-col>
@@ -50,7 +48,7 @@
       </ion-grid>
       
       <div class="center">
-        <ion-button color="light" class="btn_c" (click)="scanner()">Agregar</ion-button>
+        <ion-button color="primary" class="btn_c" (click)="scanner()">Agregar</ion-button>
         <ion-button color="primary" class="btn_c" (click)="Metodo()">Confirmar</ion-button>
     </div>
     </ion-card-content>
