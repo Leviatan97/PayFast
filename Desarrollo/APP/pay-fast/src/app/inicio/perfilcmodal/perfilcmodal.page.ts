@@ -6,7 +6,7 @@ import md5 from 'md5';
 import { element } from 'protractor';
 import { FormGroup,  FormControl, Validators, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
 import { CustomValidators } from '../../Validaciones/CustomValidators';
-import { validarQueSeanIguales } from '../../Validaciones/validarQueSeanIguales'
+import { validarQueSeanIguales } from '../../Validaciones/validarQueSeanIguales';
 
 @Component({
   selector: 'app-perfilcmodal',

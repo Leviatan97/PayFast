@@ -54,7 +54,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
-import { validarQueSeanIguales } from './Validaciones/validarQueSeanIguales'
+//import { validarQueSeanIguales } from './Validaciones/validarQueSeanIguales'
 
 
 
@@ -77,7 +77,7 @@ export class InicioPage implements OnInit {
       'password':  ['', Validators.required],
       'confirmarPassword': ['', Validators.required]
     }, {
-      validators: validarQueSeanIguales
+      //validators: validarQueSeanIguales
     });
   }
   
