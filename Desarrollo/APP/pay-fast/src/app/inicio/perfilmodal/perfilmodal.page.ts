@@ -3,6 +3,8 @@ import { ModalController, ToastController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import { Storage } from '@ionic/storage';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidators } from '../../Validaciones/CustomValidators';
+import { validarQueSeanIguales } from '../../Validaciones/validarQueSeanIguales'
 
 @Component({
   selector: 'app-perfilmodal',
@@ -15,6 +17,8 @@ export class PerfilmodalPage implements OnInit {
   private datos: any;
   private id: any;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  private Mensajes: any 
+  private message: any = new CustomValidators()
 
   constructor(
     private modalCtrl: ModalController,
@@ -24,6 +28,7 @@ export class PerfilmodalPage implements OnInit {
   ) {
     this.verUsuario();
     this.contactForm = this.createFormGroup();
+    this.Mensajes = this.message.mensajesFormulario()
   }
 
   createFormGroup(){
