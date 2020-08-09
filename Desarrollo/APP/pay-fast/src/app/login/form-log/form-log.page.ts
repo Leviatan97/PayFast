@@ -49,7 +49,7 @@ export class FormLogPage implements OnInit {
     let result: any = null;
 
     try{
-      if(this.correo != undefined && this.contrasena != undefined && this.correo != "")
+      if(this.correo != undefined && this.contrasena != undefined && this.correo != "" && this.contrasena != "")
       {
         if(this.correo != null && this.contrasena != null )
         {
