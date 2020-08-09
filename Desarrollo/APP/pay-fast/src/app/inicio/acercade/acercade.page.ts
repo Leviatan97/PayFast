@@ -17,4 +17,7 @@ export class AcercadePage implements OnInit {
     this.router.navigate(['tyc/home-tyc'])
   }
 
+  private alu(){
+    this.router.navigate(['tyc/home-alu'])
+  }
 }

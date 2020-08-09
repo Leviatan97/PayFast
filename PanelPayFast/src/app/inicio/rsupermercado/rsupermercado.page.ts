@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { CustomValidators, validarQueSeanIguales } from '../Validaciones/CustomValidators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RsupermercadoPage implements OnInit {
   private Mensajes: any 
   private message: any = new CustomValidators()
 
-  constructor(private toastController:ToastController) { 
+  constructor(private toastController:ToastController, private router : Router, ) { 
 
     this.contactForm = this.createFormGroup();
     this.Mensajes = this.message.mensajesFormulario()
@@ -57,6 +58,7 @@ export class RsupermercadoPage implements OnInit {
             contrasena:this.contactForm.value['contrasena2']
           }
           console.log(rsupermercado)
+          this.router.navigate(['/inicio/rsupermercado/rtienda'])
   }
 
 

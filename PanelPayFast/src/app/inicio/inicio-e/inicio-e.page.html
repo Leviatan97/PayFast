@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Supermercado</ion-label>
+      <ion-select placeholder="Seleccione">
+        <ion-select-option value="f">Exitoso</ion-select-option>
+        <ion-select-option value="m">Dumbo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tienda</ion-label>
+      <ion-select placeholder="Seleccione">
+        <ion-select-option value="f">Exitoso Chapinero</ion-select-option>
+        <ion-select-option value="m">Dumbo Chapinero</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Dia</ion-card-title>
+      <ion-card-subtitle>
+        <ion-item>
+          <ion-datetime placeholder="DD / MM / AA"
+            cancelText="Cancelar" doneText="Ok"
+            [dayShortNames]="customDayShortNames"
+            displayFormat="DD, MMM, YYYY"
+            monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic"
+            min="2020" max="2030">
+          </ion-datetime>
+        </ion-item>
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Cantidad de ventas
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mes</ion-card-title>
+      <ion-card-subtitle>
+        <ion-item>
+          <ion-datetime placeholder="MM / AA"
+            cancelText="Cancelar" doneText="Ok"
+            [dayShortNames]="customDayShortNames"
+            displayFormat="MMM, YYYY"
+            monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic"
+            min="2020" max="2030">
+          </ion-datetime>
+        </ion-item>
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Cantidad de ventas
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Año</ion-card-title>
+      <ion-card-subtitle>
+        <ion-item>
+          <ion-datetime placeholder="AAAA"
+            cancelText="Cancelar" doneText="Ok"
+            [dayShortNames]="customDayShortNames"
+            displayFormat="YYYY"
+            monthShortNames="ene, feb, mar, abr, may, jun, jul, aug, sep, oct, nov, dic"
+            min="2020" max="2030">
+          </ion-datetime>
+        </ion-item>
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Cantidad de ventas
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

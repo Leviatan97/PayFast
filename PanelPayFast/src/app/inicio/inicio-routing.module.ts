@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'inicio-t',
     loadChildren: () => import('./inicio-t/inicio-t.module').then( m => m.InicioTPageModule)
+  },
+  {
+    path: 'inicio-e',
+    loadChildren: () => import('./inicio-e/inicio-e.module').then( m => m.InicioEPageModule)
   }
 
 ];

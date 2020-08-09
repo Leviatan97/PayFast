@@ -30,18 +30,7 @@ export class CompraQrPage implements OnInit {
    }
 
   ngOnInit() {
-  }
-
-  scanCode() {
-    this.barcodeScanner
-      .scan()
-      .then(barcodeData => {
-        alert("Barcode data " + JSON.stringify(barcodeData));
-        this.scannedData = barcodeData;
-      })
-      .catch(err => {
-        console.log("Error", err);
-      });
+    this.encodedText()
   }
 
   encodedText() {

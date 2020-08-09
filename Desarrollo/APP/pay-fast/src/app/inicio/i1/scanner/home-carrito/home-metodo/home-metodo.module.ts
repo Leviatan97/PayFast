@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { HomeMetodoPageRoutingModule } from './home-metodo-routing.module';
 
 import { HomeMetodoPage } from './home-metodo.page';
+import { PerfilatmodalPage } from '../../../../perfilatmodal/perfilatmodal.page';
+import { PerfilatmodalPageModule } from '../../../../perfilatmodal/perfilatmodal.module';
 
 @NgModule({
+  entryComponents:[
+    PerfilatmodalPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomeMetodoPageRoutingModule
+    HomeMetodoPageRoutingModule,
+    PerfilatmodalPageModule 
   ],
   declarations: [HomeMetodoPage]
 })

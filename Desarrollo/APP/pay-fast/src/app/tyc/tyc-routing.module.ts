@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'home-tyc',
     loadChildren: () => import('./home-tyc/home-tyc.module').then( m => m.HomeTycPageModule)
+  },
+  {
+    path: 'home-alu',
+    loadChildren: () => import('./home-alu/home-alu.module').then( m => m.HomeAluPageModule)
   }
 ];
 

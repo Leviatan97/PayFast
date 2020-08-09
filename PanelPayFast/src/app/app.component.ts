@@ -15,23 +15,28 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Inicio',
-      url: '/inicio',
+      url: '/inicio/inicio-s',
       icon: 'home'
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: 'paper-plane'
+      title: 'Registrar Supermercado',
+      url: '/inicio/rsupermercado',
+      icon: 'add-circle'
     },
     {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: 'heart'
+      title: 'Registrar Tienda',
+      url: '/inicio/rsupermercado/rtienda',
+      icon: 'chevron-forward-circle'
     },
     {
-      title: 'Archived',
+      title: 'Estadisticas',
+      url: '/inicio/inicio-e',
+      icon: 'bar-chart'
+    },
+    {
+      title: 'PQRS',
       url: '/folder/Archived',
-      icon: 'archive'
+      icon: 'Mail'
     },
     {
       title: 'Trash',
