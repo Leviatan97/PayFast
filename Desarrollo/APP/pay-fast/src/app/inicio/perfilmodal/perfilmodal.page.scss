@@ -12,6 +12,7 @@ ion-card{
 
 ion-button{
     font-family: Lato;
+    margin-top: 5%;
 }
 
 ion-item{
@@ -26,7 +27,7 @@ ion-item{
     font-weight: bold; 
 }
 ion-input,  ion-datetime{
-    --placeholder-color: black;
+    --placeholder-color: rgba(0,0,0,0.5);
     --placeholder-opacity: 1;
     padding: 0%;
     font-family: Lato;
@@ -40,4 +41,15 @@ ion-input,  ion-datetime{
 
 ion-select, ion-select-option{
     font-family: Lato;
+}
+
+@media (prefers-color-scheme: dark){
+
+    ion-input,  ion-datetime{
+        --placeholder-color: rgba(255,255,255,0.5);
+    }
+
+    .alert-danger {
+        color: white;
+    }
 }

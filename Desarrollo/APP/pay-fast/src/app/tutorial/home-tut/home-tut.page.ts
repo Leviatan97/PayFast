@@ -27,7 +27,7 @@ export class HomeTutPage implements OnInit {
     {
       img: '../../../assets/img-slider/light/qr.svg',
       img2: '../../../assets/img-slider/dark/qr.svg',
-      titulo:'Cuando finalices tu compra veras un codigo el cual debes pasar por una de nuestras maquinas para generar tu comprobante de salida',
+      titulo:'Cuando finalices tu compra veras un código el cual debes pasar por una de nuestras máquinas para generar tu comprobante de salida',
       txtbtn: 'none'
     },
     {

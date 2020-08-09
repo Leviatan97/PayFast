@@ -9,46 +9,22 @@ ion-content.background{
     justify-content: center;
     width: 80%;
     margin-right: 15%;
+    font-family: Lato;
 }
 
-ion-row.Theader{
-    margin-top: 5%;
-    background-color: rgba($color: #181763, $alpha: 1);
-    color: white;
-    font-weight: bold;
-}
-
-ion-row.Trow{
-    border-top: 1px solid black;
-    border-color: rgba($color: #181763, $alpha: 0.7);
-}
-
-ion-row.Ttotal{
-    border-top: 1px solid black;
+ion-card ion-card-content,ion-card ion-card-header{
+    font-family: Lato;
 }
 
 @media (prefers-color-scheme: dark){
-    ion-row.Theader{
-        margin-top: 5%;
-        background-color: rgba($color: #a0a0a0, $alpha: 1);
-        color: white;
-        font-weight: bold;
-    }
-
-    ion-row.Trow{
-        border-top: 1px solid black;
-        border-color: rgba($color: #a0a0a0, $alpha: 0.7);
-    }
-
-    ion-row.Ttotal{
-        border-top: 1px solid white;
-    }
 
     ion-content.background{
         --background: url('../../../../../../assets/background/fondo-detalle-dark.jpg') 0 0/100% 100% no-repeat;
     }
 }
-ion-icon{
+
+
+.plus{
     position: absolute;
     margin-right: 0px;
     margin-top: 0px;

@@ -50,3 +50,11 @@
 .alert-wrapper{
     font-family: Lato !important;
 }
+
+@media (prefers-color-scheme: dark){
+
+    .my-custom-class .action-sheet-icon
+    {
+        color: #E6E6E6 !important;
+    }
+}

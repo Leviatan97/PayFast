@@ -61,7 +61,7 @@
             <ion-item class="log">
               <ion-label position="floating" >TIPO DE DOCUMENTO</ion-label>
               <ion-select ok-text="Aceptar" cancel-text="Cancelar" formControlName="tdocumento">
-                <ion-select-option value="CC">Cedula de Ciudadania</ion-select-option>
+                <ion-select-option value="CC">Cedula de Ciudadanía</ion-select-option>
                 <ion-select-option value="CE">Cedula extranjera</ion-select-option>
               </ion-select>
             </ion-item>
@@ -71,8 +71,8 @@
                   <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{this.Mensajes.mrequerido}}
               </div>
             </div>
-            
-            <ion-button type="submit" color="primary" class="margen" color="light" expand="block" [disabled]="!contactForm.valid">
+  
+            <ion-button type="submit" color="primary" class="margen" color="light" expand="block" [disabled]="!contactForm.valid" >
               <ion-icon name="arrow-forward"></ion-icon>
             </ion-button>
           </ion-card-content>
@@ -87,7 +87,7 @@
           <ion-card-content>
               <h2>Ingresa tus datos personales</h2>
               <ion-item class="log">
-                <ion-input type="number" placeholder="NUMERO DE DOCUMENTO" formControlName="ndocumento" ></ion-input>
+                <ion-input type="number" placeholder="NÚMERO DE DOCUMENTO" formControlName="ndocumento" ></ion-input>
               </ion-item>
       
               <div class="alert-danger" *ngIf="ndocumento.invalid && (ndocumento.dirty || ndocumento.touched)">
@@ -104,7 +104,7 @@
               
       
               <ion-item class="log">
-                <ion-input type="email" placeholder="CORREO ELECTRONICO" formControlName="email"  maxlength="50"></ion-input>
+                <ion-input type="email" placeholder="CORREO ELECTRÓNICO" formControlName="email"  maxlength="50"></ion-input>
               </ion-item>
       
               <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -165,9 +165,9 @@
     
     <ion-slide>
       <form [formGroup]="contactForm3" (ngSubmit)="Inicio()" class="form">
-        <ion-card class="fondo">
+        <ion-card class="fondo margen2">
           <ion-card-content>
-              <h2>Ingresa tus datos de pago</h2>
+              <h2 class="titulo2">Ingresa tus datos de pago</h2>
               <ion-item class="log">
                 <ion-input type="text" placeholder="NOMBRE DEL TITULAR" formControlName="tnombre" maxlength="50" [disabled]="!contactForm2.valid"></ion-input>
               </ion-item >
@@ -249,7 +249,7 @@
               <div class="checkbox">
                 <ion-checkbox color="light" formControlName="check" checked="false" [disabled]="!contactForm2.valid"></ion-checkbox>
                 <ion-text color="primary">
-                  <label (click)="tyc()">TERMINOS Y CONDICIONES</label>
+                  <ion-label class="tyc" (click)="tyc()">TÉRMINOS Y CONDICIONES</ion-label>
                 </ion-text>
               </div>
 

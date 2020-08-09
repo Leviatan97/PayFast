@@ -27,7 +27,7 @@ ion-item.log{
     margin-left: 25%;
     margin-right: 25%;
     background-color: #171762;
-    font-family: Arial;
+    font-family: Lato;
     color: #ffff;
     font-size: x-large;   
 
@@ -63,6 +63,7 @@ ion-label{
     color: #6a68f1;
     background-image: none;
     margin: 0% 38% 0% 43%;
+    font-family: Lato;
 }
 
 img.imagenLight{
@@ -91,10 +92,11 @@ img.imagenDark{
 
 
 ion-card.fondo {
-    background-color: rgba(0, 0, 0, .27) ;
+    background-color: rgba(0, 0, 0, 0.5) ;
     border-radius: 17px;
     margin-left: 6.9%;
     margin-right: 6.9%;
+    font-family: Lato;
 }
 
 
