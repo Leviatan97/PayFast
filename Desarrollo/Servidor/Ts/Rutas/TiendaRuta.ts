@@ -6,6 +6,7 @@ class tiendaRuta {
         this.verificarCoordena()
         this.consultarProducto()
         this.comprarProducto()
+        this.venta()
     }
     
     public verificarCoordena() {
@@ -18,6 +19,10 @@ class tiendaRuta {
 
     public comprarProducto() {
         this.route.post('/comPro',TiendaControlador.comprarProductos)
+    }
+
+    public venta() {
+        this.route.post('/venta',TiendaControlador.venta)
     }
 
     public getRoutes()

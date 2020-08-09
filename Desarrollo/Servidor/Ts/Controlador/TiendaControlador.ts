@@ -19,11 +19,29 @@ class tiendaConstructor {
             })
         }
     }
+    /**
+     * venta
+     */
+    public async venta(req : any, res : Response, fun : Function) {
+        let resultado: any = null;
+        try {
+            resultado = await TiendaModelo.Venta(req.body.ta_i)
+            res.status(200).json({
+                respuesta: true,
+                result: resultado
+            })
+        } catch (error) {
+            res.status(200).json({
+                respuesta: false,
+                result: error
+            })
+        }
+    }
 
     public async consultaProducto(req : any, res : Response, fun : Function) {
         let resultado: any = null;
         try {
-            resultado = await TiendaModelo.consultarProducto(req.ta_i)
+            resultado = await TiendaModelo.consultarProducto(req.body.ta_i)
             res.status(200).json({
                 respuesta: true,
                 result: resultado

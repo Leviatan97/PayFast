@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { isContext } from 'vm';
 import { Router } from '@angular/router';
+import { SupermercadoService } from '../../../../../Servicios/supermercado.service';
 
 @Component({
   selector: 'app-home-metodo',
@@ -10,7 +11,10 @@ import { Router } from '@angular/router';
 export class HomeMetodoPage implements OnInit {
   private metodoPago:any=[];
 
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private superMerService: SupermercadoService
+  ) { }
 
   ngOnInit() {
     this.mPago()
@@ -35,6 +39,10 @@ export class HomeMetodoPage implements OnInit {
         icon: 'wallet-outline'
       }
     ]
+  }
+
+  private ventaPromesa() {
+    
   }
 
   private Qr(){

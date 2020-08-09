@@ -16,6 +16,7 @@ export class SupermercadoService {
   private coordenadas: any
   private tienda: any
   private super: any
+  private productos: any
 
   constructor(private http : HttpClient, private navCtrl: NavController, private storage: Storage) { }
 
@@ -31,11 +32,41 @@ export class SupermercadoService {
   }
 
   /**
+   * ventaProd
+   */
+  public ventaProd(url: string, datos: any) {
+    return this.http.post(`${url}`, datos)
+  }
+
+  /**
+   * venta
+   */
+  public venta(url: string, datos: any) {
+    return this.http.post(`${url}`, datos)
+  }
+
+  /**
    * consultarRutaProducto
    */
   public consultarRutaProducto() {
     const datos: any = this.cargarTienda()
     return this.http.post(`${URL}/consulPro`,datos)
+  }
+
+  /**
+   * consultarRutaVenta
+   */
+  public consultarRutaVenta() {
+    const datos: any = this.cargarTienda()
+    return this.http.post(`${URL}/venta`,datos)
+  }
+
+  /**
+   * consultarRutaVentaPro
+   */
+  public consultarRutaVentaPro() {
+    const datos: any = this.cargarTienda()
+    return this.http.post(`${URL}/comPro`,datos)
   }
 
   public guardarCoordenada(coordenada:any) {
@@ -50,8 +81,16 @@ export class SupermercadoService {
     this.tienda = tienda
   }
 
-  private cargarTienda() {
+  public cargarTienda() {
     return this.tienda
+  }
+
+  public guardarProductos(produc: any) {
+    this.productos = produc
+  }
+
+  public cargarProductos() {
+    return this.productos
   }
 
   public guardarSuper(supermercado: any) {
@@ -118,4 +157,6 @@ export class SupermercadoService {
   public verificarCoorTienda(datos: any) {
     return this.http.post(`${URL}/coor`,datos)
   }
+
+
 }

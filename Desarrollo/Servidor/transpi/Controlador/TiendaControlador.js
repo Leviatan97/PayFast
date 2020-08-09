@@ -33,11 +33,32 @@ class tiendaConstructor {
             }
         });
     }
+    /**
+     * venta
+     */
+    venta(req, res, fun) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let resultado = null;
+            try {
+                resultado = yield TiendaModelo_1.default.Venta(req.body.ta_i);
+                res.status(200).json({
+                    respuesta: true,
+                    result: resultado
+                });
+            }
+            catch (error) {
+                res.status(200).json({
+                    respuesta: false,
+                    result: error
+                });
+            }
+        });
+    }
     consultaProducto(req, res, fun) {
         return __awaiter(this, void 0, void 0, function* () {
             let resultado = null;
             try {
-                resultado = yield TiendaModelo_1.default.consultarProducto(req.ta_i);
+                resultado = yield TiendaModelo_1.default.consultarProducto(req.body.ta_i);
                 res.status(200).json({
                     respuesta: true,
                     result: resultado

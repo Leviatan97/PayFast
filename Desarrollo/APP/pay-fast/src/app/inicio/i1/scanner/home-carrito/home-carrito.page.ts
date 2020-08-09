@@ -16,7 +16,6 @@ export class HomeCarritoPage implements OnInit {
   private scanneo: string = "scanneo cancelado"
   private formato: string 
   private coords: string
-  private validar: string = "4.355657,-74045130"
   private productos:any=[];
   private tienda: any
   
@@ -78,11 +77,11 @@ export class HomeCarritoPage implements OnInit {
       this.tienda = await this.promesaTienda()
       this.tienda = this.tienda.result
       this.tienda = this.tienda.result
+      console.log(this.tienda)
       producto = await this.promesaRuta(this.tienda[0].ra_rt, this.scanneo)
       producto = producto.result
       if(producto.length >= 1) {
         resultado = await this.Compra(producto)
-        console.log(resultado)
       }else {
         this.productoToast()
       }
@@ -159,10 +158,8 @@ export class HomeCarritoPage implements OnInit {
       }else {
         this.productos.forEach(element => {
           if(element.nombre == producto.nombre) {
-            console.log("entro al if")
             element.cantidad += 1
           }else {
-            console.log("entro al else")
             this.productos.push(producto)
           }
         });
@@ -228,7 +225,12 @@ export class HomeCarritoPage implements OnInit {
   }
 
   private Metodo(){
-    this.router.navigate(['inicio/i1/scanner/home-carrito/home-metodo'])
+    try {
+      this.superService.guardarProductos(this.productos)
+      this.router.navigate(['inicio/i1/scanner/home-carrito/home-metodo'])
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   private Total(){

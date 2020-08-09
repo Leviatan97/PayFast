@@ -11,6 +11,7 @@ class tiendaRuta {
         this.verificarCoordena();
         this.consultarProducto();
         this.comprarProducto();
+        this.venta();
     }
     verificarCoordena() {
         this.route.post('/coor', TiendaControlador_1.default.verificarCoordenada);
@@ -20,6 +21,9 @@ class tiendaRuta {
     }
     comprarProducto() {
         this.route.post('/comPro', TiendaControlador_1.default.comprarProductos);
+    }
+    venta() {
+        this.route.post('/venta', TiendaControlador_1.default.venta);
     }
     getRoutes() {
         return this.route;
